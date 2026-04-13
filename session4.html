@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Andreas Reich">
+    <title>Sitzung 4: Web Scraping Vertiefung & Browser Automation – Politische Kommunikation SoSe 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .code-block {
+            background-color: #f4f4f4;
+            border-left: 5px solid var(--primary-color);
+            padding: 10px 15px;
+            margin: 1rem 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.9em;
+        }
+        .law-text-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        .law-text-box h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .selenium-steps li {
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Anwendungsfelder der Politischen Kommunikation</h1>
+        <p class="subtitle">Sitzung 4: Web Scraping Vertiefung, Rechtliche Aspekte & Browser Automation</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Kursübersicht</a></li>
+            <li><a href="session1.html">Erste Sitzung</a></li>
+            <li><a href="session2.html">Zweite Sitzung</a></li>
+            <li><a href="session3.html">Dritte Sitzung</a></li>
+            <li><a href="session4.html" class="active">Vierte Sitzung</a></li>
+            <!-- Hier später Links zu weiteren Sitzungen hinzufügen -->
+        </ul>
+    </nav>
+
+    <div class="container">
+        <main>
+            <h2>1. Einleitung: Von der Theorie zur Praxis des Webscrapings</h2>
+
+            <p>In den <a href="session2.html">vorherigen Sitzungen</a> haben wir die Grundlagen der Datenbeschaffung, insbesondere APIs und Web Scraping, sowie automatisierte Analysemethoden kennengelernt. Heute wollen wir tiefer in die Materie des Web Scrapings eintauchen, uns mit den wichtigen rechtlichen Rahmenbedingungen in Deutschland auseinandersetzen und einen Ausblick auf fortgeschrittenere Techniken wie die Browser-Automatisierung werfen.</p>
+
+            <p>Die Fähigkeit, Daten eigenständig aus dem Web zu extrahieren, ist für Forschende im Bereich der politischen Online-Kommunikation von unschätzbarem Wert, da sie den Zugang zu aktuellen und spezifischen Informationen ermöglicht, die über offizielle Schnittstellen oft nicht oder nur eingeschränkt verfügbar sind. Gleichzeitig erfordert dies ein hohes Maß an technischem Verständnis, ethischer Reflexion und rechtlichem Bewusstsein.</p>
+
+            <h3>Agenda der heutigen Sitzung:</h3>
+            <ul>
+                <li><strong>Rechtliche Aspekte des Web Scrapings in Deutschland:</strong> Fokus auf § 60d Urheberrechtsgesetz (Text und Data Mining für wissenschaftliche Forschung).</li>
+                <li><strong>Praktische Anwendung (Headless Scraping):</strong> Extraktion von Artikel-Metadaten von Genios.de und anschließende Sentiment-Analyse mit Google Colab.</li>
+                <li><strong>Einführung in Browser Automation mit Selenium:</strong> Konzept, Anwendungsfälle (z.B. TikTok) und grundlegende Schritte zur lokalen Einrichtung.</li>
+                <li>Diskussion von Herausforderungen und Best Practices.</li>
+            </ul>
+
+            <hr>
+
+            <h2>2. Rechtliche Rahmenbedingungen: Web Scraping & das Urheberrecht (§ 60d UrhG)</h2>
+            <p>Bevor wir uns erneut der Praxis zuwenden, ist ein genauerer Blick auf die rechtliche Situation des Web Scrapings für Forschungszwecke in Deutschland unerlässlich. Eine zentrale Norm ist hierbei § 60d des Urheberrechtsgesetzes (UrhG), der das Text und Data Mining (TDM) für Zwecke der wissenschaftlichen Forschung regelt.</p>
+
+            <p>Die Regelung des § 60d UrhG, die auf der europäischen DSM-Richtlinie (Digital Single Market) basiert, schafft eine wichtige <strong>gesetzliche Erlaubnis (Schrankenregelung)</strong> für Forschende. Dies bedeutet:</p>
+            <ul>
+                <li><strong>Berechtigung für Forschende:</strong> Einzelne Forscher, die "nicht kommerzielle Zwecke" verfolgen (§ 60d Abs. 3 Nr. 2 UrhG), und Forschungsorganisationen (§ 60d Abs. 2 UrhG) sind grundsätzlich berechtigt, Vervielfältigungen von rechtmäßig zugänglichen Werken für TDM zu Zwecken der wissenschaftlichen Forschung vorzunehmen.</li>
+                <li><strong>Kein Zustimmungserfordernis:</strong> Diese Erlaubnis besteht unabhängig von der Zustimmung des Rechteinhabers. Vertragliche Vereinbarungen (z.B. in Allgemeinen Geschäftsbedingungen - AGB), die TDM für wissenschaftliche Forschung einschränken oder verbieten, sind gemäß § 60h UrhG i.V.m. Art. 7 DSM-RL in der Regel unwirksam.</li>
+                <li><strong>"Rechtmäßiger Zugang":</strong> Eine wesentliche Voraussetzung ist, dass der Zugang zu den Werken rechtmäßig ist (z.B. öffentlich frei zugängliche Webseiten, Inhalte hinter einer Paywall, für die eine Lizenz/ein Abo besteht).</li>
+                <li><strong>Umfang der Vervielfältigung:</strong> Das Gesetz erlaubt "Vervielfältigungen", was das Herunterladen und Speichern von Daten für das TDM-Verfahren einschließt. Eine explizite mengenmäßige Beschränkung gibt es nicht, solange es für die "wissenschaftliche Forschung" erforderlich ist.</li>
+            </ul>
+
+            <h4>Die Grenzen und die Position der Anbieter:</h4>
+            <p>Trotz dieser gesetzlichen Erlaubnis gibt es wichtige Einschränkungen und Aspekte, die Anbieter von Online-Inhalten oft betonen:</p>
+            <ul>
+                <li><strong>§ 60d Abs. 6 UrhG – Schutz der Systemintegrität:</strong> Rechteinhaber dürfen "erforderliche Maßnahmen" ergreifen, um zu verhindern, dass die "Sicherheit und Integrität ihrer Netze und Datenbanken" durch die TDM-Vervielfältigungen gefährdet werden. Darauf berufen sich Anbieter oft, wenn sie "Massendownloads" in ihren AGB untersagen oder technische Schutzmaßnahmen implementieren. Die Frage ist, was "erforderlich" ist und wann die Integrität tatsächlich gefährdet ist. Ein rücksichtsvolles, langsames Scraping durch einen einzelnen Forscher stellt i.d.R. eine geringere Gefahr dar als aggressive Bot-Netzwerke.</li>
+                <li><strong>§ 44b UrhG – Allgemeiner Vorbehalt für TDM:</strong> Dieser Paragraph regelt TDM für jegliche Zwecke (auch kommerzielle). Hier können Rechteinhaber einen Nutzungsvorbehalt erklären (z.B. in `robots.txt`). <strong>Wichtig:</strong> Dieser Vorbehalt nach § 44b Abs. 3 UrhG gilt gemäß § 44b Abs. 4 Nr. 1 UrhG explizit <em>nicht</em> für das wissenschaftliche TDM nach § 60d UrhG. § 60d ist die speziellere und zwingende Regelung für die Forschung.</li>
+                <li><strong>Technische Schutzmaßnahmen (TPM) und deren Umgehung (§ 95a UrhG):</strong> Wenn Anbieter wirksame technische Maßnahmen (z.B. IP-Sperren, Captchas, komplexe Ratenbegrenzungen) einsetzen, um Zugriffe zu steuern oder (aus ihrer Sicht) unzulässige Nutzungen zu verhindern, kann die aktive Umgehung dieser Maßnahmen einen Verstoß gegen § 95a UrhG darstellen. Viele AGB verbieten dies explizit.</li>
+                <li><strong>AGB und `robots.txt`:</strong>
+                    <ul>
+                        <li>`robots.txt` ist primär eine Richtlinie für Webcrawler und nicht per se rechtlich bindend im Sinne eines Gesetzesverstoßes für Forschende unter § 60d UrhG. Es signalisiert jedoch den Willen des Betreibers.</li>
+                        <li>AGB sind Verträge. Klauseln, die § 60d UrhG direkt widersprechen (z.B. ein generelles Verbot von TDM für Forschung), sind unwirksam. Klauseln, die sich auf den Schutz der Systemintegrität (§ 60d Abs. 6 UrhG) oder das Verbot der Umgehung von TPMs stützen, haben eine stärkere rechtliche Basis.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="law-text-box">
+                <h4>Gesetzestext: § 60d UrhG – Text und Data Mining für Zwecke der wissenschaftlichen Forschung</h4>
+                <p><em>(Auszug, <a href="https://www.gesetze-im-internet.de/urhg/__60d.html" target="_blank" rel="noopener noreferrer">vollständiger Text hier</a>)</em></p>
+                <p><strong>(1)</strong> Vervielfältigungen für Text und Data Mining (§ 44b Absatz 1 und 2 Satz 1) sind für Zwecke der wissenschaftlichen Forschung nach Maßgabe der nachfolgenden Bestimmungen zulässig.</p>
+                <p><strong>(2)</strong> Zu Vervielfältigungen berechtigt sind Forschungsorganisationen. Forschungsorganisationen sind Hochschulen, Forschungsinstitute oder sonstige Einrichtungen, die wissenschaftliche Forschung betreiben, sofern sie
+                    1. nicht kommerzielle Zwecke verfolgen,
+                    2. sämtliche Gewinne in die wissenschaftliche Forschung reinvestieren oder
+                    3. im Rahmen eines staatlich anerkannten Auftrags im öffentlichen Interesse tätig sind.
+                    Nicht nach Satz 1 berechtigt sind Forschungsorganisationen, die mit einem privaten Unternehmen zusammenarbeiten, das einen bestimmenden Einfluss auf die Forschungsorganisation und einen bevorzugten Zugang zu den Ergebnissen der wissenschaftlichen Forschung hat.</p>
+                <p><strong>(3)</strong> Zu Vervielfältigungen berechtigt sind ferner
+                    1. Bibliotheken und Museen, sofern sie öffentlich zugänglich sind, sowie Archive und Einrichtungen im Bereich des Film- oder Tonerbes (Kulturerbe-Einrichtungen),
+                    2. einzelne Forscher, sofern sie nicht kommerzielle Zwecke verfolgen.</p>
+                <p><strong>(4)</strong> Berechtigte nach den Absätzen 2 und 3, die nicht kommerzielle Zwecke verfolgen, dürfen Vervielfältigungen nach Absatz 1 folgenden Personen öffentlich zugänglich machen:
+                    1. einem bestimmt abgegrenzten Kreis von Personen für deren gemeinsame wissenschaftliche Forschung sowie
+                    2. einzelnen Dritten zur Überprüfung der Qualität wissenschaftlicher Forschung.
+                    Sobald die gemeinsame wissenschaftliche Forschung oder die Überprüfung der Qualität wissenschaftlicher Forschung abgeschlossen ist, ist die öffentliche Zugänglichmachung zu beenden.</p>
+                <p><strong>(5)</strong> Berechtigte nach den Absätzen 2 und 3 Nummer 1 dürfen Vervielfältigungen nach Absatz 1 mit angemessenen Sicherheitsvorkehrungen gegen unbefugte Benutzung aufbewahren, solange sie für Zwecke der wissenschaftlichen Forschung oder zur Überprüfung wissenschaftlicher Erkenntnisse erforderlich sind.</p>
+                <p><strong>(6)</strong> Rechtsinhaber sind befugt, erforderliche Maßnahmen zu ergreifen, um zu verhindern, dass die Sicherheit und Integrität ihrer Netze und Datenbanken durch Vervielfältigungen nach Absatz 1 gefährdet werden.</p>
+            </div>
+
+            <h4>Interpretation und Empfehlungen für Forschende:</h4>
+            <p>Aus § 60d UrhG und der Diskussion ergibt sich für die wissenschaftliche Forschung:</p>
+            <ol>
+                <li><strong>Grundlegende Erlaubnis:</strong> Für nicht-kommerzielle wissenschaftliche Forschung ist TDM (und damit das dafür notwendige Scraping) von rechtmäßig zugänglichen Quellen erlaubt.</li>
+                <li><strong>`robots.txt` und Forschung:</strong> Die `Disallow`-Anweisungen in einer `robots.txt` haben für wissenschaftliches TDM unter § 60d UrhG in der Regel keine sperrende Wirkung.</li>
+                <li><strong>Vorsicht und "Nettigkeit":</strong> Es ist <strong>unbedingt erforderlich</strong>, Server nicht zu überlasten. Implementieren Sie immer angemessene Pausen (<code>time.sleep()</code>) zwischen Anfragen. Ein Verstoß hiergegen könnte als Gefährdung der Systemintegrität (§ 60d Abs. 6 UrhG) gewertet werden.</li>
+                <li><strong>Keine Umgehung von TPMs:</strong> Vermeiden Sie die aktive Umgehung von technischen Schutzmaßnahmen wie Captchas oder komplexen Anmeldeprozessen, die spezifisch das automatisierte Abrufen verhindern sollen. Dies könnte § 95a UrhG berühren. Einfache Ratenbegrenzungen durch den Server, die man durch Pausen respektiert, sind hiervon abzugrenzen.</li>
+                <li><strong>Paywalls und Login-Bereiche:</strong> Wenn Sie rechtmäßigen Zugang zu Inhalten hinter einer Paywall haben (z.B. durch eine Universitätslizenz wie bei WISO für Genios-Artikel), ist TDM prinzipiell auch hier nach § 60d UrhG erlaubt. <strong>Aber:</strong> Seien Sie hier besonders vorsichtig. Anbieter überwachen Zugriffe oft genau. Exzessives Scraping kann zur Sperrung des institutionellen oder persönlichen Zugangs führen, da Anbieter sich (auch über AGB) gegen als missbräuchlich empfundene Nutzung (auch wenn rechtlich unter §60d UrhG gedeckt) zur Wehr setzen, um ihre Systeme und Geschäftsmodelle zu schützen. Die Abwägung zwischen Forschungsinteresse und Risiko einer Zugangssperre ist hier zentral.</li>
+                <li><strong>Zweckbindung:</strong> Die gesammelten Daten dürfen nur für die wissenschaftliche Forschung und ggf. zur Überprüfung der Ergebnisse genutzt werden. Jede kommerzielle Nutzung ist ausgeschlossen.</li>
+                <li><strong>Dokumentation:</strong> Dokumentieren Sie Ihr Vorgehen (Quellen, Zeitraum, verwendete Skripte/Parameter) transparent.</li>
+            </ol>
+            <p><strong>Fazit:</strong> § 60d UrhG stärkt die Position der Forschung erheblich. Dennoch ist ein verantwortungsvoller, technisch umsichtiger und ethisch reflektierter Umgang mit Web Scraping unerlässlich, um Konflikte mit Anbietern und rechtliche Probleme zu vermeiden.</p>
+
+            <hr>
+
+            <h2>3. Praktische Anwendung: Scraping von Genios.de und Sentiment-Analyse</h2>
+            <p>Genios ist eine umfangreiche Datenbank, die unter anderem Artikel aus vielen deutschen Zeitungen und Zeitschriften aggregiert. Über die WISO-Datenbank haben viele Universitäten Zugang zu diesen Inhalten. Für Forschungszwecke können wir – unter Beachtung der oben genannten rechtlichen Aspekte – Artikelmetadaten (Titel, Snippets, Erscheinungsdatum etc.) für spezifische Suchbegriffe über die öffentliche Genios-Webseite (nicht den WISO-Login) scrapen.</p>
+
+            <div class="colab-embed-box interactive-box">
+                <h4>Google Colab: Genios.de Artikel-Scraper</h4>
+                <p>Dieses Google Colab Notebook demonstriert, wie man Artikel-Metadaten (Titel, Snippet, Quelle, Datum etc.) von der öffentlichen Genios.de-Suchergebnisseite für einen bestimmten Suchbegriff und Zeitraum extrahieren kann. Das Skript iteriert Tag für Tag, um die Begrenzung von 10.000 Ergebnissen pro Suchanfrage zu umgehen, und speichert die Daten in einer CSV-Datei.</p>
+                <p><strong>Wichtig:</strong> Dieses Skript greift auf die öffentlich zugängliche Suchfunktion von Genios.de zu, nicht auf Inhalte hinter der WISO-Paywall. Verhalten Sie sich verantwortungsbewusst und überlasten Sie die Server nicht.</p>
+                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Das Notebook kann <a href="https://colab.research.google.com/drive/1U24u-mwP4HfyMxEYqDTrkAPwDXAcvufp?usp=sharing" target="_blank" rel="noopener noreferrer">hier direkt geöffnet werden</a> (Eigene Kopie anlegen!).</p>
+            </div>
+
+            <div class="colab-embed-box interactive-box" style="margin-top: 1.5rem;">
+                <h4>Google Colab: Sentiment-Analyse der gescrapten Genios-Artikel</h4>
+                <p>Nachdem wir die Artikel-Metadaten gesammelt haben, können wir diese weiter analysieren. Dieses Colab Notebook zeigt, wie man die zuvor gesammelten Titel und Kontext-Snippets aus der Genios-CSV-Datei einliest und mithilfe eines vortrainierten multilingualen Sentiment-Analyse-Modells von Hugging Face die Stimmung (positiv, negativ, neutral) der Texte klassifiziert. Die Ergebnisse werden dem Datensatz hinzugefügt und können für weitere Auswertungen genutzt werden.</p>
+                <p><strong>Hinweis:</strong> Die Qualität der Sentiment-Analyse hängt vom Modell und den Eingabetexten ab. Die Ergebnisse sollten stets kritisch interpretiert werden.</p>
+                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Das Notebook kann <a href="https://colab.research.google.com/drive/1kQxigWK9bxhEJjhzYCo7fOxCMoMilfzv?usp=sharing" target="_blank" rel="noopener noreferrer">hier direkt geöffnet werden</a> (Eigene Kopie anlegen!).</p>
+            </div>
+
+            <div style="margin: 1.5rem 0; text-align: center; border: 1px dashed #ccc; padding: 1rem;">
+                <p><strong>Beispielhaftes Ergebnis einer Sentiment-Verteilung (simuliert):</strong></p>
+                <img src="sentiment_afd.png"
+                    alt="Beispieldiagramm der Sentiment-Verteilung für Artikel zum Thema AFD"
+                    style="max-width: 80%; height: auto; border: 1px solid #eee; margin-bottom: 1rem;">
+                <p><em>Diese Visualisierung zeigt, wie die gesammelten Artikel nach ihrer Tonalität (positiv, negativ, neutral) verteilt sein könnten.</em></p>
+            </div>
+
+
+            <hr style="border-width: 2px; border-color: var(--primary-color); margin: 3rem 0;">
+
+            <h2>4. Browser Automation mit Selenium: Jenseits von statischem HTML</h2>
+            <p>Während `requests` und `BeautifulSoup` hervorragend für das Parsen von statischem HTML-Inhalt geeignet sind, stoßen sie an ihre Grenzen, wenn Webseiten Inhalte dynamisch mit JavaScript nachladen (z.B. durch Scrollen, Klicks auf "Mehr laden"-Buttons, Interaktion mit Menüs). Hier kommt Browser Automation ins Spiel.</p>
+
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; padding: 1rem; background-color: #f8f8f8; border-radius: 5px;">
+                <div style="flex-basis: 45%;">
+                    <h5>Headless Scraping (z.B. `requests` + `BeautifulSoup`)</h5>
+                    <ul>
+                        <li>✅ Schnell und ressourcenschonend.</li>
+                        <li>✅ Gut für serverseitig gerendertes HTML.</li>
+                        <li>❌ Kann keine JavaScript-Interaktionen ausführen.</li>
+                        <li>❌ Sieht oft nur den initial geladenen Inhalt.</li>
+                    </ul>
+                </div>
+                <div style="flex-basis: 45%;">
+                    <h5>Browser Automation (z.B. Selenium, Playwright)</h5>
+                    <ul>
+                        <li>✅ Steuert einen echten Browser fern.</li>
+                        <li>✅ Kann mit JavaScript interagieren (klicken, scrollen, Formulare ausfüllen).</li>
+                        <li>✅ Sieht die Webseite, wie ein Nutzer sie sieht.</li>
+                        <li>❌ Langsamer und ressourcenintensiver.</li>
+                        <li>❌ Komplexeres Setup.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p><strong>Selenium</strong> ist ein mächtiges Werkzeug-Set zur Automatisierung von Webbrowsern. Ursprünglich für das Testen von Webanwendungen entwickelt, wird es häufig für Web Scraping eingesetzt, wenn dynamische Inhalte extrahiert werden müssen. Es erlaubt Ihnen, Aktionen wie Klicks, Eingaben in Formularfelder, Scrollen und das Ausführen von JavaScript programmatisch zu steuern und anschließend den resultierenden HTML-Code zu analysieren.</p>
+
+            <h3>Anwendungsfall: Scraping von TikTok-Videos und Kommentaren</h3>
+            <p>TikTok ist ein Paradebeispiel für eine Plattform, deren Inhalte stark dynamisch geladen werden. Insbesondere Kommentare erscheinen oft erst nach dem Scrollen oder durch zusätzliche Interaktionen. Ein einfacher <code>requests</code>-Ansatz würde hier nur einen Bruchteil der Daten erfassen. Mit Selenium können wir einen Browser fernsteuern, um folgende Aufgaben automatisiert durchzuführen:</p>
+            <ul>
+                <li>Laden einer spezifischen TikTok-Video-Seite.</li>
+                <li>Automatisches oder manuelles Handhaben von Cookie-Bannern und CAPTCHAs.</li>
+                <li>Simuliertes Scrollen auf der Seite, um das dynamische Nachladen von Kommentaren auszulösen.</li>
+                <li>Extraktion von Video-Metadaten wie Autor, Beschreibung, Musik, Like-Zahlen und Veröffentlichungsdatum.</li>
+                <li>Sammlung der geladenen Kommentare, inklusive Autor, Text, relativem Datum und (sofern verfügbar) Like-Zahlen.</li>
+                <li>Speicherung der gesammelten Daten in einem strukturierten Format, z.B. als JSON-Datei.</li>
+            </ul>
+            <p>Diese Methode ermöglicht eine deutlich umfassendere Datenerhebung als rein statisches Scraping, erfordert aber auch eine sorgfältige Implementierung, um mit den dynamischen Elementen der Webseite korrekt zu interagieren.</p>
+
+            <h3>Lokales Setup und Durchführung des TikTok-Scrapings mit Selenium</h3>
+            <p>Um TikTok-Daten mit Selenium zu scrapen, ist eine lokale Python-Umgebung notwendig, da ein realer Webbrowser gesteuert wird. Die folgenden Schritte skizzieren das Vorgehen und beziehen sich auf das bereitgestellte Beispielskript.</p>
+
+            <ol class="selenium-steps">
+                <li>
+                    <strong>Python-Umgebung vorbereiten (Miniconda/Anaconda empfohlen):</strong>
+                    <p>Eine isolierte Python-Umgebung ist ratsam, um Abhängigkeitskonflikte zu vermeiden.</p>
+                    <div class="code-block">
+# 1. Falls noch nicht geschehen, Miniconda installieren:
+#    https://docs.conda.io/en/latest/miniconda.html
+# 2. Neues Conda Environment erstellen (z.B. mit Python 3.11):
+conda create -n tiktok python=3.11 pip -y
+# 3. Environment aktivieren:
+conda activate tiktok
+                    </div>
+                </li>
+                <li>
+                    <strong>Notwendige Python-Bibliotheken installieren:</strong>
+                    <p>Das Kernstück ist Selenium. <code>webdriver-manager</code> hilft bei der Verwaltung des Browser-Treibers. <code>requests</code> wird hier nicht direkt vom TikTok-Skript benötigt, ist aber allgemein nützlich.</p>
+                    <div class="code-block">
+pip install selenium webdriver-manager
+                    </div>
+                </li>
+                <li>
+                    <strong>Webbrowser und WebDriver:</strong>
+                    <p>Selenium steuert einen Standard-Webbrowser (hier: Google Chrome). Der <code>webdriver-manager</code> im Python-Skript kümmert sich in der Regel automatisch um das Herunterladen und die Konfiguration des passenden ChromeDrivers. Stellen Sie sicher, dass Google Chrome auf Ihrem System installiert ist.</p>
+                </li>
+                <li>
+                    <strong>Beispielskript herunterladen und anpassen:</strong>
+                    <p>Ein Python-Skript, das die Extraktion von TikTok-Video-Metadaten und Kommentaren demonstriert, kann hier heruntergeladen werden. Es beinhaltet bereits Logik zum Umgang mit dynamischen Elementen und eine Pausenfunktion für manuelle Eingriffe (z.B. CAPTCHA-Lösung).</p>
+                    <div class="interactive-box" style="padding: 1rem; text-align: center;">
+                        <a href="tiktokscraper.py" download="tiktok_scraper_beispiel.py" class="button">tiktok_scraper_beispiel.py herunterladen</a>
+                        <p style="font-size: 0.85em; margin-top: 0.5rem;">(Benennen Sie die Datei ggf. in <code>tiktokscraper.py</code> um, falls Ihr System die Endung ändert.)</p>
+                    </div>
+                    <p>Passen Sie im Skript ggf. die <code>tiktok_video_url</code> und die <code>MANUAL_INTERVENTION_TIME</code> an Ihre Bedürfnisse an.</p>
+                </li>
+                <li>
+                    <strong>Skript ausführen und Interaktion:</strong>
+                    <p>Führen Sie das Skript über Ihr Terminal oder Ihre Python-IDE aus:</p>
+                    <div class="code-block">
+python tiktokscraper.py
+                    </div>
+                    <p>Das Skript wird:</p>
+                    <ul>
+                        <li>Einen Chrome-Browser öffnen und zur angegebenen TikTok-URL navigieren.</li>
+                        <li>Versuchen, Cookie-Banner automatisch zu handhaben.</li>
+                        <li>Eine Pause für <strong>manuelle Intervention</strong> einlegen. <strong>In dieser Zeit müssen Sie eventuell auftauchende CAPTCHAs lösen</strong> und sicherstellen, dass die Hauptseite des Videos geladen ist.</li>
+                        <li>Danach automatisch scrollen, um Kommentare zu laden.</li>
+                        <li>Die Daten extrahieren und als JSON-Datei speichern.</li>
+                    </ul>
+                    <p>Die extrahierten Daten (Metadaten und Kommentare) werden in einer JSON-Datei im selben Verzeichnis gespeichert, z.B. <code>tiktok_data_VIDEOID.json</code>.</p>
+                </li>
+            </ol>
+
+            <p><strong>Wichtige Hinweise zum bereitgestellten TikTok-Scraping-Skript:</strong></p>
+            <ul>
+                <li><strong>Selektoren:</strong> Das Skript verwendet CSS-Selektoren, um Elemente auf der TikTok-Seite zu finden. TikTok ändert seine Webseitenstruktur häufig. Sollte das Skript Fehler werfen oder keine Daten mehr finden, müssen diese Selektoren wahrscheinlich mithilfe der Entwicklertools Ihres Browsers (Rechtsklick -> "Untersuchen" oder "Inspect") überprüft und angepasst werden. Achten Sie besonders auf Attribute wie <code>data-e2e</code>, da diese tendenziell stabiler sind als dynamisch generierte Klassennamen.</li>
+                <li><strong>Dynamisches Laden:</strong> Das Skript versucht, durch Scrollen möglichst viele Kommentare zu laden. Die Effektivität hängt von der Implementierung des "Infinite Scrollings" durch TikTok ab und davon, wie gut das Skript das Ende der Kommentarliste erkennt. Parameter wie <code>scroll_pause_time</code> und <code>max_scroll_attempts</code> können angepasst werden.</li>
+                <li><strong>CAPTCHAs und Blockaden:</strong> TikTok setzt aggressive Maßnahmen gegen Bots ein. Es ist sehr wahrscheinlich, dass Sie auf CAPTCHAs stoßen, die manuell gelöst werden müssen. Bei zu häufigen oder schnellen Anfragen kann Ihre IP-Adresse temporär blockiert werden.</li>
+                <li><strong>Fehlerbehandlung:</strong> Das Skript enthält grundlegende Fehlerbehandlung, aber für robuste, langfristige Einsätze wäre eine ausgefeiltere Fehlerprotokollierung und -behandlung (z.B. für verschiedene Arten von Pop-ups oder unerwartete Seitenänderungen) notwendig.</li>
+            </ul>
+
+            <h4>Ethische und rechtliche Überlegungen bei TikTok-Scraping (Erinnerung):</h4>
+            <p>Auch wenn § 60d UrhG eine Grundlage für wissenschaftliches TDM bietet, bleiben bei Plattformen wie TikTok spezifische Herausforderungen:</p>
+            <ul>
+                <li><strong>Nutzungsbedingungen (Terms of Service):</strong> TikToks ToS verbieten in der Regel automatisiertes Auslesen. Obwohl § 60d UrhG Vorrang haben kann, können Verstöße gegen die ToS zur Sperrung des genutzten (oder eines assoziierten) Accounts führen. Für Forschung empfiehlt es sich, nicht mit persönlichen, wichtigen Accounts zu arbeiten.</li>
+                <li><strong>Datenschutz (DSGVO):</strong> Kommentare und Nutzerprofile sind personenbezogene Daten. Deren Erhebung, Speicherung und Verarbeitung für Forschungszwecke muss die Prinzipien der DSGVO achten (Zweckbindung, Datenminimierung, Transparenz, Sicherheit). Besonders bei Plattformen mit einem hohen Anteil minderjähriger Nutzer ist äußerste Sensibilität und eine sorgfältige ethische Abwägung geboten. Anonymisierung oder Aggregierung der Daten vor der Veröffentlichung von Ergebnissen ist oft notwendig.</li>
+                <li><strong>Technische Hürden und Serverlast:</strong> Verursachen Sie keine übermäßige Serverlast. Implementieren Sie großzügige Pausen (<code>time.sleep()</code>) und begrenzen Sie die Anzahl der Anfragen. Das bereitgestellte Skript versucht dies zu berücksichtigen.</li>
+            </ul>
+            <p>Die Nutzung von Selenium für das Scraping von TikTok ist ein technisch anspruchsvolles Unterfangen. Es erfordert kontinuierliche Anpassung an Änderungen der Plattform und eine sehr bewusste Auseinandersetzung mit den ethischen und rechtlichen Implikationen.</p>
+            
+            <hr style="border-width: 2px; border-color: var(--primary-color); margin: 3rem 0;">
+
+            <h2>5. Analyse der gesammelten TikTok-Daten: Sentiment-Analyse der Kommentare</h2>
+            <p>Nachdem wir mit Selenium erfolgreich TikTok-Video-Metadaten und insbesondere die Kommentare gesammelt und als JSON-Datei gespeichert haben, können wir diese Daten nun weiter analysieren. Ein häufiger Anwendungsfall ist die Sentiment-Analyse, um die vorherrschende Stimmung (positiv, negativ, neutral) in den Kommentaren zu einem bestimmten Video zu ermitteln.</p>
+            <p>Das folgende Google Colab Notebook demonstriert diesen Prozess:</p>
+            <ul>
+                <li>Es lädt die zuvor gescrapte JSON-Datei mit den TikTok-Kommentaren.</li>
+                <li>Bereinigt die Kommentartexte leicht.</li>
+                <li>Verwendet ein vortrainiertes multilinguales Sentiment-Analyse-Modell von Hugging Face (<code>tabularisai/multilingual-sentiment-analysis</code>), um das Sentiment jedes Kommentars zu klassifizieren.</li>
+                <li>Fügt die Sentiment-Labels und Konfidenz-Scores dem Datensatz hinzu.</li>
+                <li>Visualisiert die Verteilung der Sentiments und die durchschnittliche Konfidenz pro Label.</li>
+                <li>Speichert die erweiterten Daten optional als CSV-Datei.</li>
+            </ul>
+
+            <div class="colab-embed-box interactive-box" style="margin-top: 1.5rem;">
+                <h4>Google Colab: Sentiment-Analyse von TikTok-Kommentaren</h4>
+                <p>Dieses Notebook führt eine Sentiment-Analyse für die mit dem Selenium-Skript gesammelten TikTok-Kommentare durch. Es nutzt ein multilinguales Modell, um die Stimmung (positiv, negativ, neutral) zu bestimmen und die Ergebnisse zu visualisieren.</p>
+                <p><strong>Wichtig:</strong> Die Ergebnisse einer automatisierten Sentiment-Analyse sollten stets mit Vorsicht interpretiert werden, da Kontext, Ironie und Sarkasmus oft schwer zu erfassen sind. Dieses Notebook dient Demonstrations- und Lernzwecken.</p>
+                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Das Notebook kann <a href="https://colab.research.google.com/drive/1OFD4wZPgMaAngcllO8WHuQO3lNlDamBY?usp=sharing" target="_blank" rel="noopener noreferrer">hier direkt geöffnet werden</a> (Eigene Kopie anlegen!).</p>
+            </div>
+
+            <h4 style="margin-top: 2rem;">Beispielhafte Visualisierungen der Sentiment-Analyse:</h4>
+            <p>Die folgenden Diagramme illustrieren, wie die Ergebnisse einer solchen Analyse aussehen könnten. Sie wurden mit dem oben genannten Colab-Notebook aus Beispieldaten generiert.</p>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 1.5rem; margin: 1.5rem 0; padding: 1rem; background-color: #f9f9f9; border-radius: 5px;">
+                <div style="flex-basis: 48%; text-align: center; border: 1px solid #ddd; padding: 1rem; border-radius: 4px;">
+                    <h5>Verteilung der Sentiment-Labels</h5>
+                    <img src="verteilung_sentiment.png"
+                        alt="Diagramm zur Verteilung der Sentiment-Labels in TikTok-Kommentaren"
+                        style="max-width: 100%; height: auto; border: 1px solid #eee; margin-bottom: 0.5rem;">
+                    <p style="font-size: 0.9em;"><em>Dieses Balkendiagramm zeigt die Anzahl der Kommentare, die als positiv, negativ oder neutral klassifiziert wurden.</em></p>
+                </div>
+                <div style="flex-basis: 48%; text-align: center; border: 1px solid #ddd; padding: 1rem; border-radius: 4px;">
+                    <h5>Durchschnittliche Konfidenz pro Sentiment-Label</h5>
+                    <img src="konfidenz_sentiment.png"
+                        alt="Diagramm zur durchschnittlichen Konfidenz der Sentiment-Klassifikation"
+                        style="max-width: 100%; height: auto; border: 1px solid #eee; margin-bottom: 0.5rem;">
+                    <p style="font-size: 0.9em;"><em>Dieses Diagramm visualisiert, wie sicher sich das Modell im Durchschnitt bei der Zuordnung der jeweiligen Sentiment-Labels (positiv, negativ, neutral) war.</em></p>
+                </div>
+            </div>
+
+            <p>Die Analyse der Kommentare kann wertvolle Einblicke in die Rezeption von Online-Inhalten geben, Trends aufzeigen oder die öffentliche Meinung zu bestimmten Themen widerspiegeln. Dennoch ist es wichtig, die Limitationen solcher automatisierter Verfahren zu berücksichtigen und die Ergebnisse kritisch zu bewerten.</p>
+
+            <hr style="border-width: 2px; border-color: var(--primary-color); margin: 3rem 0;">
+
+            <h2>6. Ausblick & Nächste Schritte</h2>
+            <p>Wir haben heute die rechtlichen Grundlagen des Scrapings in Deutschland vertieft und gesehen, wie wir mit Python und Colab Artikeldaten von Genios.de extrahieren und analysieren können. Zudem haben wir einen Einblick in die Welt der Browser-Automatisierung mit Selenium bekommen, die uns den Zugriff auf dynamisch geladene Web-Inhalte wie TikTok-Kommentare ermöglicht, und wie diese anschließend weiter analysiert werden können.</p>
+            <p>Die vorgestellten Techniken erweitern Ihr methodisches Repertoire erheblich. Es ist jedoch entscheidend, sie stets verantwortungsbewusst, ethisch reflektiert und im Einklang mit den rechtlichen Rahmenbedingungen einzusetzen.</p>
+            <p><strong>Ausblick auf die nächste Sitzung:</strong> Abhängig von Ihren Interessen könnten wir uns in der nächsten Sitzung entweder spezifische Aspekte der Browser-Automatisierung praktisch ansehen, uns mit weiteren Analyse-Tools beschäftigen oder tiefer in die Diskussion ethischer Fallstricke in der Online-Forschung einsteigen.</p>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 Andreas Reich - Universität Hohenheim</p>
+    </footer>
+
+    <!-- Ggf. Skripte für interaktive Elemente hier einfügen -->
+
+</body>
+</html>

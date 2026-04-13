@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priming - Politische Kommunikation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+         <h1>Anwendungsfelder der Politischen Kommunikation</h1>
+         <p class="subtitle">Thema: Priming</p>
+    </header>
+
+     <nav>
+         <ul>
+             <li><a href="index.html">Kursübersicht</a></li>
+             <li><a href="agenda-setting.html">Agenda Setting</a></li>
+             <li><a href="priming.html" class="active">Priming</a></li>
+             <li><a href="framing.html">Framing</a></li>
+         </ul>
+     </nav>
+
+    <div class="container">
+        <main>
+            <h2>Priming: Wie Medien unsere Bewertungsmaßstäbe beeinflussen</h2>
+
+            <p>Priming (engl. für "Vorbereiten", "Grundieren") ist ein psychologisches Konzept, das auch in der Kommunikationswissenschaft eine wichtige Rolle spielt. Es beschreibt, wie die Konfrontation mit bestimmten Medieninhalten (dem "Prime") die Zugänglichkeit von verwandten Konzepten im Gedächtnis erhöht und dadurch nachfolgende Urteile, Entscheidungen oder Verhaltensweisen beeinflusst.</p>
+
+            <div class="definition">
+                <strong>Kerngedanke:</strong> Indem Medien bestimmte Themen oder Aspekte hervorheben (siehe Agenda Setting), aktivieren sie bei den Rezipient*innen bestimmte Maßstäbe (Kriterien), anhand derer sie dann politische Akteure, Ereignisse oder Sachverhalte bewerten.
+            </div>
+
+            <h3>Wie funktioniert Priming in der politischen Kommunikation?</h3>
+            <p>Priming basiert auf der Idee der kognitiven Zugänglichkeit. Informationen, die kürzlich oder häufig aktiviert wurden, sind leichter aus dem Gedächtnis abrufbar und beeinflussen eher unsere aktuellen Gedanken und Urteile.</p>
+            <ol>
+                <li><strong>Medien berichten über Thema X</strong> (z.B. Wirtschaftslage).</li>
+                <li>Das Thema Wirtschaft wird dadurch im Gedächtnis der Rezipient*innen <strong>leichter zugänglich</strong> (aktiviert).</li>
+                <li>Wenn diese Rezipient*innen nun gebeten werden, die Leistung der Regierung oder eines Politikers zu bewerten, <strong>verwenden sie verstärkt wirtschaftliche Kriterien</strong> für ihr Urteil.</li>
+                <li>Andere Kriterien (z.B. Außenpolitik, Sozialpolitik) treten in den Hintergrund, auch wenn sie objektiv ebenso relevant sein könnten.</li>
+            </ol>
+
+            <div class="example">
+                <strong>Beispiel:</strong> Wenn die Nachrichten vor einer Wahl wochenlang über Skandale eines Politikers berichten (Prime: Integrität), werden Wähler*innen diesen Politiker wahrscheinlich stärker anhand seiner wahrgenommenen Integrität bewerten. Positive Aspekte, wie seine wirtschaftspolitische Kompetenz, die in den Medien weniger präsent waren, fließen weniger stark in die Gesamtbewertung ein.
+            </div>
+
+             <h3>Abgrenzung zu Agenda Setting und Framing</h3>
+             <ul>
+                 <li><strong>Agenda Setting:</strong> Beeinflusst, <em>worüber</em> wir nachdenken (Themensalienz).</li>
+                 <li><strong>Priming:</strong> Beeinflusst, <em>anhand welcher Kriterien</em> wir nachdenken/bewerten (Kriteriensalienz, als Folge von Themensalienz).</li>
+                  <li><strong>Framing:</strong> Beeinflusst, <em>wie</em> wir über ein Thema denken (Betonung bestimmter Aspekte/Interpretationen).</li>
+             </ul>
+             <p>Die Konzepte sind eng miteinander verwandt und überschneiden sich oft in der Praxis.</p>
+
+            <div class="interactive-box">
+                <h4>Interaktives Element: Bewertungsfokus</h4>
+                <p>Lesen Sie die folgende kurze Nachricht und bewerten Sie anschließend die fiktive Politikerin Müller auf einer Skala von 1 (sehr schlecht) bis 5 (sehr gut).</p>
+
+                <div id="news-story-1" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background: #f9f9f9;">
+                    <strong>Nachricht A: Wirtschaftswachstum übertrifft Erwartungen</strong><br>
+                    Aktuelle Zahlen zeigen ein überraschend starkes Wirtschaftswachstum im letzten Quartal. Expert*innen loben die wirtschaftspolitischen Maßnahmen der Regierung unter Führung von Politikerin Müller.
+                </div>
+                <label for="rating1">Ihre Bewertung für Politikerin Müller nach Nachricht A:</label>
+                <select id="rating1" name="rating1" style="margin-left: 10px; padding: 5px;">
+                    <option value="1">1 (sehr schlecht)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (sehr gut)</option>
+                </select>
+                <hr style="margin: 1rem 0;">
+
+                 <p>Lesen Sie nun eine andere Nachricht und bewerten Sie Politikerin Müller erneut.</p>
+                 <div id="news-story-2" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background: #f9f9f9;">
+                     <strong>Nachricht B: Umweltbericht zeigt alarmierende Zustände</strong><br>
+                     Ein neuer Bericht kritisiert die Umweltpolitik der Regierung unter Führung von Politikerin Müller scharf. Die Emissionen sind gestiegen, wichtige Schutzziele wurden verfehlt.
+                 </div>
+                <label for="rating2">Ihre Bewertung für Politikerin Müller nach Nachricht B:</label>
+                <select id="rating2" name="rating2" style="margin-left: 10px; padding: 5px;">
+                     <option value="1">1 (sehr schlecht)</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5 (sehr gut)</option>
+                </select>
+
+                <button onclick="showPrimingEffect()" style="margin-top: 1rem;">Bewertungen vergleichen</button>
+                <div id="priming-result" class="hidden-content">
+                    <!-- Ergebnis wird hier per JS eingefügt -->
+                </div>
+            </div>
+
+            <h3>Bedeutung und Grenzen</h3>
+            <p>Priming zeigt, dass Medienberichterstattung nicht nur die öffentliche Agenda, sondern auch die Bewertungsmaßstäbe beeinflusst, was erhebliche Auswirkungen auf politische Meinungsbildung und Wahlverhalten haben kann. Der Effekt ist jedoch nicht unbegrenzt; individuelle Faktoren wie Vorwissen, politische Einstellung und Mediennutzungsmuster können Priming-Effekte moderieren.</p>
+
+        </main>
+    </div>
+
+    <footer>
+         <p>© 2026 Andreas Reich - Universität Hohenheim</p>
+    </footer>
+
+    <script>
+        // Interaktion für Priming
+        function showPrimingEffect() {
+            const rating1 = document.getElementById('rating1').value;
+            const rating2 = document.getElementById('rating2').value;
+            const resultDiv = document.getElementById('priming-result');
+            resultDiv.style.display = 'block'; // Inhalt anzeigen
+
+            let resultText = `<p>Ihre Bewertung nach Nachricht A (Wirtschaft): <strong>${rating1} von 5</strong>.</p>`;
+            resultText += `<p>Ihre Bewertung nach Nachricht B (Umwelt): <strong>${rating2} von 5</strong>.</p>`;
+
+            if (rating1 > rating2) {
+                resultText += `<p class="feedback correct">Beobachtung: Nachdem Sie eine positive Nachricht über die Wirtschaft (Politikfeld von Müller in A) gelesen haben, war Ihre Bewertung tendenziell besser als nach der negativen Umweltnachricht (anderes Politikfeld in B). Dies illustriert Priming: Die erste Nachricht hat das Kriterium "Wirtschaftskompetenz" stärker aktiviert, während die zweite "Umweltkompetenz" betonte und so Ihre Bewertungsgrundlage verschoben hat.</p>`;
+            } else if (rating1 < rating2) {
+                // Dieser Fall ist weniger typisch für das Beispiel, aber möglich
+                 resultText += `<p class="feedback">Interessant: Ihre Bewertung war nach der negativen Umweltnachricht besser. Vielleicht wichten Sie Wirtschaft weniger stark oder haben die Umweltkritik anders interpretiert?</p>`;
+            } else {
+                resultText += `<p class="feedback">Ihre Bewertung war in beiden Fällen gleich. Priming-Effekte sind nicht immer stark ausgeprägt und können von individuellen Faktoren abhängen. Dennoch zeigt das Beispiel das Prinzip: Unterschiedliche Berichterstattung lenkt den Fokus auf unterschiedliche Bewertungskriterien.</p>`;
+            }
+            resultDiv.innerHTML = resultText;
+        }
+    </script>
+
+</body>
+</html>

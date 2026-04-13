@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Andreas Reich">
+    <title>Sitzung 2: Datenbeschaffung & Automatisierte Analyse – Politische Kommunikation SoSe 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Anwendungsfelder der Politischen Kommunikation</h1>
+        <p class="subtitle">Sitzung 2: Datenbeschaffung & Automatisierte Analyse</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Kursübersicht</a></li>
+            <li><a href="session1.html">Erste Sitzung</a></li>
+            <li><a href="session2.html" class="active">Zweite Sitzung</a></li>
+            <li><a href="session3.html">Dritte Sitzung</a></li>
+            <li><a href="session4.html">Vierte Sitzung</a></li>
+            <!-- Hier später Links zu Session 3 etc. hinzufügen -->
+        </ul>
+    </nav>
+
+    <div class="container">
+        <main>
+            <h2>1. Einleitung: Von Themen zu Werkzeugen</h2>
+
+            <p>In der letzten Sitzung haben wir vielfältige Themen, Plattformen und Methoden identifiziert, die uns im
+                Bereich der politischen Online-Kommunikation interessieren. Danke für den Input!</p>
+
+            <div style="margin: 1.5rem 0; text-align: center; border: 1px dashed #ccc; padding: 1rem;">
+                <p><strong>Rückblick auf Ergebnisse aus Sitzung 1:</strong></p>
+                <img src="brainstorming_visualisierung.png"
+                    alt="Visualisierung der Brainstorming-Ergebnisse aus Sitzung 1"
+                    style="max-width: 100%; height: auto; border: 1px solid #eee; margin-bottom: 1rem;">
+                <p><a href="brainstorming_ergebnisse.csv" download>Brainstorming-Ergebnisse als CSV herunterladen</a>
+                </p>
+            </div>
+
+            <p>Heute schalten wir den Fokus um: Von den <em>Was</em>-Fragen (Themen wie Wahlkampf, Aktivismus,
+                Neutralität) zu den <strong>Wie</strong>-Fragen. Wir konzentrieren uns auf die <strong>technischen
+                    Werkzeuge und Strategien</strong>, die uns erlauben, die digitale politische Sphäre systematisch zu
+                untersuchen.</p>
+
+            <p>Ziel ist es, ein solides Verständnis für die <strong>Datenbeschaffung</strong> (Wie kommen wir an die
+                Rohdaten?) und <strong>automatisierte Analysemethoden</strong> (Wie können wir große Datenmengen
+                effizient auswerten?) zu entwickeln.</p>
+
+            <h3>Agenda der heutigen Sitzung:</h3>
+            <ul>
+                <li>Strategien der Datenbeschaffung: APIs vs. Web Scraping.</li>
+                <li>Web Scraping im Detail: Konzept, Werkzeuge und ein praktisches Anwendungsbeispiel (taz.de Artikel &
+                    Kommentare).</li>
+                <li>Plattformspezifische Datenzugänge: YouTube, TikTok, Telegram, Twitch, Instagram – Möglichkeiten und
+                    Hürden.</li>
+                <li>Automatisierte Analysemethoden: Sentiment Analyse & Textanalyse mit Large Language Models (LLMs).
+                </li>
+                <li><strong>Praktische Vertiefung:</strong> Direkte Einbindung und Besprechung von Google Colab
+                    Notebooks für Scraping, YouTube-Download, Sentiment-Analyse und LLM-Analyse.</li>
+            </ul>
+
+            <hr>
+
+            <h2>2. Datenbeschaffung: Die Rohstoffe für unsere Analyse</h2>
+
+            <p>Bevor wir analysieren können, brauchen wir Daten. Im digitalen Raum gibt es grundsätzlich zwei Hauptwege,
+                um an diese Daten zu gelangen: über offizielle Schnittstellen (APIs) oder durch das direkte Auslesen von
+                Webseiten (Web Scraping).</p>
+
+            <h3>2.1 Grundsatzentscheidung: API vs. Web Scraping</h3>
+
+            <h4>APIs (Application Programming Interfaces): Der offizielle Weg</h4>
+
+            <div class="method-section">
+                <h4>APIs (Application Programming Interfaces): Strukturierter Datenzugriff</h4>
+                <p>Viele große Plattformen (Twitter/X, Facebook/Meta, YouTube, Reddit, Telegram etc.) bieten
+                    Schnittstellen (APIs) an, die einen strukturierten und von der Plattform vorgesehenen Zugriff auf
+                    (bestimmte) Daten ermöglichen.</p>
+                <ul>
+                    <li><strong>Vorteile:</strong> Daten sind oft sauberer und strukturierter als beim Scraping, der
+                        Zugriff ist "offiziell" und weniger fehleranfällig bei Änderungen der Website-Struktur.</li>
+                    <li><strong>Nachteile:</strong> APIs haben oft Einschränkungen (Zugangsstufen, Kosten, tägliche
+                        Limits für Abfragen, nicht alle Daten sind verfügbar, Nutzungsrichtlinien können sich ändern).
+                        Erfordern meist Registrierung und Programmierkenntnisse.</li>
+                </ul>
+
+                <!-- API Animation Start -->
+                <div id="api-visualization">
+                    <!-- 1. Client (Researcher/App) -->
+                    <div class="api-entity" id="api-client">
+                        <span class="api-icon">💻</span>
+                        <span class="api-label">Forscher:in<br />(Client)</span>
+                    </div>
+
+                    <!-- 2. Animated Request Elements -->
+                    <div class="api-arrow" id="api-request-arrow"></div>
+                    <div class="api-data-bubble" id="api-request-bubble">
+                        <span>🔑 API-Key + Parameter:</span><br />
+                        <code>GET /tweets?q=politik&lang=de</code>
+                    </div>
+
+                    <!-- 3. Animated Response Elements -->
+                    <div class="api-arrow" id="api-response-arrow"></div>
+                    <div class="api-data-bubble" id="api-response-bubble">
+                        <span>Structured Data (JSON):</span><br />
+                        <code>{"tweets": [...]}</code>
+                    </div>
+
+                    <!-- 4. Platform API Endpoint -->
+                    <div class="api-entity" id="api-platform">
+                        <span class="api-icon api-platform-icon">?</span> <!-- Icon updated by JS -->
+                        <span class="api-label">Plattform API</span>
+                    </div>
+
+                    <!-- 5. Status Text -->
+                    <span id="api-status">Initialisiere...</span>
+                </div>
+                <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem; text-align: center;"><i>Client stellt
+                        strukturierte Anfrage an eine Plattform-API, diese verarbeitet sie und sendet strukturierte
+                        Daten zurück.</i></p>
+                <!-- API Animation End -->
+
+            </div>
+
+            <p>APIs sind oft der robusteste und von den Plattformen vorgesehene Weg, um Daten zu erhalten.</p>
+
+            <h4>Web Scraping: Daten direkt von der Oberfläche</h4>
+            <div class="method-section" style="border: 1px dashed #ccc; padding: 1rem; margin-bottom: 1rem;">
+                <p>Web Scraping ist oft das Mittel der Wahl, wenn Daten öffentlich auf Webseiten zugänglich sind, aber
+                    keine strukturierte Schnittstelle (API) für den Zugriff angeboten wird oder diese nicht die
+                    gewünschten Daten liefert. Es bezeichnet den Prozess der automatisierten Extraktion von
+                    Informationen aus dem HTML-Code von Webseiten.</p>
+                <strong>Konzeptioneller Ablauf:</strong>
+                <div class="process-flow"
+                    style="margin: 0.5rem 0 1rem; padding: 0.5rem; background-color: #f9f9f9; border-radius: 4px; text-align: center; font-size: 0.9em;">
+                    <span class="step"
+                        style="display: inline-block; margin: 0 5px; padding: 2px 5px; background-color: #e0e0e0; border-radius: 3px;">1.
+                        HTTP Request</span>
+                    <span class="arrow" style="display: inline-block; margin: 0 5px;">→</span>
+                    <span class="step"
+                        style="display: inline-block; margin: 0 5px; padding: 2px 5px; background-color: #e0e0e0; border-radius: 3px;">2.
+                        HTML Response</span>
+                    <span class="arrow" style="display: inline-block; margin: 0 5px;">→</span>
+                    <span class="step"
+                        style="display: inline-block; margin: 0 5px; padding: 2px 5px; background-color: #e0e0e0; border-radius: 3px;">3.
+                        Parsing</span>
+                    <span class="arrow" style="display: inline-block; margin: 0 5px;">→</span>
+                    <span class="step"
+                        style="display: inline-block; margin: 0 5px; padding: 2px 5px; background-color: #e0e0e0; border-radius: 3px;">4.
+                        Extraktion</span>
+                    <span class="arrow" style="display: inline-block; margin: 0 5px;">→</span>
+                    <span class="step"
+                        style="display: inline-block; margin: 0 5px; padding: 2px 5px; background-color: #e0e0e0; border-radius: 3px;">5.
+                        Speicherung</span>
+                    <span class="arrow" style="display: inline-block; margin: 0 5px;">→</span>
+                    <span class="step"
+                        style="display: inline-block; margin: 0 5px; padding: 2px 5px; background-color: #e0e0e0; border-radius: 3px;">6.
+                        Auswertung</span>
+                </div>
+            </div>
+            <p>Scraping erlaubt potenziell Zugriff auf alle <em>öffentlich sichtbaren</em> Informationen.</p>
+
+            <h4>Gegenüberstellung API vs. Scraping</h4>
+            <!-- Optional: Platzhalter für eine Vergleichs-Grafik -->
+            <div
+                style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; padding: 1rem; background-color: #f8f8f8; border-radius: 5px;">
+                <div style="flex-basis: 45%;">
+                    <h5>API (Schnittstelle)</h5>
+                    <ul>
+                        <li>✅ Strukturierte, saubere Daten</li>
+                        <li>✅ Offizieller, stabilerer Weg</li>
+                        <li>✅ Klare Nutzungsregeln</li>
+                        <li>❌ Oft limitierter Datenumfang</li>
+                        <li>❌ Ratenbegrenzungen (Limits)</li>
+                        <li>❌ Evtl. Kosten / Registrierung</li>
+                        <li>❌ Abhängig von Plattform</li>
+                    </ul>
+                </div>
+                <div style="flex-basis: 45%;">
+                    <h5>Web Scraping (Auslesen)</h5>
+                    <ul>
+                        <li>✅ Zugriff auf alles öffentlich Sichtbare</li>
+                        <li>✅ Unabhängig von API-Limits</li>
+                        <li>❌ Technisch oft aufwändiger</li>
+                        <li>❌ Anfällig für Website-Änderungen</li>
+                        <li>❌ Rechtliche/Ethische Grauzone</li>
+                        <li>❌ Serverlast für Zielseite</li>
+                        <li>❌ Risiko von IP-Sperren</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p><strong>Empfehlung:</strong> Generell gilt: Prüfen Sie zuerst, ob eine nutzbare API existiert und Ihren
+                Anforderungen genügt. Scraping sollte mit Bedacht und unter Einhaltung ethischer sowie rechtlicher
+                Richtlinien eingesetzt werden, oft als Alternative oder Ergänzung.</p>
+
+
+            <h3>2.2 Web Scraping im Detail: Konzept, Werkzeuge & Beispiel</h3>
+
+            <h4>Technische Konzepte</h4>
+            <p>Um Webseiten zu scrapen, müssen wir verstehen, wie sie aufgebaut sind (HTML) und wie wir gezielt Elemente
+                auswählen können.</p>
+            <ul>
+                <li><strong>HTML-Struktur:</strong> Webseiten bestehen aus verschachtelten Elementen (Tags wie
+                    div, p oder a mit Attributen (z.B.
+                    <code>class="headline"</code>, <code>id="main-content"</code>). Diese Struktur gibt den Inhalt und
+                    das Layout vor.</li>
+                <li><strong>Elemente inspizieren:</strong> Das wichtigste Werkzeug ist der <strong>Entwicklermodus</strong> Ihres
+                    Browsers (oft per Rechtsklick -> "Untersuchen" oder "Inspect Element" erreichbar). Damit können Sie
+                    den HTML-Code live sehen und die Struktur analysieren, um die Elemente zu finden, die Ihre
+                    gewünschten Daten enthalten.</li>
+                    <div style="margin: 1.5rem 0; text-align: center; border: 1px dashed #ccc; padding: 1rem;">
+                        <p><strong>Rückblick auf Ergebnisse aus Sitzung 1:</strong></p>
+                        <img src="untersuchen.PNG"
+                            alt="Geöffneter Entwicklermodus im Browser"
+                            style="max-width: 100%; height: auto; border: 1px solid #eee; margin-bottom: 1rem;">
+                        <p>Hier sehen wir wie dieses Element im Entwicklermodus aussieht...
+                        </p>
+                    </div>
+                <li><strong>Selektoren:</strong> Um Elemente im Code gezielt anzusprechen, verwenden wir Selektoren:
+                    <ul>
+                        <li><strong>CSS-Selektoren:</strong> Ähnlich wie in CSS zum Stylen verwendet (z.B.
+                            <code>div.article-body p</code> für alle Paragraphen innerhalb eines Divs mit der Klasse
+                            "article-body", oder <code>#main-title</code> für das Element mit der ID "main-title"). Oft
+                            intuitiv und ausreichend.</li>
+                        <li><strong>XPath:</strong> Eine mächtigere, aber komplexere Sprache zur Navigation durch den
+                            HTML/XML-Baum (z.B. <code>//h1[@class='main-title']</code> findet alle h1-Elemente mit der
+                            Klasse "main-title"). Nützlich für kompliziertere Strukturen.</li>
+                    </ul>
+                </li>
+                <li><strong>Dynamische Inhalte (JavaScript):</strong> Achtung! Viele moderne Webseiten laden Inhalte
+                    erst nach dem initialen Laden nach, z.B. wenn man scrollt (Infinite Scroll) oder auf Buttons klickt.
+                    Einfache Scraper, die nur das erste HTML herunterladen, sehen diese Inhalte nicht. Hierfür braucht
+                    man fortgeschrittene Werkzeuge wie <strong>Selenium</strong> oder <strong>Playwright</strong>, die
+                    einen echten Browser fernsteuern und auch mit JavaScript interagieren können.</li>
+                <li><strong>Praktische Hürden:</strong> Denken Sie an Seitenwechsel (Pagination – wie komme ich auf
+                    Seite 2, 3, ...?) und legen Sie immer Pausen (<code>time.sleep()</code> in Python) zwischen Anfragen
+                    ein, um den Server nicht zu überlasten und eine Sperrung Ihrer IP-Adresse zu vermeiden (Rate
+                    Limiting).</li>
+            </ul>
+
+            <h4>Werkzeuge (Fokus Python)</h4>
+            <p>Für Web Scraping mit Python gibt es etablierte Bibliotheken:</p>
+            <ul>
+                <li><strong><code>requests</code>:</strong> Zum Senden von HTTP-Anfragen und Empfangen des HTML-Codes
+                    (oder anderer Daten).</li>
+                <li><strong><code>BeautifulSoup4</code> (oft mit <code>lxml</code> oder
+                        <code>html.parser</code>):</strong> Zum Parsen des (oft unsauberen) HTML-Codes und zur einfachen
+                    Navigation und Extraktion von Daten mittels Selektoren.</li>
+                <li><strong><code>Selenium</code> / <code>Playwright</code>:</strong> Zur Steuerung eines echten
+                    Webbrowsers, notwendig für Webseiten mit viel JavaScript und dynamischen Inhalten.</li>
+                <li><strong><code>Scrapy</code>:</strong> Ein umfassendes Framework für größere und komplexere
+                    Scraping-Projekte, das viele Aspekte wie Request-Management, Datenpipelines etc. abdeckt.</li>
+            </ul>
+
+            <h4>Anwendungsbeispiel: TAZ vs. Welt/ZEIT - Wann reicht Headless?</h4>
+            <p><strong>Zielsetzung:</strong> Wir wollen Artikel und Kommentare von Nachrichtenseiten sammeln. Reichen `requests` und `BeautifulSoup` (headless) oder brauchen wir Selenium?</p>
+
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0;">
+                 <div style="flex-basis: 48%; background-color: #f0fff0; border: 1px solid #90ee90; padding: 1rem; border-radius: 4px;">
+                     <h5>Fall 1: TAZ.de (Headless funktioniert oft!)</h5>
+                     <p>Die Analyse der Seitenstruktur der TAZ (und das bereitgestellte Beispielskript) zeigt, dass Artikelinhalte und Kommentare oft <strong>direkt im initialen HTML-Code</strong> enthalten sind. Die Kommentare werden serverseitig generiert.</p>
+                     <p><strong>Konzeptioneller Ablauf (Headless mit `requests`/`BeautifulSoup`):</strong></p>
+                     <ol>
+                         <li>Artikel-URL mit `requests` abrufen.</li>
+                         <li>HTML mit `BeautifulSoup` parsen.</li>
+                         <li>Artikel-Titel, Text, Datum etc. extrahieren.</li>
+                         <li>Kommentarbereich finden und <strong>alle darin enthaltenen Kommentare</strong> (auch verschachtelte) mit `BeautifulSoup` extrahieren.</li>
+                         <li>Speichern.</li>
+                     </ol>
+                     <p>✅ <strong>Vorteil</strong> Schneller, weniger ressourcenintensiv, keine Browser-Installation nötig.</p>
+                 </div>
+                 <div style="flex-basis: 48%; background-color: #fff5f5; border: 1px solid #fcc; padding: 1rem; border-radius: 4px;">
+                     <h5>Fall 2: Welt.de / Zeit.de (Headless oft unzureichend!)</h5>
+                     <p>Bei vielen modernen Portalen wie Welt.de oder Zeit.de werden Kommentare und oft auch weitere Artikel/Suchergebnisse <strong>dynamisch mit JavaScript</strong> nachgeladen (z.B. durch Klick auf "Mehr laden" oder Scrollen).</p>
+                      <p><strong>Konzeptioneller Ablauf (Headless mit `requests`/`BeautifulSoup`):</strong></p>
+                     <ol>
+                         <li>Artikel-URL mit `requests` abrufen.</li>
+                         <li>HTML mit `BeautifulSoup` parsen.</li>
+                         <li>Artikel-Titel, Text, Datum etc. extrahieren (soweit im initialen HTML).</li>
+                         <li>Kommentarbereich finden, aber <strong>nur wenige oder keine Kommentare</strong> extrahieren können, da der Rest erst durch JavaScript geladen würde.</li>
+                         <li>Speichern (mit unvollständigen Kommentardaten).</li>
+                     </ol>
+                     <p>❌ <strong>Nachteil</strong> Man erhält nur einen Bruchteil der Daten (insb. Kommentare). Für vollständige Daten ist <strong>Selenium/Playwright</strong> nötig, um Klicks/Scrollen zu simulieren.</p>
+                 </div>
+            </div>
+
+            <p><strong>Fazit:</strong> Ob ein Headless-Ansatz genügt, hängt stark von der <strong>Technologie der Zielwebseite</strong> ab. Seiten, die Inhalte serverseitig rendern (wie oft bei TAZ), sind gut mit `requests`/`BeautifulSoup` scrapebar. Seiten mit viel dynamischem JavaScript benötigen Browser-Automatisierung.</p>
+
+
+            <h4>Praktische Umsetzung im Colab: TAZ Artikel & Kommentare scrapen (Headless)</h4>
+            <div class="colab-embed-box interactive-box">
+                <h4>Google Colab: Web Scraping bei TAZ.de</h4>
+                <p>Dieses Google Colab Notebook demonstriert, wie man Artikeldetails und <strong>Kommentare</strong> von TAZ.de mit Python, <strong>nur unter Verwendung von `requests` und `BeautifulSoup`</strong>, extrahieren kann. Es basiert auf dem Prinzip, dass TAZ viele Inhalte serverseitig rendert.</p>
+                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Das Notebook kann<a href="https://colab.research.google.com/drive/1jHRfLsCxc0gA0uYm8aS78MyJgGI0Vf9t?usp=sharing" target="_blank" rel="noopener noreferrer">hier direkt geöffnet werden</a> (Eigene Kopie anlegen).</p>
+                 <p style="margin-top: 1rem;"><strong>Wichtig:</strong> Auch wenn dies bei TAZ oft funktioniert, können sich Webseitenstrukturen ändern. Die im Notebook verwendeten Selektoren müssen eventuell in Zukunft angepasst werden.</p>
+            </div>
+
+            <h4>Ethik & Recht beim Scraping</h4>
+            <div class="warning-box" style="border: 1px dashed #ccc; padding: 1rem; margin: 1.5rem 0;">
+                <h4>Wichtige ethische und rechtliche Aspekte beim Scraping</h4>
+                <p>Web Scraping bewegt sich oft in einer Grauzone. Es ist <strong>essenziell</strong>,
+                    verantwortungsvoll vorzugehen:</p>
+                <ul>
+                    <li><strong>Respektieren Sie <code>robots.txt</code>:</strong> Diese Datei auf einer Website gibt
+                        (oft) an, welche Bereiche <em>nicht</em> automatisch besucht werden sollen. Auch wenn technisch
+                        umgehbar, ist die Missachtung ein starkes Signal für problematisches Verhalten und kann
+                        rechtliche Konsequenzen haben.</li>
+                    <li><strong>Prüfen Sie die Nutzungsbedingungen (Terms of Service/AGB):</strong> Viele Websites
+                        verbieten Scraping explizit. Ein Verstoß kann zur Sperrung oder rechtlichen Schritten führen.
+                    </li>
+                    <li><strong>Seien Sie "nett" zum Server:</strong> Senden Sie Anfragen nicht zu schnell
+                        hintereinander (implementieren Sie Pausen – <code>time.sleep()</code>!). Überlasten Sie den
+                        Server nicht (Risiko einer (temporären) Sperrung Ihrer IP). Identifizieren Sie Ihren Scraper
+                        ggf. im User-Agent (obwohl dies umstritten ist).</li>
+                    <li><strong>Fokus auf öffentliche Daten:</strong> Scrapen Sie keine Daten, die einen Login erfordern
+                        oder klar als privat gekennzeichnet sind, es sei denn, Sie haben eine explizite Erlaubnis.</li>
+                    <li><strong>Datenschutz (DSGVO/GDPR):</strong> Besondere Vorsicht bei personenbezogenen Daten
+                        (Namen, User IDs, Kommentare)! Eine Verarbeitung ist nur unter strengen Voraussetzungen erlaubt
+                        (z.B. Forschungszwecke mit sorgfältiger Abwägung, Anonymisierung, Aggregation). Holen Sie im
+                        Zweifel rechtlichen Rat ein.</li>
+                    <li><strong>Transparenz:</strong> Dokumentieren Sie Ihr Vorgehen und Ihre Datenquellen
+                        nachvollziehbar in Ihrer Forschung.</li>
+                </ul>
+                <p><strong>Diese Punkte sind nicht optional!</strong> Verantwortungsvolles Scraping ist essenziell, um
+                    rechtliche Probleme und ethische Konflikte zu vermeiden. Im Zweifelsfall ist eine rechtliche
+                    Beratung oder die Suche nach alternativen Datenquellen (APIs, Kooperationen) vorzuziehen.</p>
+            </div>
+
+            <h3>2.3 Plattformspezifische Datenzugänge: Ein Überblick</h3>
+            <p>Neben dem direkten Scraping von Webseiten bieten viele Plattformen APIs oder es gibt spezialisierte
+                Bibliotheken. Hier ein Überblick über gängige Plattformen und die typischen Zugangswege (Stand ~SoSe
+                2026, kann sich schnell ändern!):</p>
+
+            <div class="platform-overview" style="margin-top: 1rem;">
+
+                <div class="method-section">
+                    <h4>YouTube</h4>
+                    <ul>
+                        <li><strong>API (Empfohlen):</strong> <a href="https://developers.google.com/youtube/v3"
+                                target="_blank" rel="noopener noreferrer">YouTube Data API v3</a> (offiziell, via
+                            Python-Client <code>google-api-python-client</code>). Benötigt API-Schlüssel &
+                            Quota-Management (kostenlose Kontingente vorhanden, aber limitiert). Bietet Zugriff auf
+                            Video-/Kanal-Metadaten, Suche, <strong>Kommentare</strong> etc. <strong>Der Standardweg für
+                                Forschungsdaten.</strong></li>
+                        <li><strong>Bibliothek (Download/Basis-Metadaten):</strong> <code>pytube</code> /
+                            <code>pytubefix</code> (Python). Primär zum Download von Videos und Abruf einfacher
+                            Metadaten (Titel, Views). Kommentarzugriff damit meist instabil oder nicht möglich.</li>
+                    </ul>
+                    <div class="colab-embed-box interactive-box">
+                        <h4>Google Colab: YouTube Video Download & Metadaten</h4>
+                        <p>Dieses kurze Colab Notebook zeigt, wie man schnell mit <code>pytubefix</code> <strong>wenige</strong> Videos von YouTube
+                            herunterlädt und grundlegende Metadaten extrahiert.</p>
+                        <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Das Notebook <a href="https://colab.research.google.com/drive/1CEgtdJhEiGhGQ2N3iwwoslJ9rqslimyO?usp=sharing"
+                                target="_blank" rel="noopener noreferrer">hier direkt öffnen</a> (Kopie anlegen).</p>
+                    </div>
+                </div>
+
+                <div class="method-section">
+                    <h4>TikTok</h4>
+                    <ul>
+                        <li><strong>API (Offiziell, restriktiv):</strong> <a
+                                href="https://developers.tiktok.com/products/research-api" target="_blank"
+                                rel="noopener noreferrer">TikTok Research API</a>. Zugang ist stark limitiert und
+                            erfordert meist eine Bewerbung als Forschungsinstitution.</li>
+                        <li><strong>Inoffizielle Tools (Riskant!):</strong> Bibliotheken/Scraper wie
+                            <code>ResearchTikPy</code> oder andere (oft auf GitHub zu finden). Versuchen, interne
+                            (private) APIs oder die Website zu nutzen. <strong>Hohe Instabilität!</strong> TikTok ändert
+                            seine Systeme häufig, diese Tools funktionieren oft nur kurzzeitig oder unzuverlässig.
+                            Nutzung erfolgt auf <strong>eigenes Risiko</strong> und stellt potenziell einen
+                            <strong>Verstoß gegen die Nutzungsbedingungen</strong> dar. Liefern ggf. Video-Metadaten,
+                            User-Infos, Kommentare.</li>
+                    </ul>
+                </div>
+
+                <div class="method-section">
+                    <h4>Telegram</h4>
+                    <ul>
+                        <li><strong>API (Client - Mächtig):</strong> <a href="https://core.telegram.org/api"
+                                target="_blank" rel="noopener noreferrer">Telegram Core API</a> (via Python-Bibliotheken
+                            wie <code>Telethon</code>, <code>Pyrogram</code>). Ermöglicht umfassenden Zugriff auf
+                            öffentliche Kanäle/Gruppen (Nachrichten, Metadaten, Mitgliederlisten etc.). Erfordert
+                            Registrierung einer "App" bei Telegram. <strong>Wichtig:</strong> Ethische Aspekte (kein
+                            Spam, Datenschutz bei Mitgliedern!) und Nutzungsbedingungen genau beachten!</li>
+                        <li><strong>API (Bot - Einfacher):</strong> <a href="https://core.telegram.org/bots/api"
+                                target="_blank" rel="noopener noreferrer">Telegram Bot API</a>. Einfacher zu nutzen,
+                            aber beschränkt auf Interaktionen mit dem eigenen Bot (z.B. Nachrichten in Gruppen sammeln,
+                            in denen der Bot Mitglied ist). Weniger geeignet für breite Datensammlung öffentlicher
+                            Kanäle.</li>
+                    </ul>
+                </div>
+
+                <div class="method-section">
+                    <h4>Twitch</h4>
+                    <ul>
+                        <li><strong>API (Offiziell):</strong> <a href="https://dev.twitch.tv/docs/api/" target="_blank"
+                                rel="noopener noreferrer">Twitch API ("Helix")</a>. Bietet Zugriff auf Stream-Infos
+                            (live/offline, Spiel, Titel), User-Infos, Video/Clip-Metadaten. Chat-Zugriff darüber nur
+                            sehr begrenzt (primär für Moderation).</li>
+                        <li><strong>Live Chat (IRC):</strong> Twitch's Chat basiert auf dem IRC-Protokoll. Man kann mit
+                            Bibliotheken (z.B. <code>twitchio</code> in Python) einem Kanal beitreten und den
+                            <strong>Live-Chat</strong> mitlesen und speichern. Sammlung erfordert, dass der Bot/Scraper
+                            dem Kanal beitritt, <em>während</em> der Stream läuft. Historische Chats sind schwer
+                            zugänglich.</li>
+                        <li><strong>Scraping:</strong> Technisch möglich, aber komplex und gegen die
+                            Nutzungsbedingungen. Fokus auf API/IRC ist sinnvoller.</li>
+                    </ul>
+                </div>
+
+                <div class="method-section">
+                    <h4>Instagram</h4>
+                    <ul>
+                        <li><strong>API (Offiziell, stark limitiert):</strong> <a
+                                href="https://developers.facebook.com/docs/instagram" target="_blank"
+                                rel="noopener noreferrer">Instagram Graph API / Basic Display API</a>. Primär für
+                            Business-Accounts zur Analyse eigener Inhalte oder für Apps mit Nutzer-Login. Zugriff auf
+                            öffentliche Posts/Profile anderer Nutzer ist <strong>extrem eingeschränkt</strong> und für
+                            systematische Forschung meist <strong>nicht brauchbar</strong>.</li>
+                        <li><strong>Inoffizielle Tools (Dringend abzuraten!):</strong> Scraper wie
+                            <code>instaloader</code> (Python). Versuchen, die Website durch Emulation eines
+                            Logins/Browsers zu scrapen. <strong>Extrem instabil, hohes Risiko von Account-Sperrungen,
+                                klarer Verstoß gegen Instagrams Nutzungsbedingungen.</strong> Wegen der Aggressivität
+                            von Meta/Instagram gegen Scraping für systematische Forschung <strong>nicht
+                                empfohlen!</strong></li>
+                    </ul>
+                </div>
+
+                <div class="method-section">
+                    <h4>(Exkurs) Twitter / X</h4>
+                    <p>Die Situation bei Twitter/X hat sich seit der Übernahme stark verändert. Die API existiert
+                        weiterhin, aber der kostenlose Zugang wurde drastisch eingeschränkt. Für Forschungszwecke
+                        relevante Datenmengen erfordern nun meist teure kommerzielle Pakete, was die Forschung erheblich
+                        erschwert.</p>
+                </div>
+            </div>
+
+            <p><strong>Fazit zu Plattformen:</strong> Der Datenzugang variiert enorm. Offizielle APIs sind, wo verfügbar
+                und ausreichend, der sicherste Weg. Inoffizielle Methoden sind oft technisch fragil und bergen
+                erhebliche Risiken (Sperrung, Rechtsverstoß). <strong>Prüfen Sie immer die aktuellen Nutzungsbedingungen
+                    und handeln Sie verantwortungsbewusst und ethisch!</strong></p>
+
+
+            <hr style="border-width: 2px; border-color: var(--primary-color); margin: 3rem 0;">
+
+
+            <h2>3. Automatisierte Analysemethoden: Muster in Daten erkennen</h2>
+            <p>Nachdem wir die Daten beschafft haben, geht es an die Analyse. Gerade bei großen Textmengen aus
+                Online-Quellen stoßen manuelle Verfahren an Grenzen. Hier kommen automatisierte Methoden ins Spiel.</p>
+
+            <h3>3.1 Sentiment Analyse: Stimmungen messen</h3>
+            <p><strong>Konzept:</strong> Sentiment Analyse (oder Opinion Mining) zielt darauf ab, die in einem Text
+                ausgedrückte Haltung oder Emotion automatisch zu erkennen. Üblicherweise wird nach Polarität
+                unterschieden (positiv, negativ, neutral), manchmal auch nach spezifischen Emotionen (Freude, Ärger,
+                Angst etc.). Es gibt verschiedene Ansätze:</p>
+            <ul>
+                <li><strong>Lexikon-basierte Ansätze:</strong> Nutzen Wörterbücher mit vordefinierten Polaritätswerten
+                    für einzelne Wörter (z.B. "gut" = +1, "schlecht" = -1). Einfach umzusetzen, aber oft ungenau bei
+                    Kontext, Ironie etc. (Beispiel: VADER).</li>
+                <li><strong>Machine-Learning-basierte Ansätze:</strong> Modelle werden auf großen Mengen von Texten
+                    trainiert, deren Sentiment bekannt ist. Sie lernen Muster und können oft kontextsensitiver urteilen.
+                    Moderne Ansätze nutzen oft Transformer-Modelle (wie BERT, RoBERTa).</li>
+            </ul>
+
+            <p><strong>Werkzeuge (Python):</strong></p>
+            <ul>
+                <li><code>VADER (Valence Aware Dictionary and sEntiment Reasoner)</code>: Lexikon-basiert, speziell für
+                    Social-Media-Texte optimiert (berücksichtigt z.B. Emojis, Großschreibung).</li>
+                <li><code>TextBlob</code>: Einfache Bibliothek, die Polarität (positiv/negativ) und Subjektivität
+                    (objektiv/subjektiv) liefert.</li>
+                <li><strong>Hugging Face <code>transformers</code> Bibliothek:</strong> Bietet Zugang zu tausenden
+                    vortrainierten Modellen, darunter viele leistungsstarke Modelle für Sentiment Analyse in
+                    verschiedenen Sprachen (auch Deutsch). Die Nutzung über die <code>pipeline()</code>-Funktion ist oft
+                    sehr einfach, wie im Colab gezeigt wird.</li>
+            </ul>
+
+            <p><strong>Anwendungsbezug:</strong> Wir können diese Methode nutzen, um z.B. die Tonalität der zuvor
+                gesammelten <strong>TAZ.de-Kommentare</strong> zu analysieren und zu sehen, wie über
+                die Artikel diskutiert wird – überwiegen positive, negative oder neutrale Kommentare?</p>
+
+            <h4>Praktische Umsetzung im Colab: Sentiment Analyse</h4>
+            <div class="colab-embed-box interactive-box">
+                <h4>Google Colab: Sentiment Analyse mit Hugging Face</h4>
+                <p>Das folgende Colab Notebook zeigt, wie man mit der Hugging Face <code>pipeline</code> sehr einfach
+                    Sentiment-Analysen auf unseren Kommentar Texten durchführen kann. Wir wenden es beispielhaft auf einige
+                    Sätze an, die wir vorhin gescraped haben.</p>
+                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Hier können Sie das Notebook <a href="https://colab.research.google.com/drive/1p3MBBKC39V26lIb6Th-HI9M5L6gJutuE?usp=sharing" target="_blank"
+                        rel="noopener noreferrer">direkt öffnen</a> (Kopie anlegen!).</p>
+            </div>
+
+            <div class="warning-box" style="margin-top: 1.5rem;">
+                <h4>Limitationen der Sentiment Analyse beachten!</h4>
+                <p>Automatisierte Sentiment Analyse ist ein nützliches Werkzeug, aber keine "Wahrheitsmaschine". Seien
+                    Sie sich der Grenzen bewusst:</p>
+                <ul>
+                    <li><strong>Kontextabhängigkeit:</strong> Die Bedeutung von Wörtern kann sich je nach Kontext stark
+                        ändern.</li>
+                    <li><strong>Ironie & Sarkasmus:</strong> Werden von den meisten Modellen schlecht oder gar nicht
+                        erkannt.</li>
+                    <li><strong>Mehrdeutigkeit & Negation:</strong> Komplexe Satzstrukturen können zu
+                        Fehlinterpretationen führen.</li>
+                    <li><strong>Domänenspezifische Sprache:</strong> Politischer Jargon oder Fachbegriffe sind oft nicht
+                        in den allgemeinen Trainingsdaten enthalten.</li>
+                </ul>
+                <p><strong>Fazit:</strong> Ergebnisse immer kritisch prüfen! Betrachten Sie sie als Indikatoren, nicht
+                    als absolute Fakten. Eine manuelle Validierung an einer Teilstichprobe ist oft sinnvoll.</p>
+            </div>
+
+
+            <h3>3.2 Automatisierte Inhaltsanalyse mit LLMs: Jenseits von Sentiment</h3>
+            <p><strong>Konzept:</strong> Large Language Models (LLMs) – die Technologie hinter Systemen wie ChatGPT,
+                Llama, Mistral etc. – können nicht nur Text generieren, sondern auch für komplexe Analyseaufgaben
+                eingesetzt werden, die traditionell zeitaufwändige menschliche Codierung erforderten. Durch geschickte
+                Anweisungen (Prompts) kann man LLMs dazu bringen, Texte nach bestimmten Kriterien zu klassifizieren,
+                Informationen zu extrahieren oder sogar zu bewerten.</p>
+            <p>Man unterscheidet oft:</p>
+            <ul>
+                <li><strong>Zero-Shot Learning:</strong> Das LLM führt eine Aufgabe aus, für die es nicht explizit
+                    trainiert wurde, nur basierend auf der Anweisung im Prompt.</li>
+                <li><strong>Few-Shot Learning:</strong> Man gibt dem LLM im Prompt einige Beispiele, wie die Aufgabe zu
+                    lösen ist, um die Genauigkeit zu verbessern.</li>
+            </ul>
+
+            <p><strong>Mögliche Anwendungen in der politischen Kommunikationsforschung:</strong></p>
+            <ul>
+                <li><strong>Themenklassifikation:</strong> Automatische Zuordnung von Texten (z.B. Tweets, Artikel,
+                    Kommentare) zu vordefinierten politischen Themen (z.B. Umwelt, Wirtschaft, Soziales).</li>
+                <li><strong>Frame-Analyse:</strong> Erkennung, welche Deutungsrahmen (Frames) in einem Text verwendet
+                    werden (z.B. Sicherheit vs. Freiheit, Chance vs. Risiko).</li>
+                <li><strong>Argumentationsanalyse:</strong> Identifikation von Argumenten, Begründungen, Forderungen
+                    oder sogar spezifischen Argumentationstypen.</li>
+                <li><strong>Akteursextraktion:</strong> Automatische Erkennung und Extraktion von genannten politischen
+                    Akteuren (Personen, Parteien, Organisationen).</li>
+                <li><strong>Nuancierte Emotions-/Tonalitätsanalyse:</strong> Über einfache Polarität hinausgehende
+                    Analysen (z.B. Erkennung von Ärger, Zynismus, Unterstützung).</li>
+                <li><strong>Zusammenfassung:</strong> Automatische Erstellung von Zusammenfassungen großer Textmengen
+                    oder langer Debatten.</li>
+            </ul>
+
+            <h4>Zugangswege & Werkzeuge</h4>
+            <ul>
+                <li><strong>APIs (Cloud-basiert):</strong> Anbieter wie OpenAI (GPT-Modelle), Anthropic
+                    (Claude-Modelle), Google (Gemini-Modelle) bieten APIs an.
+                    <ul>
+                        <li><em>Vorteile:</em> Oft die leistungsstärksten Modelle, einfacher Einstieg über Bibliotheken
+                            (z.B. <code>openai</code> in Python).</li>
+                        <li><em>Nachteile:</em> <strong>Kosten</strong> (Bezahlung pro Nutzung/Token),
+                            Datenschutzbedenken (Was passiert mit den Daten, die zur Analyse gesendet werden?
+                            Nutzungsbedingungen prüfen!), Abhängigkeit vom Anbieter.</li>
+                    </ul>
+                </li>
+                <li><strong>Hugging Face Hub & <code>transformers</code> Bibliothek:</strong> Eine riesige Plattform für
+                    Open-Source-Modelle.
+                    <ul>
+                        <li><em>Vorteile:</em> Große Auswahl an Modellen (viele auch für Deutsch), oft kostenlos nutzbar
+                            (lokal oder über Hugging Face Inference Endpoints), mehr Kontrolle.</li>
+                        <li><em>Nachteile:</em> Benötigt oft mehr technisches Setup, Leistung der Modelle variiert,
+                            Hardware-Anforderungen für lokale Nutzung können hoch sein.</li>
+                    </ul>
+                </li>
+                <li><strong>Lokale Modelle (Fortgeschritten):</strong> Open-Source-Modelle (z.B. Llama 3, Mistral,
+                    Mixtral) können mit Tools wie <code>ollama</code>, <code>LM Studio</code> oder direkt über Hugging
+                    Face-Bibliotheken heruntergeladen und auf dem eigenen Rechner ausgeführt werden.
+                    <ul>
+                        <li><em>Vorteile:</em> Volle Datenkontrolle (keine Daten verlassen den Rechner), keine
+                            API-Kosten.</li>
+                        <li><em>Nachteile:</em> <strong>Erfordert sehr leistungsstarke Hardware</strong> (insbesondere
+                            eine GPU mit viel VRAM – oft 12GB+ für brauchbare Modelle), langsamer als Cloud-APIs,
+                            technischer Aufwand bei Installation und Nutzung.</li>
+                    </ul>
+                </li>
+                <li><strong>Frameworks (Optional):</strong> Für komplexere Abläufe (z.B. Kombination von LLM-Aufrufen,
+                    Einbindung externer Daten) gibt es Frameworks wie <code>LangChain</code> oder
+                    <code>LlamaIndex</code>.</li>
+            </ul>
+
+            <h4>Potenziale vs. Herausforderungen & Risiken</h4>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0;">
+                <div style="flex-basis: 45%;">
+                    <h5>Potenziale von LLMs</h5>
+                    <ul>
+                        <li>✅ Enorme Skalierbarkeit für große Datenmengen</li>
+                        <li>✅ Analyse komplexer semantischer Merkmale (Themen, Frames etc.)</li>
+                        <li>✅ Hohe Flexibilität durch Prompt Engineering</li>
+                        <li>✅ Potenzial für neue Forschungsfragen</li>
+                    </ul>
+                </div>
+                <div
+                    style="flex-basis: 45%; background-color: #fff5f5; border: 1px solid #fcc; padding: 0.5rem; border-radius: 4px;">
+                    <h5>Herausforderungen & Risiken</h5>
+                    <ul>
+                        <li>🔴 Kosten (insbesondere APIs)</li>
+                        <li>🔴 Reproduzierbarkeit (Modelle ändern sich)</li>
+                        <li>🔴 Abhängigkeit von Prompt-Qualität</li>
+                        <li>🔴 <strong>Validierungsaufwand!</strong> (Ergebnisse MÜSSEN geprüft werden)</li>
+                        <li>🔴 Risiko von Bias & Stereotypen aus Trainingsdaten</li>
+                        <li>🔴 "Halluzinationen" (Erfinden von Fakten)</li>
+                        <li>🔴 Datenschutz bei API-Nutzung</li>
+                        <li>🔴 Hohe Hardware-Anforderungen (lokal)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p><strong>Anwendungsbezug:</strong> Mit einem LLM könnten wir die zuvor gesammelten
+                <strong>taz.de-Artikeltexte</strong> systematisch analysieren. Wir könnten z.B. untersuchen welche Hauptargumente pro/contra 'Klimawandel' werden genannt? 
+                Welche Akteure kommen zu Wort? Welche Frames (z.B. 'Klimaschutz' vs.
+                'Rechtsbruch' vs. 'ziviler Ungehorsam') dominieren die Berichterstattung? Wir werden das LLM bitten,
+                die Ergebnisse direkt in einem strukturierten Format (z.B. JSON) auszugeben.</p>
+
+            <h4>Praktische Umsetzung im Colab: Textanalyse mit LLMs</h4>
+            <div class="colab-embed-box interactive-box">
+                <h4>Google Colab: Erste Schritte mit LLMs für Textanalyse</h4>
+                <p>Dieses Colab Notebook demonstriert, wie man ein kleineres, aber fähiges Open-Source LLM wie Quen 2.5 7B (oder auch z.B. eine
+                    Variante von Mistral oder Llama) über die Hugging Face <code>transformers</code>-Bibliothek in Colab
+                    (mit kostenloser GPU-Unterstützung!) lädt. Wir zeigen, wie man es mittels Prompting für eine
+                    spezifische Analyseaufgabe einsetzt, z.B. zur Themenklassifikation oder zur Extraktion von
+                    Informationen mit einer gewünschten (JSON-)Struktur.</p>
+                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Hier können Sie das Notebook <a href="https://colab.research.google.com/drive/1lv3dw1v5s4EkmWXOlZdXSuDDYpYWl05a?usp=sharing" target="_blank"
+                        rel="noopener noreferrer">direkt öffnen</a> (wie immer kopieren).</p>
+            </div>
+
+            <p><strong>Fazit zu LLMs:</strong> LLMs eröffnen faszinierende neue Wege für die Analyse politischer
+                Kommunikation im großen Maßstab. Sie ersetzen jedoch nicht die Notwendigkeit einer soliden Methodik und
+                kritischen Reflexion. Der <strong>Validierungsaufwand</strong> ist zentral – vertrauen Sie den Ergebnissen nicht
+                blind, sondern prüfen Sie sie systematisch (z.B. durch Vergleich mit manueller Codierung an einer
+                Teilstichprobe).</p>
+
+            <hr>
+
+            <h2>4. Verknüpfung: Von Daten und Methoden zur Erkenntnis</h2>
+            <p>Die eigentliche Stärke entfaltet sich oft erst in der Kombination der vorgestellten Techniken: Die
+                <strong>Datenbeschaffungsstrategien</strong> (Abschnitt 2) liefern uns das Rohmaterial aus der digitalen
+                Welt, und die <strong>automatisierten Analysemethoden</strong> (Abschnitt 3) helfen uns dabei, in diesen
+                (oft riesigen) Datenmengen Muster, Trends und Einsichten zu entdecken.</p>
+            <p>So könnten wir beispielsweise via Telegram API gesammelte Nachrichten aus öffentlichen politischen
+                Kanälen (Datenbeschaffung) anschließend mit LLMs auf wiederkehrende Narrative oder Framing-Strategien
+                untersuchen (Analyse).</p>
+
+            <hr>
+
+            <h2>5. Ausblick & Nächste Schritte</h2>
+            <p>Wir haben heute einen ersten kleinen Einblick in die technischen Grundlagen der Datenbeschaffung und
+                automatisierten Analyse gewonnen. Die bereitgestellten Google Colab Notebooks (Web Scraping, YouTube
+                Download, Sentiment Analyse, LLM Analyse) bieten Ihnen die Möglichkeit, diese Techniken selbst praktisch
+                auszuprobieren und zu vertiefen.</p>
+            <p>Nutzen Sie diese Werkzeuge und Konzepte als Inspiration und Grundlage für Ihre eigenen Forschungsideen
+                und die anstehenden Hausarbeiten. Überlegen Sie, welche Datenquellen für Ihre Fragestellung relevant
+                sein könnten und welche Analysemethoden (automatisiert oder auch klassisch qualitativ/quantitativ) Ihnen
+                helfen könnten, diese zu beantworten.</p>
+
+            <p><strong>Ausblick auf Sitzung 3:</strong> In der nächsten Sitzung werden wir uns stärker mit konkreten
+                <strong>Forschungsdesigns</strong> beschäftigen. Wir diskutieren, wie Sie die heute vorgestellten
+                Methoden (und andere) sinnvoll in Ihr Forschungsprojekt integrieren können, von der Fragestellung über
+                die Datenerhebung und Analyse bis hin zur Interpretation. Wir werden auch noch mehr Zeit haben, erste Ideen und
+                Fragen zu Ihren Hausarbeiten zu besprechen.</p>
+
+        </main>
+    </div>
+
+    <footer style="z-index: 10000000000;">
+        <p>© 2026 Andreas Reich - Universität Hohenheim</p>
+    </footer>
+
+    <!-- JS für wiederverwendete interaktive Elemente -->
+    <script src="api-animation.js"></script>
+    <!-- Ggf. weitere Skripte für neue interaktive Elemente hier einfügen -->
+
+    <!-- Einbettungs-Skripte für Colab (normalerweise nicht nötig, da iframes reichen) -->
+
+</body>
+
+</html>

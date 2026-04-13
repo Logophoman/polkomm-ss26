@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Setting - Politische Kommunikation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Anwendungsfelder der Politischen Kommunikation</h1>
+         <p class="subtitle">Thema: Agenda Setting</p>
+    </header>
+
+     <nav>
+         <ul>
+             <li><a href="index.html">Kursübersicht</a></li>
+             <li><a href="agenda-setting.html" class="active">Agenda Setting</a></li>
+             <li><a href="priming.html">Priming</a></li>
+             <li><a href="framing.html">Framing</a></li>
+         </ul>
+     </nav>
+
+    <div class="container">
+        <main>
+            <h2>Agenda Setting: Worüber wir nachdenken</h2>
+
+            <p>Die Agenda-Setting-Theorie, ursprünglich von Maxwell McCombs und Donald Shaw (1972) formuliert, ist eines der einflussreichsten Konzepte in der Kommunikationswissenschaft. Sie beschreibt die Fähigkeit der Massenmedien, die Wichtigkeit von Themen in der öffentlichen Wahrnehmung zu beeinflussen.</p>
+
+            <div class="definition">
+                <strong>Kerngedanke:</strong> Medien bestimmen nicht unbedingt, <em>was</em> wir denken (unsere Meinung), aber sie beeinflussen maßgeblich, <em>worüber</em> wir nachdenken (die Themen, die wir für wichtig halten).
+            </div>
+
+            <h3>Die zwei Ebenen des Agenda Setting</h3>
+            <ol>
+                <li><strong>First-Level Agenda Setting:</strong> Fokus auf die <strong>Salienz (Wichtigkeit) von Themen</strong>. Medien wählen bestimmte Themen aus und berichten häufiger und prominenter darüber als über andere. Diese Themen werden dann vom Publikum als wichtiger wahrgenommen. Beispiel: Wenn Medien intensiv über Arbeitslosigkeit berichten, wird dieses Thema für die Bevölkerung wichtiger.</li>
+                <li><strong>Second-Level Agenda Setting:</strong> Fokus auf die <strong>Salienz von Attributen</strong> (Eigenschaften, Aspekten) eines Themas oder Objekts (z.B. eines Politikers). Medien betonen bestimmte Eigenschaften oder Perspektiven eines Themas und beeinflussen so, <em>wie</em> über das Thema nachgedacht wird. Beispiel: Bei der Berichterstattung über einen Politiker wird entweder seine Kompetenz oder seine Integrität betont. Dies grenzt an Priming und Framing.</li>
+            </ol>
+
+             <div class="example">
+                <strong>Beispiel:</strong> Stellen Sie sich vor, in den Nachrichten wird wochenlang intensiv über Umweltverschmutzung berichtet (Platzierung auf Titelseiten, lange Sendezeiten). Dadurch steigt die Wahrscheinlichkeit, dass die Öffentlichkeit Umweltverschmutzung als eines der wichtigsten Probleme im Land ansieht (First-Level). Wenn die Berichterstattung dabei immer wieder auf die Rolle großer Industriekonzerne fokussiert, prägt dies das Bild, <em>wer</em> für das Problem verantwortlich ist (Second-Level).
+             </div>
+
+
+            <h3>Mechanismen des Agenda Settings</h3>
+            <p>Wie setzen Medien Themen auf die Agenda?</p>
+            <ul>
+                <li><strong>Selektion:</strong> Auswahl bestimmter Themen aus einer Vielzahl möglicher Ereignisse.</li>
+                <li><strong>Häufigkeit der Berichterstattung:</strong> Je öfter über ein Thema berichtet wird, desto wichtiger erscheint es.</li>
+                <li><strong>Platzierung und Prominenz:</strong> Themen auf der Titelseite, am Anfang der Nachrichten oder in Schlagzeilen wirken wichtiger.</li>
+                <li><strong>Framing (im weiteren Sinne):</strong> Auch die Art der Darstellung (siehe Second-Level) beeinflusst die Wahrnehmung.</li>
+            </ul>
+
+            <div class="interactive-box">
+                <h4>Interaktives Element: Die Nachrichtenredaktion</h4>
+                <p>Stellen Sie sich vor, Sie leiten eine Nachrichtenredaktion. Sie haben Platz für 3 Hauptschlagzeilen. Welche Themen wählen Sie aus der folgenden Liste aus, um sie prominent zu platzieren?</p>
+                <div id="news-options">
+                     <input type="checkbox" id="topic1" name="news_topic" value="Wirtschaftskrise"> <label for="topic1">Drohende Wirtschaftskrise</label><br>
+                     <input type="checkbox" id="topic2" name="news_topic" value="Bildungsreform"> <label for="topic2">Neue Bildungsreform</label><br>
+                     <input type="checkbox" id="topic3" name="news_topic" value="Klimawandel"> <label for="topic3">Auswirkungen des Klimawandels</label><br>
+                     <input type="checkbox" id="topic4" name="news_topic" value="Gesundheitssystem"> <label for="topic4">Reform des Gesundheitssystems</label><br>
+                     <input type="checkbox" id="topic5" name="news_topic" value="Lokalsport"> <label for="topic5">Erfolg der lokalen Fußballmannschaft</label><br>
+                </div>
+                <button onclick="showPublicOpinion()">Öffentliche Meinung simulieren</button>
+                <div id="public-opinion-result" class="hidden-content">
+                    <!-- Ergebnis wird hier per JS eingefügt -->
+                </div>
+            </div>
+
+             <h3>Kritik und Weiterentwicklung</h3>
+             <p>Die ursprüngliche Theorie wurde kritisiert und erweitert. Fragen sind etwa: Wer setzt die Agenda der Medien ("Agenda Building")? Wie stark ist der Effekt im Zeitalter von Online-Medien und sozialen Netzwerken, wo Nutzer*innen Inhalte stärker selbst auswählen können ("Filter Bubbles", Echokammern)? Trotzdem bleibt das Grundprinzip relevant.</p>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 Andreas Reich - Universität Hohenheim</p>
+    </footer>
+
+    <script>
+        // Interaktion für Agenda Setting
+        function showPublicOpinion() {
+            const checkboxes = document.querySelectorAll('#news-options input[type="checkbox"]:checked');
+            const selectedTopics = [];
+            checkboxes.forEach(cb => {
+                 if (selectedTopics.length < 3) { // Limitiert auf 3 Hauptthemen
+                     selectedTopics.push(cb.value);
+                 }
+            });
+
+            const resultDiv = document.getElementById('public-opinion-result');
+            resultDiv.style.display = 'block'; // Inhalt anzeigen
+
+            if (selectedTopics.length === 0) {
+                 resultDiv.innerHTML = '<p>Sie haben keine Themen ausgewählt. Die öffentliche Agenda bleibt unbeeinflusst.</p>';
+            } else if (selectedTopics.length > 3) {
+                 resultDiv.innerHTML = '<p class="feedback incorrect">Bitte wählen Sie maximal 3 Themen für die Hauptschlagzeilen aus.</p>';
+            } else {
+                let opinionText = '<p>Basierend auf Ihrer Auswahl der Hauptschlagzeilen, hält die Öffentlichkeit nun folgende Themen für besonders wichtig:</p><ul>';
+                selectedTopics.forEach(topic => {
+                    opinionText += `<li><strong>${topic}</strong></li>`;
+                });
+                opinionText += '</ul><p>Andere Themen rücken in den Hintergrund. Dies demonstriert den Agenda-Setting-Effekt!</p>';
+                 resultDiv.innerHTML = opinionText;
+            }
+             // De-selektiere Checkboxen, wenn mehr als 3 ausgewählt wurden (optional)
+             if (checkboxes.length > 3) {
+                  checkboxes.forEach(cb => cb.checked = false);
+             }
+        }
+    </script>
+</body>
+</html>

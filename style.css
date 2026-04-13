@@ -1,0 +1,3159 @@
+/* style.css */
+:root {
+    --primary-color: #003366;
+    /* Dunkelblau */
+    --secondary-color: #f4f4f4;
+    /* Helles Grau */
+    --text-color: #333;
+    --accent-color: #e8491d;
+    /* Akzentfarbe Orange */
+    --max-width: 960px;
+    --border-radius: 5px;
+    --hover-lighten: rgba(255, 255, 255, 0.1);
+    --hover-darken: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #fff;
+    /* Weißer Hintergrund */
+    padding-bottom: 60px;
+    /* Platz für den Footer */
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 2rem auto;
+    padding: 0 2rem;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+header {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+header .subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+nav ul {
+    list-style: none;
+    padding: 1rem 0;
+    background: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--accent-color);
+}
+
+main {
+    margin-top: 2rem;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul,
+ol {
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+}
+
+blockquote {
+    background: var(--secondary-color);
+    border-left: 5px solid var(--primary-color);
+    margin: 1.5em 0;
+    padding: 1em 1.5em;
+    font-style: italic;
+}
+
+strong,
+b {
+    font-weight: bold;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 2rem 0;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+footer {
+    background: var(--text-color);
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 3rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Styling für Interaktive Elemente */
+.interactive-box {
+    background-color: var(--secondary-color);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.interactive-box h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+.button-like {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+button:hover,
+.button-like:hover {
+    background-color: #d73a0a;
+    /* Dunkleres Orange */
+    transform: translateY(-1px);
+}
+
+button:active,
+.button-like:active {
+    transform: translateY(0px);
+}
+
+.definition,
+.example {
+    background-color: #e7f3fe;
+    /* Hellblau */
+    border-left: 4px solid #2196F3;
+    /* Blau */
+    padding: 10px 15px;
+    margin: 1em 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.hidden-content {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: white;
+    border: 1px dashed #ccc;
+    border-radius: var(--border-radius);
+}
+
+.quiz-options label {
+    display: block;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease;
+}
+
+.quiz-options label:hover {
+    background-color: #e0e0e0;
+}
+
+.quiz-options input[type="radio"] {
+    margin-right: 10px;
+}
+
+.feedback {
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+}
+
+.feedback.correct {
+    background-color: #d4edda;
+    /* Grünlich */
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.feedback.incorrect {
+    background-color: #f8d7da;
+    /* Rötlich */
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.method-section {
+    background-color: #f9f9f9;
+    /* Sehr helles Grau */
+    border: 1px solid #e0e0e0;
+    /* Heller Rand */
+    border-radius: var(--border-radius);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 10px;
+    /* Abstand zwischen den Methodenblöcken */
+}
+
+.method-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    /* Optional: leichter Unterstrich für die Methodenüberschrift */
+    /* border-bottom: 1px solid #ddd; */
+}
+
+.method-section ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    /* Weniger Abstand am Ende der Liste innerhalb des Blocks */
+}
+
+.pdf-embed-box iframe {
+    border-radius: var(--border-radius);
+    /* Abrundung für den iframe Rand */
+}
+
+.warning-box {
+    background-color: #fff3cd;
+    /* Blasses Gelb */
+    border: 1px solid #ffeeba;
+    border-left: 5px solid #ffc107;
+    /* Gelber Rand links */
+    border-radius: var(--border-radius);
+    padding: 1rem 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 15px;
+    /* Abstand nach oben */
+    color: #856404;
+    /* Dunkelgelbe Schrift */
+}
+
+.warning-box h4 {
+    color: #856404;
+    /* Überschrift in Warnbox auch dunkelgelb */
+    margin-bottom: 0.75rem;
+}
+
+.warning-box ul {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    /* Leichter Einzug der Liste */
+    list-style-type: disc;
+    /* Standard-Aufzählungszeichen */
+}
+
+.warning-box li {
+    margin-bottom: 0.3rem;
+    /* Kleinerer Abstand zwischen Listenelementen */
+}
+
+/* Einfache Darstellung für den Scraping-Prozessfluss */
+.process-flow {
+    display: flex;
+    /* Elemente nebeneinander */
+    flex-wrap: wrap;
+    /* Umbruch bei schmalem Bildschirm */
+    align-items: center;
+    /* Vertikal zentrieren */
+    gap: 0.5rem;
+    /* Kleiner Abstand zwischen Elementen */
+    margin: 1rem 0;
+    /* Abstand oben/unten */
+    padding: 0.5rem;
+    background: #f8f9fa;
+    /* Leicht grauer Hintergrund für den Fluss */
+    border-radius: var(--border-radius);
+}
+
+.process-flow .step {
+    padding: 0.3rem 0.6rem;
+    background-color: var(--secondary-color);
+    /* Heller Hintergrund für Schritte */
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.process-flow .arrow {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#inference-visualization {
+    position: relative;
+    width: 95%;
+    /* Use percentage width */
+    max-width: 600px;
+    /* Max width for larger screens */
+    min-height: 250px;
+    /* Minimum height to fit elements */
+    border: 1px solid #eee;
+    background: #fdfdfd;
+    margin-top: 1rem;
+    margin-left: auto;
+    /* Center the container itself */
+    margin-right: auto;
+    display: flex;
+    /* Use flexbox to center the inner content */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Hide potential overflows */
+    padding: 10px 5px;
+    /* Padding inside container */
+}
+
+.inf-layer {
+    /* Positioned absolutely by JS */
+    display: flex;
+    /* Use flex for internal node layout although not really needed */
+    flex-direction: column;
+    align-items: center;
+}
+
+.inf-node {
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    /* Make nodes round */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    /* Size and position set by JS */
+    position: absolute;
+    /* Needed for JS positioning within layer */
+    z-index: 6;
+    /* Above edges */
+}
+
+.inf-node.active {
+    background-color: var(--primary-color);
+    /* Use theme color */
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+/* Edges are SVG lines, styled via JS initially */
+#inf-svg-canvas .inf-edge {
+    stroke: #ddd;
+    stroke-width: 1.5px;
+    transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+#inf-svg-canvas .inf-edge.active {
+    stroke: var(--primary-color);
+    /* Use theme color */
+    stroke-width: 2.5px;
+}
+
+
+.inf-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Center content vertically */
+    min-height: 150px;
+    /* Ensure area has some height */
+}
+
+#inf-input-area {
+    position: relative;
+    /* Needed for absolute positioning of emoji */
+}
+
+.inf-output-label {
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    width: 100%;
+    color: #777;
+    /* Default dimmed color */
+}
+
+.inf-output-label.active {
+    background-color: var(--accent-color);
+    /* Use accent for final output */
+    border-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+.inf-arrow {
+    font-size: 2em;
+    color: #ccc;
+    align-self: center;
+    /* Align arrow vertically in the flex row */
+    margin: 0 10px;
+    /* Spacing around arrows */
+    padding-bottom: 10px;
+    /* Nudge down slightly if needed */
+}
+
+#inf-magnify {
+    z-index: 2;
+    position: relative;
+}
+
+#survey-visualization {
+    background-color: #f8f9fa;
+    /* Leicht anderer Hintergrund */
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.survey-question {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Likert Scale Button Group */
+.likert-scale {
+    display: flex;
+    justify-content: space-between;
+    /* Gleichmäßiger Abstand */
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    /* Rahmen um die Gruppe */
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    /* Sorgt dafür, dass Rundung sichtbar ist */
+}
+
+.likert-scale button {
+    flex-grow: 1;
+    /* Alle Buttons gleich breit */
+    padding: 10px 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-left: 1px solid #ccc;
+    /* Trennlinien */
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    color: #555;
+    text-align: center;
+    line-height: 1.3;
+    /* Für zweizeilige Labels */
+}
+
+.likert-scale button:first-child {
+    border-left: none;
+    /* Kein Rand links beim ersten Button */
+}
+
+.likert-scale button:hover {
+    background-color: var(--secondary-color);
+    /* Helles Grau beim Hovern */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.likert-scale button.selected {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Results Area */
+#survey-results {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #ccc;
+}
+
+#survey-results h4 {
+    text-align: center;
+    color: #666;
+    font-size: 0.9em;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.results-bars {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* << CHANGE: Align items center vertically first */
+    height: 120px;
+    /* WICHTIG: Explizite Höhe des Diagrammbereichs */
+    padding: 0 10px;
+    margin-bottom: 30px;
+    /* << INCREASED: Mehr Platz für Labels unten */
+    /* background: #eee; */
+    /* Optional: Hintergrund zum Debuggen */
+}
+
+.bar-container {
+    flex-basis: 18%;
+    /* Breite */
+    display: flex;
+    flex-direction: column-reverse;
+    /* << CHANGE: Items stapeln, Bar unten (wächst nach oben) */
+    align-items: center;
+    /* Horizontal zentriert */
+    height: 100%;
+    /* << ADD: Volle Höhe des Eltern-Containers (.results-bars) nehmen */
+    position: relative;
+    /* Erlaubt absolute Positionierung von Labels wenn nötig */
+    /* border: 1px dashed red; */
+    /* Optional: Rahmen zum Debuggen */
+}
+
+.bar {
+    width: 70%;
+    background-color: var(--primary-color);
+    border-radius: 3px 3px 0 0;
+    /* Oben abgerundet */
+    height: 0%;
+    /* Wird per JS gesetzt (z.B. 50%) */
+    transition: height 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    /* Wächst jetzt vom Boden (flex-end der column-reverse) nach oben */
+    /* border: 1px solid blue; */
+    /* Optional: Rahmen zum Debuggen */
+}
+
+/* Labels für unterhalb der Balken */
+.bar-label {
+    /* Die Text '1', '2' etc. */
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 5px;
+    /* Abstand zum darüberliegenden Element (Wert) */
+    order: 2;
+    /* Wird unter dem Wert angezeigt in column-reverse */
+}
+
+.bar-value {
+    /* Die Prozentzahl 'XX%' */
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #333;
+    height: 1.2em;
+    /* Feste Höhe, vermeidet Sprung */
+    margin-top: 2px;
+    /* Minimaler Abstand vom Boden des Containers */
+    order: 1;
+    /* Wird als erstes (unterstes) angezeigt in column-reverse */
+}
+
+
+/* Feedback message */
+#survey-feedback {
+    margin-top: 1rem;
+    min-height: 1.5em;
+    /* Verhindert Layout-Sprung, wenn Text erscheint */
+    text-align: center;
+    font-style: italic;
+    padding: 8px;
+    /* Macht den Hintergrund/Rand sichtbar */
+    /* Class 'correct' wird von JS gesetzt für Styling */
+}
+
+/* Utility from base CSS - reuse if exists */
+.hidden-content {
+    display: none;
+}
+
+#casestudy-visualization {
+    position: relative;
+    /* Positioning context */
+    height: 300px;
+    /* << INCREASED Height to prevent cutoff */
+    width: 90%;
+    max-width: 450px;
+    /* << Adjusted max-width slightly */
+    border: 1px solid #eee;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-radius: var(--border-radius);
+    margin: 1.5rem auto;
+    /* Center container, added margin top/bottom */
+    overflow: hidden;
+    /* Keep overflow hidden for now */
+    /* display/justify/align not needed directly for absolute children */
+}
+
+#cs-case {
+    position: absolute;
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Fine-tune centering */
+    width: 70px;
+    height: 70px;
+    background-color: #e9ecef;
+    border: 2px solid #adb5bd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-align: center;
+    color: #495057;
+    z-index: 1;
+    transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#cs-case::before {
+    content: '📄';
+    font-size: 1.5em;
+    display: block;
+    margin-bottom: 3px;
+}
+
+#cs-case.final-highlight {
+    background-color: #cfe2ff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.cs-method {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border: 2px solid #ced4da;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4em;
+    z-index: 2;
+    transition: transform 0.4s ease-out, opacity 0.4s ease, border-color 0.3s ease, background-color 0.3s ease;
+    opacity: 0;
+    transform: scale(0.8);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Positions below use translate *in addition* to top/left for centering the icon itself */
+}
+
+/* Positioning using absolute centering + offset via translate */
+/* Offset Distance */
+:root {
+    --cs-offset: 85px;
+}
+
+/* << DEFINE OFFSET as CSS Variable */
+
+#cs-method-survey {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - var(--cs-offset))) scale(0.8);
+}
+
+/* Top */
+#cs-method-interview {
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50% + var(--cs-offset)), -50%) scale(0.8);
+}
+
+/* Right */
+#cs-method-content {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + var(--cs-offset))) scale(0.8);
+}
+
+/* Bottom */
+#cs-method-network {
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50% - var(--cs-offset)), -50%) scale(0.8);
+}
+
+/* Left */
+
+
+/* Define unique content (e.g., emoji) per method */
+#cs-method-survey::before {
+    content: '📊';
+}
+
+#cs-method-interview::before {
+    content: '💬';
+}
+
+#cs-method-content::before {
+    content: '📝';
+}
+
+#cs-method-network::before {
+    content: '🔗';
+}
+
+
+.cs-method.active {
+    border-color: var(--primary-color);
+    background-color: #e7f1ff;
+}
+
+/* << REVISED Focused state - applied directly via JS on move */
+.cs-method.focused {
+    border-color: var(--accent-color);
+    border-width: 3px;
+    box-shadow: 0 0 8px var(--accent-color);
+    /* Scaling/transform managed by magnifier interaction logic */
+}
+
+#cs-magnifier {
+    position: absolute;
+    font-size: 3.5em;
+    color: #333;
+    opacity: 0;
+    z-index: 5;
+    pointer-events: none;
+    /* Move transform/opacity transition here for consistency */
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease, top 0.5s ease, left 0.5s ease;
+    /* transform-origin set implicitly to center by transform */
+}
+
+
+/* --- Connectors (Revised Positioning) --- */
+.cs-connector {
+    position: absolute;
+    height: 2px;
+    background-color: #adb5bd;
+    /* Start position precisely at the center */
+    top: 50%;
+    left: 50%;
+    /* Calculate width to reach from center almost to icon edge */
+    /* Width = Offset - (CaseRadius * ~0.7) - (IconRadius * ~0.7) */
+    width: calc(var(--cs-offset) - 25px - 15px);
+    /* Approx radius touch point */
+    transform-origin: left center;
+    /* Rotate around the starting point (center) */
+    z-index: 0;
+    opacity: 0;
+    transition: background-color 0.3s ease, opacity 0.4s ease, height 0.3s ease;
+    transform: translateY(-50%);
+    /* Adjust base position to center the line thickness */
+}
+
+/* Apply rotations */
+#cs-connector-survey {
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+/* Point Up */
+#cs-connector-interview {
+    transform: translateY(-50%) rotate(0deg);
+}
+
+/* Point Right */
+#cs-connector-content {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Point Down */
+#cs-connector-network {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Point Left */
+
+.cs-connector.active {
+    background-color: var(--primary-color);
+    height: 3px;
+    opacity: 0.8 !important;
+    /* Ensure visibility when active */
+}
+
+#metadata-visualization {
+    position: relative;
+    /* Context for absolute elements */
+    height: 200px;
+    /* Container height */
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid #eee;
+    background: #f8f9fa;
+    border-radius: var(--border-radius);
+    margin: 1.5rem auto;
+    overflow: hidden;
+    /* Clip particles/cursor moving outside */
+    display: flex;
+    /* Use flex to position children */
+    align-items: center;
+    /* Vertically center children */
+    justify-content: space-between;
+    /* Space out content and datastore */
+    padding: 15px;
+}
+
+.meta-content-area {
+    width: 65%;
+    /* Area for mock content */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* Distribute items vertically */
+}
+
+.meta-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.meta-item span {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+/* Text takes available space */
+
+.meta-action-btn {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 2px;
+    line-height: 1;
+    /* Prevent extra button height */
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.meta-action-btn:hover {
+    opacity: 1;
+}
+
+/* Not really used in animation */
+
+.meta-duration {
+    /* Placeholder for view time simulation */
+    font-size: 0.8em;
+    color: #888;
+    margin-right: 5px;
+}
+
+#meta-cursor {
+    position: absolute;
+    width: 20px;
+    /* Approx size */
+    height: 20px;
+    opacity: 0;
+    /* Start hidden */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256" fill="black"><path d="M47.95,24A8,8,0,0,0,32,31.95V224a8,8,0,0,0,14.63,5.27l42.61-58.1,40.94,58.5a8,8,0,0,0,13.5-8.67L106.4,160.27l63.73-8.5a8,8,0,0,0,4.45-13.92Z"/></svg>');
+    /* Basic pointer SVG */
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+    transition: top 0.6s ease-out, left 0.6s ease-out, opacity 0.3s, transform 0.15s ease;
+    pointer-events: none;
+    /* Allow clicks through */
+    transform-origin: top left;
+}
+
+#meta-datastore {
+    width: 20%;
+    /* Space for datastore and results */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* Position icon and text */
+    /* background: #e0e0e0; */
+    /* Debug background */
+}
+
+#meta-datastore::before {
+    /* Database icon */
+    content: '🗄️';
+    /* Database/Server emoji */
+    font-size: 3em;
+    transition: transform 0.3s ease-in-out;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#meta-datastore.active::before {
+    transform: scale(1.15);
+    /* Pulse effect */
+}
+
+#meta-results-display {
+    font-size: 0.8em;
+    color: #555;
+    text-align: center;
+    padding: 3px 6px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    max-width: 100%;
+    white-space: nowrap;
+    /* Prevent wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#meta-results-display.active {
+    opacity: 1;
+    color: var(--primary-color);
+    /* Highlight result */
+    font-weight: bold;
+}
+
+
+/* --- Particles --- */
+@keyframes particleFlow {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0.8;
+    }
+
+    100% {
+        /* Use CSS variables set by JS for destination */
+        transform: translate(var(--dest-x), var(--dest-y));
+        opacity: 0;
+    }
+}
+
+.meta-particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: var(--primary-color);
+    opacity: 0.8;
+    border-radius: 50%;
+    z-index: 5;
+    pointer-events: none;
+    animation: particleFlow 1.5s ease-in forwards;
+    box-shadow: 0 0 3px var(--primary-color);
+}
+
+/* --- Trace Icon Fade --- */
+@keyframes fadeInOut {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: translateY(0) scale(0.8);
+    }
+
+    20%,
+    80% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1);
+    }
+}
+
+.meta-trace-icon {
+    position: absolute;
+    font-size: 1.5em;
+    z-index: 6;
+    pointer-events: none;
+    opacity: 0;
+    /* Start hidden */
+    /* Apply animation via class */
+}
+
+.meta-trace-icon.fade-in-out {
+    animation: fadeInOut 1s ease-in-out forwards;
+}
+
+#experiment-visualization {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1rem;
+    text-align: center;
+    /* Center conclusion text */
+}
+
+.exp-versions {
+    display: flex;
+    justify-content: space-around;
+    /* Space out A and B */
+    align-items: flex-start;
+    /* Align tops */
+    gap: 1rem;
+    /* Space between columns */
+    margin-bottom: 1.5rem;
+}
+
+.exp-version {
+    flex-basis: 45%;
+    /* Each version takes slightly less than half */
+    border: 2px solid #ccc;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    background-color: #fff;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
+    /* For winner highlight */
+}
+
+.exp-version h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.1em;
+    text-align: center;
+}
+
+/* Styling for the 'winner' version */
+.exp-version.winner {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(232, 73, 29, 0.5);
+    /* Accent color shadow */
+}
+
+
+.exp-ad-mockup {
+    background-color: #e9ecef;
+    /* Light background for mock ad */
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.exp-ad-emoji {
+    font-size: 3.0em;
+    /* Adjust emoji size */
+    display: block;
+    /* Ensure it takes its own line */
+    margin-bottom: 8px;
+    line-height: 1;
+    /* Prevent extra vertical space */
+}
+
+.exp-ad-mockup p {
+    font-size: 0.9em;
+    color: #495057;
+    margin-bottom: 12px;
+}
+
+/* Standard button styling from base CSS might be reused, or define specific here */
+.exp-ad-mockup button {
+    /* Basic styles if not inherited - adjust */
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: default;
+    /* Not actually clickable */
+    border: none;
+    border-radius: var(--border-radius);
+    transition: transform 0.1s ease;
+    /* For pulse */
+}
+
+#exp-btn-a {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Blue */
+#exp-btn-b {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Green */
+
+/* Pulse effect for button */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.exp-ad-mockup button.active-pulse {
+    animation: pulse 0.4s ease-in-out;
+}
+
+.exp-results-area {
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.exp-metric-label {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.exp-result-bar-container {
+    height: 25px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    /* Clip the bar */
+    margin-bottom: 5px;
+}
+
+.exp-result-bar {
+    height: 100%;
+    width: 0%;
+    /* Initial width */
+    background-color: var(--primary-color);
+    /* Use theme color */
+    border-radius: 4px 0 0 4px;
+    /* Rounded left edge */
+    transition: width 0.1s linear;
+    /* Smoother linear update */
+}
+
+/* Style winner bar differently */
+.exp-version.winner .exp-result-bar {
+    background-color: var(--accent-color);
+}
+
+
+.exp-result-value {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+
+#exp-conclusion {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    opacity: 0;
+    /* Start hidden */
+    transition: opacity 0.5s ease;
+}
+
+/* Style conclusion text if winner */
+.exp-version.winner~#exp-conclusion,
+.exp-version.winner+.exp-version+#exp-conclusion
+
+/* If B wins */
+    {
+    color: var(--accent-color);
+}
+
+#contentanalysis-visualization {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+#ca-sample-content {
+    border: 1px dashed #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    max-height: 150px;
+    /* Limit height if content is long */
+    overflow-y: auto;
+    /* Allow scrolling if needed */
+}
+
+.ca-text-item {
+    padding: 8px;
+    margin-bottom: 8px;
+    border-left: 3px solid #eee;
+    /* Subtle left border */
+    font-size: 0.95em;
+    line-height: 1.5;
+    transition: background-color 0.3s ease;
+    /* For potential background highlight */
+}
+
+/* Hover effect */
+.ca-text-item:hover {
+    background-color: #f0f0f0;
+}
+
+
+#ca-controls {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#ca-controls button {
+    /* Use existing button styles or define new */
+    margin: 0 10px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+#ca-btn-quant {
+    background-color: #ffc107;
+    color: #333;
+}
+
+/* Yellow */
+#ca-btn-qual {
+    background-color: #20c997;
+    color: white;
+}
+
+/* Teal */
+
+#ca-controls button:hover {
+    opacity: 0.9;
+}
+
+#ca-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Result areas */
+.ca-results {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.ca-results h5 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    color: #555;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.ca-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.ca-results li {
+    padding: 5px 8px;
+    border-bottom: 1px dotted #f0f0f0;
+    transition: opacity 0.4s ease;
+    /* For fade-in */
+    opacity: 0;
+    /* Start hidden for fade-in */
+}
+
+.ca-results li:last-child {
+    border-bottom: none;
+}
+
+#ca-quant-list li {
+    display: flex;
+    align-items: center;
+}
+
+.ca-quant-icon {
+    font-size: 1.1em;
+    margin-right: 8px;
+    width: 20px;
+    text-align: center;
+}
+
+.ca-quant-count {
+    margin-left: auto;
+    font-weight: bold;
+    background: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 3px;
+    min-width: 25px;
+    text-align: right;
+}
+
+#ca-qual-list code {
+    /* Style for the code/label */
+    font-weight: bold;
+    color: #6f42c1;
+    /* Purple */
+    background-color: #f8f0ff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-right: 8px;
+    font-size: 0.9em;
+}
+
+#ca-qual-list q {
+    /* Style for the quoted text */
+    font-style: italic;
+    color: #444;
+    quotes: "“" "”";
+}
+
+#ca-qual-list q::before {
+    content: open-quote;
+}
+
+#ca-qual-list q::after {
+    content: close-quote;
+}
+
+/* --- Highlighting Styles --- */
+.highlight-quant {
+    background-color: rgba(255, 193, 7, 0.4);
+    /* Semi-transparent yellow */
+    border-radius: 2px;
+    padding: 0 1px;
+    /* animation: pulse-yellow 0.5s ease-in-out; */
+}
+
+.highlight-qual {
+    background-color: rgba(32, 201, 151, 0.3);
+    /* Semi-transparent teal */
+    /* border-bottom: 2px solid #20c997; */
+    border-radius: 2px;
+    padding: 0 1px;
+    font-weight: normal;
+    /* Reset if parent is bold */
+    /* animation: pulse-teal 0.5s ease-in-out; */
+}
+
+/* Optional pulse animations for highlights */
+
+@keyframes pulse-yellow {
+
+    0%,
+    100% {
+        background-color: rgba(255, 193, 7, 0.4);
+    }
+
+    50% {
+        background-color: rgba(255, 193, 7, 0.7);
+    }
+}
+
+@keyframes pulse-teal {
+
+    0%,
+    100% {
+        background-color: rgba(32, 201, 151, 0.3);
+    }
+
+    50% {
+        background-color: rgba(32, 201, 151, 0.6);
+    }
+}
+
+#interviewfg-visualization {
+    background-color: #f0f4f8;
+    /* Light blueish background */
+    border: 1px solid #d6e0ea;
+    border-radius: var(--border-radius);
+    padding: 0;
+    /* Remove padding if scene handles spacing */
+    margin-top: 1rem;
+    overflow: hidden;
+    /* Keep elements inside */
+    min-height: 280px;
+    /* Ensure enough height */
+    display: flex;
+    /* Use flex for structure */
+    flex-direction: column;
+}
+
+#ifg-controls {
+    text-align: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #d6e0ea;
+    background-color: #e9ecef;
+}
+
+#ifg-controls button {
+    margin: 0 8px;
+    padding: 6px 16px;
+    border: 1px solid #adb5bd;
+    border-radius: var(--border-radius);
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    font-size: 0.9em;
+    color: #495057;
+}
+
+#ifg-controls button:hover {
+    background-color: #f8f9fa;
+    border-color: #6c757d;
+}
+
+#ifg-controls button.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+
+#ifg-scene {
+    position: relative;
+    /* Context for absolute elements */
+    height: 350px;
+    /* Height for the animation area */
+    width: 100%;
+    /* background-color: #fff; */
+    /* Optional scene background */
+    overflow: hidden;
+}
+
+.ifg-figure {
+    position: absolute;
+    font-size: 2.5em;
+    /* Emoji size */
+    transition: transform 0.3s ease;
+    transform-origin: bottom center;
+    /* For potential small bounce */
+    padding: 5px;
+    /* Give emoji some space */
+}
+
+/* --- Insight Bubbles --- */
+.ifg-insight-bubble {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Slightly transparent white */
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 15px 15px 15px 3px;
+    /* Speech bubble shape */
+    font-size: 0.85em;
+    font-weight: bold;
+    font-style: italic;
+    border: 1px solid rgba(0, 51, 102, 0.2);
+    /* Faint border matching primary */
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    opacity: 0;
+    /* Start hidden */
+    transform: translateY(10px) scale(0.8);
+    /* Start slightly lower/smaller */
+    transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Ease out + bounce */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+}
+
+.ifg-insight-bubble.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    /* Animate to final state */
+}
+
+#discourse-visualization {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+#discourse-text {
+    border: 1px solid #f0f0f0;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    line-height: 1.7;
+    /* Better readability */
+    font-size: 0.95em;
+    max-height: 200px;
+    /* Prevent very long texts */
+    overflow-y: auto;
+}
+
+#discourse-text p {
+    margin: 0 0 1em 0;
+}
+
+/* Paragraph spacing */
+#discourse-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+#discourse-controls {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    /* Arrange buttons neatly */
+    flex-wrap: wrap;
+    /* Allow wrapping on small screens */
+    justify-content: center;
+    gap: 8px;
+    /* Space between buttons */
+}
+
+#discourse-controls button {
+    padding: 5px 12px;
+    border: 1px solid transparent;
+    /* Base border */
+    border-radius: 15px;
+    /* Pill shape */
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+/* Style buttons based on type - use softer colors */
+.btn-type-power {
+    border-color: #ffecb3;
+    background-color: #fff9e6;
+}
+
+.btn-type-framing {
+    border-color: #cfe2ff;
+    background-color: #eaf2ff;
+}
+
+.btn-type-actors {
+    border-color: #d1e7dd;
+    background-color: #e6f3ec;
+}
+
+.btn-type-reset {
+    border-color: #adb5bd;
+    background-color: #f8f9fa;
+}
+
+
+#discourse-controls button:hover {
+    opacity: 0.9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#discourse-controls button.active {
+    font-weight: bold;
+    /* Match border color for stronger active state */
+}
+
+.btn-type-power.active {
+    background-color: #ffc107;
+    color: #333;
+    border-color: #ffa900;
+}
+
+.btn-type-framing.active {
+    background-color: #86b7fe;
+    color: white;
+    border-color: #4d94fd;
+}
+
+.btn-type-actors.active {
+    background-color: #52c48a;
+    color: white;
+    border-color: #2a9d8f;
+}
+
+
+.discourse-explanation {
+    font-size: 0.85em;
+    color: #666;
+    text-align: center;
+    padding: 8px 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-top: 1rem;
+    min-height: 1.5em;
+    /* Prevent jump */
+    transition: background-color 0.3s ease;
+}
+
+.discourse-explanation:not(.visible) {
+    /* Hide initial text if desired */
+    /* color: transparent; background-color: transparent; border-color: transparent; */
+}
+
+/* Apply subtle background to explanation matching highlight */
+.hl-power-bg {
+    background-color: rgba(255, 193, 7, 0.15) !important;
+    border-color: #ffecb3;
+}
+
+.hl-frame-freedom-bg,
+.hl-frame-security-bg {
+    background-color: rgba(13, 110, 253, 0.1) !important;
+    border-color: #cfe2ff;
+}
+
+.hl-actor-pos-bg,
+.hl-actor-neg-bg {
+    background-color: rgba(32, 201, 151, 0.1) !important;
+    border-color: #d1e7dd;
+}
+
+
+/* --- Highlighting Styles for text --- */
+[class^="hl-"] {
+    /* Target all highlight classes */
+    padding: 0 2px;
+    margin: 0 -1px;
+    /* Prevent minor spacing issues */
+    border-radius: 2px;
+    font-weight: inherit;
+    /* Avoid bolding highlighted text unless intended */
+    transition: background-color 0.2s ease;
+    /* Subtle transition if styles change */
+}
+
+/* Distinct styles for each analysis type */
+.hl-power {
+    background-color: rgba(255, 193, 7, 0.6);
+    /* Stronger Yellow */
+    /* border-bottom: 2px solid #ffc107; */
+    font-weight: bold;
+    /* Make power terms bold */
+}
+
+.hl-frame-freedom {
+    background-color: rgba(13, 110, 253, 0.3);
+    /* Light Blue */
+    border-bottom: 1px dashed #0d6efd;
+}
+
+.hl-frame-security {
+    background-color: rgba(220, 53, 69, 0.25);
+    /* Light Red/Pink */
+    border-bottom: 1px dashed #dc3545;
+}
+
+.hl-actor-pos {
+    background-color: rgba(25, 135, 84, 0.3);
+    /* Light Green */
+    font-style: italic;
+}
+
+.hl-actor-neg {
+    background-color: rgba(108, 117, 125, 0.4);
+    /* Grey */
+    text-decoration: underline dotted #6c757d;
+}
+
+/* --- API Visualization Styles --- */
+#api-visualization {
+    position: relative;
+    /* Context for absolute elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius);
+    padding: 2rem 1.5rem;
+    /* More padding */
+    margin-top: 1rem;
+    min-height: 160px;
+    overflow: hidden;
+    /* Clip animations */
+}
+
+.api-entity {
+    text-align: center;
+    flex-basis: 25%;
+    /* Approx width for client/platform */
+    z-index: 2;
+    /* Above arrows */
+    position: relative;
+    /* Needed for icon placement */
+    min-height: 80px;
+    /* Ensure height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.api-entity .api-icon {
+    font-size: 3em;
+    display: block;
+    line-height: 1;
+}
+
+.api-platform-icon {
+    /* Style specific icon if needed */
+    border-radius: 50%;
+    padding: 5px;
+    /* border: 2px solid black; Set border color via JS */
+    /* background: white; */
+}
+
+
+.api-entity .api-label {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #6c757d;
+    margin-top: 8px;
+    display: block;
+}
+
+/* Platform specific border/pulse */
+#api-platform {
+    border: 3px dashed #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    transition: border-color 0.5s ease;
+}
+
+/* Processing animation */
+@keyframes apiPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+#api-platform.processing {
+    animation: apiPulse 1s infinite ease-in-out;
+    /* border-style: solid; */
+    /* Make border solid during pulse? */
+}
+
+
+/* --- Arrows --- */
+.api-arrow {
+    position: absolute;
+    top: calc(50% - 1px);
+    /* Vertically center the line */
+    height: 2px;
+    background-color: #adb5bd;
+    width: 0;
+    /* Start hidden */
+    opacity: 0;
+    transition: width 1.5s ease-in-out, opacity 0.5s ease;
+    /* Controls speed */
+    z-index: 0;
+}
+
+.api-arrow::after {
+    /* Arrowhead */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 10px;
+    /* Adjust size */
+    border-color: transparent transparent transparent #adb5bd;
+    /* Match line color */
+    top: -5px;
+    /* Center arrowhead vertically */
+    opacity: 0;
+    transition: opacity 0.3s ease 1.2s;
+    /* Delay arrowhead appearance */
+}
+
+/* Request Arrow Specifics */
+#api-request-arrow {
+    left: 28%;
+    /* Start near client */
+    width: 0;
+}
+
+#api-request-arrow::after {
+    right: -10px;
+    /* Arrow points right */
+}
+
+/* Response Arrow Specifics */
+#api-response-arrow {
+    right: 28%;
+    /* Start near platform */
+    width: 0;
+}
+
+#api-response-arrow::after {
+    left: -10px;
+    /* Arrow points left */
+    transform: rotate(180deg);
+    /* Point left */
+}
+
+
+/* Active Arrow Styling */
+#api-visualization.requesting #api-request-arrow,
+#api-visualization.responding #api-response-arrow {
+    width: 44%;
+    /* Distance between client/platform edges */
+    opacity: 1;
+}
+
+#api-visualization.requesting #api-request-arrow::after,
+#api-visualization.responding #api-response-arrow::after {
+    opacity: 1;
+}
+
+
+/* --- Data Bubbles --- */
+.api-data-bubble {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    /* Slightly more padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    opacity: 0;
+    /* Start hidden */
+    /* Make transition speed match JS timing */
+    transition: opacity 0.5s ease, transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Slower, smoother cubic-bezier */
+    font-size: 0.8em;
+    max-width: 35%;
+    /* Reduce max width */
+    top: calc(50% - 40px);
+    /* Adjust vertical position slightly */
+    /* --- NEW --- */
+    text-align: left;
+    /* Ensure text is left-aligned */
+    word-wrap: break-word;
+    /* Allow long words (like paths) to break */
+    line-height: 1.4;
+    /* Add some line spacing */
+}
+
+.api-data-bubble::before {
+    /* Small pointer */
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 20px;
+    /* Move pointer slightly from center */
+    /* transform: translateX(-50%); Remove centering if fixed left */
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    border-color: #ccc transparent transparent transparent;
+}
+
+.api-data-bubble code {
+    font-family: Consolas, Monaco, monospace;
+    display: block;
+    /* Make code block take full width */
+    margin-top: 4px;
+    /* Space above code */
+    color: #333;
+    /* Darker code text */
+    white-space: pre-wrap;
+    /* Wrap code nicely */
+}
+
+.api-data-bubble span {
+    /* Style the label above the code */
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 0.9em;
+}
+
+/* --- NEW --- Set Specific Start Positions via 'left'/'right' */
+#api-request-bubble {
+    left: 28%;
+    transform: translateX(0%);
+    /* Start position */
+    /* Pointer needs to point towards left entity maybe */
+    /* Style ::before specifically if needed */
+}
+
+#api-response-bubble {
+    right: 28%;
+    transform: translateX(0%);
+    /* Start position */
+    /* Align pointer correctly for right-side bubble */
+    /* Consider creating distinct styles or using JS to flip pointer */
+}
+
+#api-response-bubble::before {
+    left: auto;
+    /* Override default left */
+    right: 20px;
+    /* Position pointer on the right side */
+}
+
+
+/* --- Revised Bubble Movement Transforms (Triggered by JS class) --- */
+#api-visualization.requesting #api-request-bubble {
+    /* Reduce travel distance - target center might be 50%? */
+    /* Origin 28%, Target Center 50%. Move ~22%? But account for width? */
+    transform: translateX(8vw);
+    /* << REDUCED travel distance - Adjust based on testing */
+}
+
+#api-visualization.responding #api-response-bubble {
+    transform: translateX(-8vw);
+    /* << REDUCED travel distance */
+}
+
+
+/* --- Arrows (Revised Transition Speed) --- */
+.api-arrow {
+    position: absolute;
+    top: calc(50% - 1px);
+    height: 2px;
+    background-color: #adb5bd;
+    width: 0;
+    opacity: 0;
+    transition: width 2.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+    /* << MATCH BUBBLE DURATION */
+    z-index: 0;
+}
+
+.api-arrow::after {
+    /* Arrowhead */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 10px;
+    border-color: transparent transparent transparent #adb5bd;
+    top: -5px;
+    opacity: 0;
+    /* Delay arrowhead appearance until line is mostly drawn */
+    transition: opacity 0.3s ease 2.0s;
+    /* << DELAY arrowhead more */
+}
+
+/* Request Arrow Specifics */
+#api-request-arrow {
+    left: 28%;
+    width: 0;
+}
+
+#api-request-arrow::after {
+    right: -10px;
+}
+
+/* Response Arrow Specifics */
+#api-response-arrow {
+    right: 28%;
+    width: 0;
+}
+
+#api-response-arrow::after {
+    left: -10px;
+    transform: rotate(180deg);
+}
+
+
+/* Active Arrow Styling (No change needed here, logic relies on JS classes) */
+#api-visualization.requesting #api-request-arrow,
+#api-visualization.responding #api-response-arrow {
+    /* Width still covers approx. the gap */
+    width: calc(100% - 2*28% - 10px);
+    /* Fill space between 28% margins minus buffer */
+    opacity: 1;
+}
+
+#api-visualization.requesting #api-request-arrow::after,
+#api-visualization.responding #api-response-arrow::after {
+    opacity: 1;
+}
+
+
+/* API Status Text */
+#api-status {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    color: #555;
+    background: rgba(248, 249, 250, 0.8);
+    /* Match viz bg */
+    padding: 3px 8px;
+    border-radius: 3px;
+    z-index: 3;
+    transition: opacity 0.3s ease;
+}
+
+/* --- Secondary Data Kiosk Animation Styles --- */
+#secondarydata-visualization {
+    position: relative;
+    /* Positioning context */
+    display: flex;
+    justify-content: space-around;
+    /* Space Kiosk and Researcher */
+    align-items: center;
+    /* Vertically align Kiosk/Researcher */
+    height: 290px;
+    /* Adjust height */
+    width: 95%;
+    max-width: 600px;
+    background: linear-gradient(180deg, #e9ecef, #f8f9fa);
+    /* Subtle gradient */
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    margin: 1.5rem auto;
+    overflow: hidden;
+    padding: 1rem;
+    gap: 1rem;
+    /* Space between Kiosk/Researcher columns */
+}
+
+/* Kiosk Machine */
+#secdata-kiosk {
+    flex-basis: 60%;
+    /* Kiosk takes more space */
+    height: 95%;
+    /* Almost full height */
+    background: #ffffff;
+    border: 2px solid #adb5bd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    position: relative;
+    /* For slot positioning */
+    transition: filter 0.3s ease;
+}
+
+@keyframes kioskWorking {
+
+    0%,
+    100% {
+        filter: brightness(100%);
+    }
+
+    50% {
+        filter: brightness(95%) contrast(105%);
+    }
+}
+
+#secdata-kiosk.working {
+    animation: kioskWorking 0.4s infinite ease-in-out;
+}
+
+
+/* Kiosk Display Screen */
+#secdata-display {
+    width: 90%;
+    margin: 5px auto 10px auto;
+    /* Center display */
+    background: #343a40;
+    /* Dark screen */
+    color: #00ff00;
+    /* Green retro text */
+    font-family: 'Courier New', Courier, monospace;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    min-height: 1.8em;
+    /* Prevent layout jump */
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Kiosk Buttons Area */
+.secdata-kiosk-btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two columns */
+    gap: 8px;
+    padding: 5px;
+    margin-bottom: 10px;
+    /* Space before slot */
+    flex-grow: 1;
+    /* Take remaining vertical space */
+}
+
+.secdata-kiosk-btn {
+    background-color: #f1f3f5;
+    border: 1px solid #ced4da;
+    padding: 8px 5px;
+    border-radius: 4px;
+    cursor: default;
+    /* Not actually clickable in demo */
+    text-align: center;
+    font-size: 0.8em;
+    color: #495057;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.secdata-kiosk-btn:hover {
+    /* Visual feedback if hover added */
+    /* background-color: #e9ecef; */
+}
+
+.secdata-kiosk-btn.active {
+    /* Button being "pressed" */
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(0.95);
+    border-color: var(--primary-color);
+}
+
+.secdata-kiosk-btn .kiosk-icon {
+    font-size: 1.3em;
+    display: block;
+    margin-bottom: 3px;
+}
+
+
+/* Kiosk Dispensing Slot */
+#secdata-slot {
+    width: 70%;
+    height: 100px;
+    background: repeating-linear-gradient(-45deg, #555, #555 8px, #444 8px, #444 16px);
+    /* Diagonal stripes */
+    margin: 0 auto;
+    /* Center slot */
+    border: 2px inset #6c757d;
+    border-radius: 3px;
+    position: relative;
+    /* Context for dispensed item */
+    overflow: hidden;
+    /* Clip item as it comes out */
+}
+
+/* Item coming out of slot */
+#secdata-dispensed-data {
+    position: absolute;
+    bottom: -5px;
+    /* Start slightly below slot visible area */
+    left: 00%;
+    transform: translateX(-50%) translateY(150%) scale(0.5);
+    /* Start below and small */
+    background-color: white;
+    border: 1px solid var(--primary-color);
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 0.9em;
+    font-weight: bold;
+    z-index: 10;
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+#secdata-dispensed-data .data-label {
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
+
+/* Researcher Area */
+#secdata-researcher-area {
+    flex-basis: 35%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* Space out question, figure, outcomes */
+    height: 95%;
+}
+
+#secdata-researcher-figure {
+    /* Renamed from #secdata-researcher */
+    font-size: 4em;
+}
+
+@keyframes thinking {
+
+    0%,
+    100% {
+        transform: rotate(0deg)
+    }
+
+    25% {
+        transform: rotate(-3deg)
+    }
+
+    75% {
+        transform: rotate(3deg)
+    }
+}
+
+#secdata-researcher-area.thinking #secdata-researcher-figure {
+    /* Add subtle effect */
+    animation: thinking 0.8s infinite ease-in-out;
+}
+
+@keyframes evaluating {
+    0% {
+        filter: brightness(100%)
+    }
+
+    50% {
+        filter: brightness(110%) saturate(120%)
+    }
+
+    100% {
+        filter: brightness(100%)
+    }
+}
+
+#secdata-researcher-area.evaluating #secdata-researcher-figure {
+    /* Add subtle effect */
+    animation: evaluating 0.6s infinite ease;
+}
+
+#secdata-question-icon {
+    font-size: 2em;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#secdata-question-icon.active {
+    /* Use for pulsing question */
+    opacity: 1;
+    animation: pulse 0.8s infinite ease-in-out;
+    /* Reuse experiment pulse */
+}
+
+
+/* Outcome Area */
+#secdata-outcome {
+    min-height: 60px;
+    /* Reserve space */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.secdata-outcome-item {
+    font-size: 1.5em;
+    /* Emoji size */
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.secdata-outcome-item .outcome-label {
+    font-size: 0.6em;
+    /* Smaller label */
+    color: #555;
+    font-weight: bold;
+}
+
+#secdata-benefit .outcome-icon::before {
+    content: '✅';
+    color: green;
+}
+
+#secdata-drawback .outcome-icon::before {
+    content: '⚠️';
+    color: orange;
+}
+
+/* Warning or puzzle 🧩 */
+
+
+/* Status text positioning via flex container */
+#secdata-status {
+    position: absolute;
+    bottom: 5px;
+    /* Position at the bottom of the main viz container */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    color: #555;
+    background: rgba(233, 236, 239, 0.85);
+    padding: 3px 8px;
+    border-radius: 3px;
+    z-index: 20;
+}
+
+/* --- Data Generation (Survey/Experiment) Animation Styles --- */
+#datagen-visualization {
+    position: relative;
+    /* Context for absolute elements */
+    display: flex;
+    flex-direction: column;
+    /* Stack sections vertically */
+    align-items: center;
+    /* Center content horizontally */
+    height: 320px;
+    /* Increased height */
+    width: 95%;
+    max-width: 600px;
+    background: #f4f7f6;
+    /* Soft background */
+    border: 1px solid #dbe3df;
+    border-radius: var(--border-radius);
+    margin: 1.5rem auto;
+    overflow: hidden;
+    padding-top: 50px;
+    /* Make space for researcher/controls */
+}
+
+#datagen-controls {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+#datagen-controls button {
+    padding: 5px 15px;
+    font-size: 0.9em;
+    border: 1px solid #b0bec5;
+    /* Grey border */
+    border-radius: 15px;
+    /* Pill shape */
+    background-color: white;
+    color: #546e7a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#datagen-controls button:hover {
+    background-color: #eceff1;
+}
+
+#datagen-controls button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Areas */
+#datagen-researcher {
+    position: absolute;
+    top: 45px;
+    left: 15%;
+    transform: translateX(-50%);
+    font-size: 2.8em;
+    z-index: 5;
+    transition: transform 0.3s ease;
+}
+
+#datagen-researcher::before {
+    content: '🧑‍🔬';
+}
+
+/* Scientist */
+#datagen-researcher.asking {
+    transform: translateX(-50%) rotate(-5deg);
+}
+
+#datagen-researcher.presenting {
+    transform: translateX(-50%) scale(1.1);
+}
+
+#datagen-participants {
+    position: absolute;
+    top: 100px;
+    right: 15%;
+    transform: translateX(50%);
+    z-index: 4;
+    min-width: 50px;
+    /* Area for participant and reactions */
+    min-height: 50px;
+}
+
+.datagen-participant {
+    font-size: 3em;
+}
+
+#datagen-interaction-area {
+    position: absolute;
+    top: 80px;
+    /* Below researcher/controls */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    /* Central area for stimuli/questions */
+    height: 100px;
+    /* background: rgba(0,0,0,0.05); */
+    /* Debug visual */
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#datagen-newdata-area {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    z-index: 5;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+    opacity: 0.7;
+}
+
+#datagen-newdata-area::before {
+    content: '💾';
+}
+
+/* Floppy / Database icon */
+#datagen-newdata-area.receiving {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 1;
+}
+
+#datagen-status {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    color: #666;
+    background: rgba(244, 247, 246, 0.8);
+    /* Match bg */
+    padding: 2px 8px;
+    border-radius: 3px;
+    z-index: 6;
+}
+
+
+/* Dynamic Elements */
+.datagen-bubble {
+    position: absolute;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    z-index: 10;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease-out;
+    white-space: nowrap;
+    opacity: 0;
+    /* Start invisible, JS makes visible */
+}
+
+.datagen-bubble.question {
+    background-color: #e3f2fd;
+    /* Light blue */
+    color: #1e88e5;
+    border: 1px solid #bbdefb;
+    border-bottom-left-radius: 2px;
+    /* Pointer direction */
+}
+
+.datagen-bubble.answer {
+    background-color: #e8f5e9;
+    /* Light green */
+    color: #388e3c;
+    border: 1px solid #c8e6c9;
+    border-bottom-right-radius: 2px;
+    /* Pointer direction */
+}
+
+.datagen-stimulus {
+    font-size: 2.5em;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    opacity: 0;
+    /* Start hidden */
+    position: absolute;
+    /* Allow only one stimulus */
+}
+
+.datagen-stimulus.inactive {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+
+/* Optional distinct bg colors */
+.stimulus-a {
+    border-color: #f48fb1;
+}
+
+/* Pinkish */
+.stimulus-b {
+    border-color: #80cbc4;
+}
+
+/* Tealish */
+.stimulus-c {
+    border-color: #90caf9;
+}
+
+/* Blueish */
+
+
+.datagen-reaction {
+    position: absolute;
+    font-size: 1.8em;
+    z-index: 5;
+    opacity: 0;
+    animation: reactionPop 1.0s ease-out forwards;
+}
+
+@keyframes reactionPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+
+/* Data Point flying animation */
+@keyframes dataFly {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--dest-x), var(--dest-y)) scale(0.3);
+        opacity: 0;
+    }
+}
+
+.datagen-datapoint {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    /* Use accent color */
+    border-radius: 50%;
+    z-index: 15;
+    opacity: 1;
+    box-shadow: 0 0 5px var(--accent-color);
+    animation: dataFly 1.2s ease-in forwards;
+}
+
+/* --- Brainstorming Tool Styles --- */
+#brainstorm-tool {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 2rem;
+    position: relative;
+    /* Needed for potential absolute children if any */
+    transition: all 0.3s ease-in-out;
+    /* For fullscreen */
+}
+
+.brainstorm-controls {
+    display: flex;
+    justify-content: flex-end;
+    /* Align buttons to the right */
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #ccc;
+    flex-wrap: wrap;
+    /* Allow buttons to wrap */
+}
+
+.brainstorm-controls button {
+    /* Reuse existing button styles or define new */
+    padding: 6px 12px;
+    font-size: 0.9em;
+    display: inline-flex;
+    /* Align icon and text */
+    align-items: center;
+    gap: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.brainstorm-controls button:hover:not(:disabled) {
+    background-color: #eee;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.brainstorm-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Optional Icons (Emojis) */
+#btn-visualize::before {
+    margin-right: 3px;
+}
+
+#btn-export-csv::before {
+    margin-right: 3px;
+}
+
+#btn-export-png::before {
+    margin-right: 3px;
+}
+
+#btn-fullscreen::before {
+    content: '↔️';
+    margin-right: 3px;
+}
+
+#btn-close-modal {
+    display: none;
+    /* Hidden by default */
+}
+
+/* Input Sections */
+.brainstorm-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Responsive columns */
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+    font-size: 0.9em;
+}
+
+.input-group input[type="text"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    flex-grow: 1;
+    /* Input takes space if button next */
+    transition: border-color 0.2s ease;
+}
+
+.input-group .input-row {
+    display: flex;
+    gap: 5px;
+}
+
+.input-group .input-row button {
+    padding: 8px 15px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9em;
+    flex-shrink: 0;
+    /* Prevent button shrinking */
+}
+
+.input-group .input-row button:hover {
+    background-color: #d73a0a;
+}
+
+/* List Display Sections */
+.brainstorm-lists {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    min-height: 100px;
+    /* Ensure lists have some height */
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.list-column h4 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.brainstorm-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-height: 80px;
+    /* Min height for empty state */
+}
+
+.brainstorm-list li {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95em;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.03);
+}
+
+.brainstorm-list li.empty-list {
+    border-style: dashed;
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+    box-shadow: none;
+}
+
+.remove-item {
+    cursor: pointer;
+    color: #dc3545;
+    /* Red */
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0 5px;
+    margin-left: 10px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.brainstorm-list li:hover .remove-item {
+    opacity: 1;
+}
+
+/* Visualization Area */
+#brainstorm-visualization {
+    position: relative;
+    /* Needed for absolute positioned items */
+    min-height: 500px;
+    /* Ensure space for visualization */
+    background-color: #fff;
+    border: 1px dashed var(--primary-color);
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+    padding: 10px;
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+}
+
+#brainstorm-visualization.active {
+    opacity: 1;
+    border-style: solid;
+}
+
+.empty-viz {
+    text-align: center;
+    color: #888;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+
+.viz-item {
+    display: inline-block;
+    /* Needs display for sizing */
+    position: absolute;
+    /* Positioned by JS */
+    padding: 4px 8px;
+    border-radius: 15px;
+    /* Pill shape */
+    margin: 3px;
+    /* Slight spacing handled by JS pos */
+    cursor: default;
+    transition: transform 0.2s ease;
+    border: 1px solid transparent;
+    /* Base border */
+}
+
+.viz-item:hover {
+    transform: scale(1.1);
+    z-index: 10;
+    /* Bring to front on hover */
+}
+
+/* Assign colors based on category */
+.viz-topic {
+    background-color: #cfe2ff;
+    border-color: #a6cfff;
+    color: #003d80;
+}
+
+/* Blueish */
+.viz-platform {
+    background-color: #d1e7dd;
+    border-color: #a3cfbb;
+    color: #0a3622;
+}
+
+/* Greenish */
+.viz-method {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #664d03;
+}
+
+/* Yellowish */
+
+/* --- Fullscreen Modal Styles --- */
+#brainstorm-tool.fullscreen-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(248, 249, 250, 0.98);
+    /* Almost opaque background */
+    overflow-y: auto;
+    /* Allow scrolling within modal */
+    padding: 2rem;
+    /* More padding in fullscreen */
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    /* Allow flex column layout for centering content */
+    flex-direction: column;
+}
+
+/* Hide non-modal elements when active */
+body.brainstorm-fullscreen-active {
+    overflow: hidden;
+    /* Prevent scrolling body behind modal */
+}
+
+/* Show close button only in fullscreen */
+#brainstorm-tool.fullscreen-mode #btn-close-modal {
+    display: inline-flex;
+    position: absolute;
+    /* Position relative to toolContainer */
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#brainstorm-tool.fullscreen-mode #btn-close-modal::before {
+    content: '×';
+    /* Close icon */
+}
+
+#brainstorm-tool.fullscreen-mode #btn-fullscreen {
+    display: none;
+    /* Hide regular fullscreen button in modal */
+}
+
+#brainstorm-tool.fullscreen-mode .brainstorm-inputs,
+#brainstorm-tool.fullscreen-mode .brainstorm-lists,
+#brainstorm-tool.fullscreen-mode #brainstorm-visualization {
+    max-width: 1200px;
+    /* Optional: Limit content width within fullscreen */
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    /* Ensure it doesn't touch edges */
+}
+
+#brainstorm-tool.fullscreen-mode #brainstorm-visualization {
+    flex-grow: 1;
+    /* Allow visualization to take more space */
+    min-height: 400px;
+}
+
+/*Styles ab session 2*/
+
+.colab-embed-box {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.colab-embed-box h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+    /* Oder eine andere passende Farbe */
+}
+
+/* Styling für den eigentlichen Embed-Bereich (optional, falls iframe nicht reicht) */
+.colab-embed-box iframe {
+    /* Standard iframe styling */
+    width: 100%;
+    min-height: 400px;
+    /* Höhe anpassen nach Bedarf */
+    border: 1px solid #ddd;
+    margin-top: 1rem;
+}
+
+/* Fallback Link Styling */
+.colab-fallback-link {
+    font-size: 0.9em;
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+/* Styling für die Plattform-Übersicht */
+.platform-overview .method-section {
+    margin-bottom: 1.5rem;
+    /* Etwas Abstand zwischen den Plattformen */
+    padding-left: 1rem;
+    border-left: 3px solid var(--accent-color);
+    /* Leichte visuelle Trennung */
+}
+
+.platform-overview h4 {
+    margin-bottom: 0.5rem;
+}
+
+/* Einfacher Stil für das Prozess-Flussdiagramm (Beispiel) */
+.process-flow {
+    display: flex;
+    /* oder inline-flex */
+    flex-wrap: wrap;
+    /* Erlaubt Umbruch auf kleinen Screens */
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem 0 1rem;
+    padding: 0.8rem;
+    background-color: #f0f8ff;
+    /* Hellblau */
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.9em;
+    gap: 5px;
+    /* Abstand zwischen Elementen */
+}
+
+.process-flow .step {
+    display: inline-block;
+    padding: 3px 8px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    white-space: nowrap;
+    /* Verhindert Umbruch innerhalb eines Steps */
+}
+
+.process-flow .arrow {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+/* Gegenüberstellung API vs Scraping (Beispiel für Flexbox-Layout) */
+.comparison-section {
+    /* Ein Wrapper-Div könnte nützlich sein */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.comparison-section>div {
+    /* Direkte Kinder (die Spalten) */
+    flex-basis: 45%;
+    /* Nimmt ca. 45% der Breite ein */
+    min-width: 250px;
+    /* Mindestbreite bevor Umbruch */
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.comparison-section h5 {
+    margin-top: 0;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.comparison-section ul {
+    padding-left: 20px;
+    /* Einrückung der Liste */
+    font-size: 0.9em;
+}
+
+.comparison-section li::marker {
+    /* Style für Listpunkte */
+    content: "✅ ";
+    /* Positiv */
+    color: green;
+}
+
+.comparison-section div:last-child li::marker {
+    /* Zweite Spalte (Nachteile) */
+    content: "❌ ";
+    /* Negativ */
+    color: red;
+}
+
+/* Alternative für Nachteile (wenn keine Marker verwendet werden) */
+.comparison-section .disadvantages li::before {
+    content: "❌ ";
+    color: red;
+    margin-right: 5px;
+}
+
+
+/* Interaktive Boxen hervorheben (optional) */
+.interactive-box {
+    border: 2px solid var(--accent-color);
+    /* Beispielhafte Hervorhebung */
+}
+
+
+/* Responsiveness (Beispiel - anpassen an existierende Media Queries) */
+@media (max-width: 768px) {
+    .process-flow {
+        font-size: 0.8em;
+    }
+
+    .comparison-section>div {
+        flex-basis: 100%;
+        /* Spalten untereinander auf kleinen Screens */
+    }
+
+    .colab-embed-box iframe {
+        min-height: 300px;
+        /* Höhe auf Mobilgeräten reduzieren */
+    }
+}

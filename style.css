@@ -3157,3 +3157,126 @@ body.brainstorm-fullscreen-active {
         /* Höhe auf Mobilgeräten reduzieren */
     }
 }
+
+/* --- Visual Polish for Session 1 --- */
+
+/* --- Visual Overhaul for 2026 --- */
+
+/* 1. Dashboard Cards */
+.intro-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 2.5rem 0;
+}
+.grading-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px; /* Prevents stretching to screen edges */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 2. Better Accordions (The "Actionable" Look) */
+.details-container {
+    max-width: 850px;
+    margin: 2rem auto;
+}
+
+.details-accordion {
+    background: #fff;
+    border: 2px solid #edf2f7;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.details-accordion:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.details-accordion summary {
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--primary-color);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.details-accordion summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-family: monospace;
+    color: var(--primary-color);
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #cbd5e0;
+    transition: all 0.3s;
+}
+
+.details-accordion[open] summary {
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+}
+
+.details-accordion[open] summary::after {
+    content: '-';
+    transform: rotate(180deg);
+    color: var(--primary-color);
+}
+
+.details-content {
+    padding: 1.5rem;
+    background: #fff;
+    border-top: none;
+    line-height: 1.6;
+}
+
+/* 3. The Exhaustive Channel Grid */
+.channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.channel-pill {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    padding: 1.2rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.channel-pill:hover { transform: translateY(-3px); border-color: var(--accent-color); }
+.channel-pill span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+.channel-pill strong { font-size: 0.95rem; color: var(--primary-color); display: block; }
+.channel-pill small { font-size: 0.75rem; color: #64748b; }
+
+/* 4. Application Grid */
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Mobile Fixes */
+@media (max-width: 600px) {
+    .channel-pill { width: calc(50% - 1rem); }
+    .app-grid { grid-template-columns: 1fr; }
+}

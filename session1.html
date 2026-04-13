@@ -29,187 +29,232 @@
 
     <div class="container">
         <main>
-            <h2>Organisatorisches für das Semester</h2>
-            <p>Herzlich willkommen zur ersten Sitzung! Bevor wir inhaltlich starten, klären wir die wichtigsten
-                organisatorischen Punkte für das Seminar.</p>
+            <section id="organisatorisches">
+                <h2>Organisatorisches für das Semester</h2>
+                <p>Herzlich willkommen! Bevor wir inhaltlich starten, klären wir die Rahmenbedingungen.</p>
 
-            <hr>
-
-            <h3>Prüfungsleistung</h3>
-            <p>Die Modulnote setzt sich aus zwei Teilleistungen zusammen:</p>
-            <ul>
-                <li><strong>75% Hausarbeit:</strong> Eine wissenschaftliche Arbeit, in der Sie ein selbstgewähltes Thema
-                    aus dem Bereich der politischen Online-Kommunikation theoretisch fundiert und
-                    empirisch bearbeiten.</li>
-                <li><strong>25% Präsentation:</strong> Vorstellung Ihres Hausarbeitsprojekts (Thema, Fragestellung,
-                    Methode, zentrale Ergebnisse/Erkenntnisse) am Ende des Semesters.</li>
-            </ul>
-
-            <hr>
-
-            <h3>Gruppenarbeit (Hausarbeit & Präsentation)</h3>
-            <p>Die Prüfungsleistungen können optional auch in <strong>Gruppen</strong> erbracht werden. Hier einige Vor-
-                und Nachteile:</p>
-
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-                <div style="flex-basis: 48%;">
-                    <h4>Vorteile der Gruppenarbeit:</h4>
-                    <ul>
-                        <li>Ermöglicht potenziell komplexere Forschungsdesigns.</li>
-                        <li>Verarbeitung größerer Datenmengen wird machbar.</li>
-                        <li>Simuliert wissenschaftliche Kollaboration (Praxisnähe).</li>
-                        <li>Möglichkeit zur Spezialisierung innerhalb des Projekts.</li>
-                        <li>Gegenseitiges Feedback und Unterstützung im Prozess.</li>
-                    </ul>
+                <!-- Grading Dashboard: Now centered and width-capped via CSS -->
+                <div class="intro-grid">
+                    <div class="grading-card" style="background: linear-gradient(135deg, #50ab0b, #80c920);">
+                        <h3>Hausarbeit</h3>
+                        <span class="percentage">75%</span>
+                        <p>Theoretisch fundiert & empirisch bearbeitet</p>
+                    </div>
+                    <div class="grading-card" style="background: linear-gradient(135deg, #1fcf31, #309217);">
+                        <h3>Präsentation</h3>
+                        <span class="percentage">25%</span>
+                        <p>Projektvorstellung im Kolloquiums-Stil</p>
+                    </div>
                 </div>
-                <div style="flex-basis: 48%;">
-                    <h4>Nachteile/Herausforderungen der Gruppenarbeit:</h4>
-                    <ul>
-                        <li>Die Benotung erfolgt grundsätzlich für die Gruppe als Ganzes*.</li>
-                        <li>Man kann nicht jeden einzelnen Schritt des Forschungsprozesses selbst durchführen.</li>
-                        <li>Erfordert gute Absprachen und Koordination.</li>
-                        <li>Potenziell weniger individueller Handlungsspielraum bei Themenwahl/Umsetzung.</li>
-                    </ul>
+
+                <!-- PDF Integration -->
+                <div class="pdf-embed-box interactive-box">
+                    <h4><span style="font-size: 1.2em;">📑</span> Bewertungsschema & Anforderungen 2026</h4>
+                    <p>Detaillierte Kriterien für die Hausarbeit und Präsentation.</p>
+                    <iframe src="Bewertungsschema_2026.pdf" width="100%" height="450px"
+                        style="border: 1px solid #ccc; border-radius: 8px;">
+                        <p>Ihr Browser unterstützt keine eingebetteten PDFs. <a href="Bewertungsschema_2026.pdf"
+                                download>Hier herunterladen</a>.</p>
+                    </iframe>
                 </div>
-            </div>
-            <p><small>*Nur bei nachgewiesener NICHT-Beteiligung kann im Einzelfall eine differenzierte Benotung
-                    erfolgen, dies ist jedoch die Ausnahme.</small></p>
-            <hr>
+                <div class="details-container">
+                    <!-- Accordion 1 -->
+                    <details class="details-accordion">
+                        <summary>Hausarbeit: Umfang & Abgabe</summary>
+                        <div class="details-content">
+                            <p>Die Hausarbeit ist das Herzstück Ihrer Prüfungsleistung.</p>
+                            <ul>
+                                <li><strong>Umfang:</strong> 45.000 – 55.000 Zeichen (inkl. Leerzeichen & Fußnoten
+                                    etc.).
+                                </li>
+                                <li><strong>Frist:</strong> vorraussichtlich <strong>01.09.2026</strong> via E-Mail oder
+                                    ILIAS</li>
+                                <li><strong>Inhalt:</strong> Klare Forschungsfrage, theoretische Rahmung und methodische
+                                    Umsetzung (z.B. Scraping & Sentiment-Analyse).</li>
+                            </ul>
+                        </div>
+                    </details>
 
-            <h3>Details zur Präsentation</h3>
-            <ul>
-                <li><strong>Zeitpunkt:</strong> Findet geblockt am Ende des Semesters statt (genaue Termine folgen).
-                </li>
-                <li><strong>Dauer:</strong> Ca. 20 Minuten pro Projekt/Person (bei Gruppen etwas länger, Einzelpersonen
-                    kürzer).</li>
-                <li><strong>Format:</strong> Vorstellung des Projekts im Kolloquiums-Stil (kurzer Input, dann
-                    Diskussion/Fragen).</li>
-                <li><strong>Bewertungsfokus:</strong> Liegt klar auf der wissenschaftlichen Stringenz (Problemstellung,
-                    theoretische Fundierung, methodisches Vorgehen, Argumentation, Ergebnisse) und weniger auf
-                    rhetorischer Perfektion (freie Rede ist aber natürlich willkommen!).</li>
-                <li><strong>Gruppen:</strong> Bei Gruppenarbeiten präsentieren alle Mitglieder gemeinsam und erhalten
-                    dieselbe Note für die Präsentation*.</li>
-            </ul>
+                    <!-- Accordion 2 -->
+                    <details class="details-accordion">
+                        <summary>Gruppenarbeit & Team-Modus</summary>
+                        <div class="details-content">
+                            <p>Gruppenarbeiten (2-3 Personen) sind ausdrücklich erwünscht, um komplexere
+                                Forschungsdesigns zu realisieren.</p>
+                            <ul>
+                                <li><strong>Umfang-Bonus:</strong> zwischen +7.000 und +15.000 Zeichen pro zusätzlicher
+                                    Person (inkl. Leerzeichen & Fußnoten etc.).</li>
+                                <li><strong>Benotung:</strong> Grundsätzlich Gruppenbewertung (Team-Verantwortung).</li>
+                                <li><strong>Vorteile:</strong> Spezialisierung möglich (z.B. eine Person "Scraping",
+                                    eine "Theorie").</li>
+                            </ul>
+                        </div>
+                    </details>
 
-            <hr>
+                    <!-- Accordion 3 -->
+                    <details class="details-accordion">
+                        <summary>Präsentationen & Termine</summary>
+                        <div class="details-content">
+                            <p>Die Präsentationen finden geblockt am Semesterende statt.</p>
+                            <ul>
+                                <li><strong>Dauer:</strong> ca. 30 Min. (Gruppenpräsentationen).</li>
+                                <li><strong>Ziel:</strong> Mein Feedback und das der Kommilitonen vor der Finalisierung
+                                    der
+                                    Hausarbeit einholen.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
 
-            <h3>Details zur Hausarbeit</h3>
-            <ul>
-                <li><strong>Umfang:</strong> Richtwert ca. <strong>45.000 – 55.000 Zeichen</strong> (inkl. Leerzeichen,
-                    Fußnoten, Verzeichnisse - ohne Anhang).</li>
-                <li><strong>Inhalt:</strong> Theoretische Fundierung, klare Forschungsfrage, adäquate
-                    Forschungsmethode(n), (Online-)Datenerhebung (falls empirisch), Analyse der Daten, Diskussion der
-                    Ergebnisse im Licht der Theorie und Forschungsliteratur.</li>
-                <li><strong>Gruppenarbeit:</strong> Bei Gruppen erhöht sich der Richtwert für den Umfang um ca.
-                    <strong>+ 7.000 Zeichen pro Person</strong> da ein tiefergehenderes oder umfangreicheres Projekt
-                    erwartet wird.
-                </li>
-                <li><strong>Abgabefrist:</strong> Voraussichtlich <strong>01.09.2026</strong> (genaues Datum wird noch
-                    bestätigt).</li>
-            </ul>
+                <blockquote style="margin-top: 2rem;">
+                    <strong>Kontakt:</strong> <a
+                        href="mailto:andreas.reich@uni-hohenheim.de">andreas.reich@uni-hohenheim.de</a>
+                </blockquote>
+            </section>
 
-            <hr>
+            <hr style="border-width: 2px; border-color: var(--primary-color); margin: 4rem 0;">
 
-            <blockquote>
-                <strong>Generell gilt:</strong> Bei Fragen zur Organisation, Themenfindung oder konkreten Projekten –
-                sprechen Sie mich an oder schreiben Sie mir gerne eine E-Mail: <a
-                    href="mailto:andreas.reich@uni-hohenheim.de">andreas.reich@uni-hohenheim.de</a>
-            </blockquote>
+            <section id="theorie-intro">
+                <h2>Thema: Politische Online-Kommunikation</h2>
+                <p>Digitale Kanäle haben die Interaktion zwischen Politik, Medien und Bürgern grundlegend transformiert.
+                </p>
 
-            <hr style="border-width: 2px; border-color: var(--primary-color); margin: 3rem 0;">
+                <h3>1. Die Kanallandschaft</h3>
+                <!-- Pills are now constrained to small blocks via CSS -->
+                <div class="channel-grid">
+                    <!-- 1. Klassischer Online-Journalismus -->
+                    <div class="channel-pill">
+                        <span>📰</span>
+                        <strong>News & Blogs</strong>
+                        <small>Nachrichtenportale, Hyper-Partisan Blogs, alternativer Journ.</small>
+                    </div>
 
-            <h2>Thema: Politische Online-Kommunikation – Eine Einführung</h2>
-            <p>Nachdem die organisatorischen Rahmenbedingungen geklärt sind, widmen wir uns dem Kern des Seminars: Der
-                politischen Online-Kommunikation. Was verstehen wir darunter und warum ist sie so relevant?</p>
-            <p>Politische Online-Kommunikation umfasst alle Formen der Kommunikation über politische Inhalte, Akteure,
-                Prozesse und Ereignisse, die über digitale Kanäle und Plattformen stattfinden. Dies schließt sowohl die
-                Kommunikation etablierter politischer Akteure (Parteien, Regierungen, Politikern), der Medien als
-                auch von Bürgern, Interessengruppen und sozialen Bewegungen ein.</p>
+                    <!-- 2. Institutionelle Kommunikation -->
+                    <div class="channel-pill">
+                        <span>🏛️</span>
+                        <strong>Institutionen</strong>
+                        <small>Parteien, Ministerien, NGOs, Abgeordneten-Websites</small>
+                    </div>
 
-            <h3>1. Vielfalt der Kanäle und Medienformen</h3>
-            <p>Die Landschaft der politischen Online-Kommunikation ist äußerst vielfältig. Wichtige Kanäle und Formate
-                sind unter anderem:</p>
-            <ul>
-                <li><strong>Nachrichten-Websites & Online-Journalismus:</strong> Klassische Medienhäuser mit ihren
-                    Online-Auftritten, aber auch reine Online-Nachrichtenportale und Blogs.</li>
-                <li><strong>Websites politischer Akteure:</strong> Offizielle Seiten von Parteien, Parlamenten,
-                    Regierungen, Ministerien, NGOs.</li>
-                <li><strong>Soziale Medien:</strong> Plattformen wie Twitter/X, Facebook, Instagram, TikTok, LinkedIn,
-                    Mastodon etc. zur Verbreitung von Botschaften, zur Interaktion und Mobilisierung.</li>
-                <li><strong>Messenger-Dienste:</strong> WhatsApp, Telegram, Signal etc. für direktere
-                    (Gruppen-)Kommunikation und Mobilisierung.</li>
-                <li><strong>Video- und Audio-Plattformen:</strong> YouTube, Vimeo sowie Podcast-Plattformen wie Spotify
-                    für die
-                    Verbreitung audiovisueller politischer Inhalte.</li>
-                <li><strong>Kollaborative Plattformen:</strong> Wikis, Foren oder spezialisierte
-                    E-Partizipationsplattformen.</li>
-                <li><strong>Newsletter & E-Mail-Marketing:</strong> Direkte Kommunikation mit Unterstützern und
-                    Interessierten.</li>
-            </ul>
-            <p>Die Wahl des Kanals hängt stark vom Kommunikationsziel, der Zielgruppe und den verfügbaren Ressourcen ab.
-            </p>
+                    <!-- 3. Soziale Netzwerke (Fragmentiert) -->
+                    <div class="channel-pill">
+                        <span>📱</span>
+                        <strong>Social Media</strong>
+                        <small>TikTok, Instagram, X (Twitter), Mastodon, Bluesky</small>
+                    </div>
 
-            <hr>
+                    <!-- 4. Messenger & Dark Social -->
+                    <div class="channel-pill">
+                        <span>💬</span>
+                        <strong>Messenger</strong>
+                        <small>WhatsApp-Kanäle, Telegram, Signal, geschlossene Gruppen</small>
+                    </div>
 
-            <h3>2. Zentrale Anwendungsfelder der politischen Online-Kommunikation</h3>
-            <p>Digitale Medien haben die Art und Weise, wie Politik kommuniziert und erfahren wird, grundlegend
-                verändert. Einige zentrale Anwendungsfelder sind:</p>
-            <ol>
-                <li>
-                    <strong>Politische Meinungsbildung und Information:</strong>
-                    <ul>
-                        <li>Bereitstellung und Abruf politischer Inhalte (Programme, Positionen, Gesetzesvorhaben) über
-                            Webseiten, Social Media etc.</li>
-                        <li>Informationsvermittlung durch Politikern, Parteien, Medien, NGOs und andere Akteure.
-                        </li>
-                        <li>Hintergrundberichte, Faktenchecks und Analysen durch Online-Journalismus.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Wahlkampf und Mobilisierung:</strong>
-                    <ul>
-                        <li>Führung digitaler Wahlkampagnen, oft mit Microtargeting über Social Media Ads.</li>
-                        <li>Einrichtung von Online-Wahlkampfzentralen, Organisation von digitalen Events.</li>
-                        <li>Online-Fundraising und Spendenkampagnen.</li>
-                        <li>Mobilisierung von Wählern und Unterstützern (z.B. durch personalisierte Ansprache,
-                            Hashtag-Kampagnen, Aufrufe zur Wahlbeteiligung).</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Bürgerbeteiligung und E-Partizipation:</strong>
-                    <ul>
-                        <li>Möglichkeit zur Teilnahme an Online-Petitionen und -Abstimmungen (z.B. <a
-                                href="https://www.openpetition.de/" target="_blank"
-                                rel="noopener noreferrer">OpenPetition</a>, <a href="https://www.change.org/"
-                                target="_blank" rel="noopener noreferrer">Change.org</a>).</li>
-                        <li>Durchführung von Bürgerdialogen, Online-Konsultationen zu politischen Vorhaben auf
-                            spezialisierten Plattformen (z.B. Consul, LiquidFeedback).</li>
-                        <li>Formelle Beteiligung an Gesetzgebungsprozessen durch Online-Stellungnahmen.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Politische Meinungsäußerung und Debatte:</strong>
-                    <ul>
-                        <li>Öffentliche Diskussionen über politische Themen auf Social-Media-Plattformen (Twitter/X,
-                            Facebook, Reddit etc.).</li>
-                        <li>Veröffentlichung von Meinungen und Analysen durch Bürgern über Blogs, Vlogs, Podcasts.
-                        </li>
-                        <li>Austausch und Auseinandersetzung in Kommentarspalten und Online-Foren (oftmals auch Quelle
-                            von Polarisierung und Desinformation).</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Protest und Aktivismus:</strong>
-                    <ul>
-                        <li>Organisation und Koordination von (Offline-)Protesten über soziale Medien und Messenger
-                            (z.B. Fridays for Future, #BlackLivesMatter).</li>
-                        <li>Durchführung rein digitaler Kampagnen und Protestformen (z.B. gegen
-                            Netzpolitik-Entscheidungen wie Artikel 13/17).</li>
-                        <li>"Clicktivism" und "Hashtag-Aktivismus": Niederschwellige Formen der Beteiligung durch Likes,
-                            Shares, Nutzung von Kampagnen-Hashtags.</li>
-                    </ul>
-                </li>
-            </ol>
+                    <!-- 5. Live-Streaming & Mobilisierung -->
+                    <div class="channel-pill">
+                        <span>🎥</span>
+                        <strong>Live-Streaming</strong>
+                        <small>Twitch, YouTube Live, Kick (Echtzeit-Interaktion)</small>
+                    </div>
+
+                    <!-- 6. Community-Hubs -->
+                    <div class="channel-pill">
+                        <span>👾</span>
+                        <strong>Communities</strong>
+                        <small>Discord-Server, Reddit-Subs, Nischen-Foren</small>
+                    </div>
+
+                    <!-- 7. KI & Such-Schnittstellen (Gatekeeper) -->
+                    <div class="channel-pill">
+                        <span>🔍</span>
+                        <strong>KI & Gatekeeper</strong>
+                        <small>LLM-Interfaces (ChatGPT, Perplexity), Search-Engine-SEO</small>
+                    </div>
+
+                    <!-- 8. Partizipations-Plattformen -->
+                    <div class="channel-pill">
+                        <span>🤝</span>
+                        <strong>E-Partizipation</strong>
+                        <small>Consul, Liquid Feedback, OpenPetition, Beteiligungs-Tools</small>
+                    </div>
+
+                    <!-- 9. Infrastruktur & Werbung -->
+                    <div class="channel-pill">
+                        <span>📢</span>
+                        <strong>Ad-Networks & Bots</strong>
+                        <small>Microtargeting, Paid Content, automatisierte Bot-Systeme</small>
+                    </div>
+
+                    <!-- 10. NEU: Programmatik & Archive -->
+                    <div class="channel-pill">
+                        <span>📚</span>
+                        <strong>Archive & Programmatik</strong>
+                        <small>Manifesto Project, WISO-Datenbanken, digitale Wahlprogramme</small>
+                    </div>
+
+                    <!-- 11. NEU: Wissenschaftskommunikation -->
+                    <div class="channel-pill">
+                        <span>🧪</span>
+                        <strong>Wissenschaftskomm.</strong>
+                        <small>Science-Influencer (YT/TikTok), Wiss.-Blogs, Transferportale</small>
+                    </div>
+
+                    <!-- 12. ZUSATZ 1: Audio-Raum -->
+                    <div class="channel-pill">
+                        <span>🎧</span>
+                        <strong>Audio & Podcasts</strong>
+                        <small>Politik-Podcasts (Spotify), Live-Audio-Spaces, Voice-Interaktion</small>
+                    </div>
+
+                    <!-- 13. ZUSATZ 2: Visuelle Subkulturen -->
+                    <div class="channel-pill">
+                        <span>🖼️</span>
+                        <strong>Visuelle Subkulturen</strong>
+                        <small>Meme-Kultur, Imageboards (4chan, 9gag), visuelle Rhetorik</small>
+                    </div>
+
+                    <!-- 14. ZUSATZ 3: Gaming & Metaverse -->
+                    <div class="channel-pill">
+                        <span>🎮</span>
+                        <strong>Gaming & Metaverse</strong>
+                        <small>In-Game-Proteste (Roblox, Minecraft), virtuelle politische Räume</small>
+                    </div>
+                </div>
+
+                <h3>2. Zentrale Anwendungsfelder</h3>
+
+                <!-- NEW: Cards are now in a grid to sit side-by-side on desktop -->
+                <div class="app-grid">
+                    <div class="app-card">
+                        <h4>Meinungsbildung & Information</h4>
+                        <p>Bereitstellung politischer Inhalte und Hintergrundberichte durch professionelle Akteure und
+                            Medien.</p>
+                    </div>
+
+                    <div class="app-card" style="border-left-color: #2196F3;">
+                        <h4>Wahlkampf & Mobilisierung</h4>
+                        <p>Digitale Kampagnenführung, Microtargeting und die Mobilisierung von Unterstützern
+                            (Fundraising, Events).</p>
+                    </div>
+
+                    <div class="app-card" style="border-left-color: #9c27b0;">
+                        <h4>Bürgerbeteiligung (E-Partizipation)</h4>
+                        <p>Online-Petitionen (OpenPetition, Change.org) und Konsultationen via Consul oder
+                            LiquidFeedback.</p>
+                    </div>
+
+                    <div class="app-card" style="border-left-color: #ff9800;">
+                        <h4>Meinungsäußerung & Debatte</h4>
+                        <p>Öffentliche Diskurse in Social Media, Blogs und Foren – oft geprägt von Polarisierung und
+                            Desinformation.</p>
+                    </div>
+
+                    <div class="app-card" style="border-left-color: #f44336;">
+                        <h4>Protest & Aktivismus</h4>
+                        <p>Koordination von Bewegungen (FFF, BLM) sowie niederschwelliger "Hashtag-Aktivismus".</p>
+                    </div>
+                </div>
+            </section>
 
             <hr style="border-width: 2px; border-color: var(--primary-color); margin: 3rem 0;">
 
@@ -222,7 +267,8 @@
             <div class="pdf-embed-box interactive-box" style="margin-bottom: 2rem;">
                 <h4>Vertiefende Lektüre: Methodenüberblick</h4>
                 <p>Das folgende Paper gibt einen umfassenden Überblick über quantitative, qualitative und
-                    computergestützte Methoden in der politischen Online-Kommunikationsforschung. Es dient als Überblick für Ihre eigenen Forschungsmethoden:</p>
+                    computergestützte Methoden in der politischen Online-Kommunikationsforschung. Es dient als Überblick
+                    für Ihre eigenen Forschungsmethoden:</p>
                 <iframe src="Online Political Communication Research Methods.pdf" width="100%" height="800px"
                     style="border: 1px solid #ccc; margin-top: 1rem;"
                     title="PDF: Online Political Communication Research Methods">
@@ -635,24 +681,22 @@
                     <p>Web Scraping bewegt sich oft in einer Grauzone. Es ist <strong>essenziell</strong>,
                         verantwortungsvoll vorzugehen:</p>
                     <ul>
-                        <strong>
-                            <li>Respektieren Sie `robots.txt`:** Diese Datei auf einer Website gibt an, welche Bereiche
-                                <em>nicht</em> automatisch besucht werden sollen. Auch wenn technisch umgehbar, ist die
-                                Missachtung ein starkes Signal für problematisches Verhalten.
-                            </li>
-                            <li>Prüfen Sie die Nutzungsbedingungen (Terms of Service): Viele Websites verbieten Scraping
-                                explizit in ihren AGB.</li>
-                            <li>Seien Sie "nett" zum Server:** Senden Sie Anfragen nicht zu schnell hintereinander
-                                (implementieren Sie Pausen!), um den Server nicht zu überlasten (Risiko einer
-                                (temporären) Sperrung Ihrer IP). Identifizieren Sie Ihren Scraper ggf. über den
-                                User-Agent.</li>
-                            <li>Fokus auf öffentliche Daten:** Scrapen Sie keine Daten, die einen Login erfordern oder
-                                klar als privat gekennzeichnet sind.</li>
-                            <li>Datenschutz (DSGVO):** Besondere Vorsicht bei personenbezogenen Daten! Eine Verarbeitung
-                                ist nur unter strengen Voraussetzungen erlaubt. Oft ist Anonymisierung oder Aggregation
-                                notwendig.</li>
-                            <li>Transparenz:** Dokumentieren Sie Ihr Vorgehen nachvollziehbar.</li>
-                        </strong>
+                        <li>Respektieren Sie `robots.txt`: Diese Datei auf einer Website gibt an, welche Bereiche
+                            <em>nicht</em> automatisch besucht werden sollen. Auch wenn technisch umgehbar, ist die
+                            Missachtung ein starkes Signal für problematisches Verhalten.
+                        </li>
+                        <li>Prüfen Sie die Nutzungsbedingungen (Terms of Service): Viele Websites verbieten Scraping
+                            explizit in ihren AGB.</li>
+                        <li>Seien Sie "nett" zum Server: Senden Sie Anfragen nicht zu schnell hintereinander
+                            (implementieren Sie Pausen!), um den Server nicht zu überlasten (Risiko einer
+                            (temporären) Sperrung Ihrer IP). Identifizieren Sie Ihren Scraper ggf. über den
+                            User-Agent.</li>
+                        <li>Fokus auf öffentliche Daten: Scrapen Sie keine Daten, die einen Login erfordern oder
+                            klar als privat gekennzeichnet sind.</li>
+                        <li>Datenschutz (DSGVO): Besondere Vorsicht bei personenbezogenen Daten! Eine Verarbeitung
+                            ist nur unter strengen Voraussetzungen erlaubt. Oft ist Anonymisierung oder Aggregation
+                            notwendig.</li>
+                        <li>Transparenz: Dokumentieren Sie Ihr Vorgehen nachvollziehbar.</li>
                     </ul>
                     <p>Im Zweifelsfall ist eine rechtliche Beratung oder die Suche nach alternativen Datenquellen (APIs,
                         Kooperationen) vorzuziehen.</p>
@@ -818,7 +862,8 @@
                     <!-- 6. Status Text -->
                     <span id="datagen-status">Bereit.</span>
                 </div>
-                <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem; text-align: center;"><i>Wählen Sie Umfrage oder Experiment, um zu sehen, wie neue Daten durch
+                <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem; text-align: center;"><i>Wählen Sie Umfrage
+                        oder Experiment, um zu sehen, wie neue Daten durch
                         Fragen/Antworten oder Stimuli/Reaktionen generiert werden.</i></p>
                 <!-- Data Generation Animation End -->
 
@@ -844,27 +889,31 @@
             </ul>
 
             <p>Wir wollen den Kurs in unsere eigene Richtung lenken. Frontalunterricht geht natürlich auch,
-            aber am Besten mit Inhalten die euch auch tatsächlich zum Thema interessieren.
+                aber am Besten mit Inhalten die euch auch tatsächlich zum Thema interessieren.
             </p>
 
-            <p>Ergebnisse unseres Brainstormings:</p>
+            <!--             <p>Ergebnisse unseres Brainstormings:</p>
 
-            <img src="brainstorming_visualisierung.png"  width="100%">
+            <img src="brainstorming_visualisierung.png" width="100%">
 
             <p>Ergebnisse unseres Brainstormings als Excel downloaden:</p>
 
-            <a href="brainstorming_ergebnisse.csv" download>Hier die Excel Downloaden.</aa>
+            <a href="brainstorming_ergebnisse.csv" download>Hier die Excel Downloaden.</aa> -->
 
             <div id="brainstorm-tool">
 
                 <div class="brainstorm-controls">
-                    <button type="button" id="btn-visualize" title="Ideen visualisieren" disabled>🎨 Visualisieren</button>
-                    <button type="button" id="btn-export-csv" title="Liste als CSV exportieren" disabled>💾 Export CSV</button>
-                    <button type="button" id="btn-export-png" title="Visualisierung als Bild speichern (benötigt html2canvas)" disabled>🖼️ Export Bild</button>
+                    <button type="button" id="btn-visualize" title="Ideen visualisieren" disabled>🎨
+                        Visualisieren</button>
+                    <button type="button" id="btn-export-csv" title="Liste als CSV exportieren" disabled>💾 Export
+                        CSV</button>
+                    <button type="button" id="btn-export-png"
+                        title="Visualisierung als Bild speichern (benötigt html2canvas)" disabled>🖼️ Export
+                        Bild</button>
                     <!-- <button type="button" id="btn-fullscreen" title="Vollbildmodus">↔️ Vollbild</button> -->
-                     <!-- <button type="button" id="btn-close-modal" title="Vollbild beenden"></button> -->
+                    <!-- <button type="button" id="btn-close-modal" title="Vollbild beenden"></button> -->
                 </div>
-            
+
                 <div class="brainstorm-inputs">
                     <div class="input-group">
                         <label for="brainstorm-input-topic">Politische Themen?</label>
@@ -875,20 +924,22 @@
                     </div>
                     <div class="input-group">
                         <label for="brainstorm-input-platform">Medien & Plattformen?</label>
-                         <div class="input-row">
-                             <input type="text" id="brainstorm-input-platform" placeholder="z.B. Twitter, TikTok, Nachrichten-Apps...">
-                             <button type="button" id="btn-add-platform" title="Plattform/Medium hinzufügen">+</button>
+                        <div class="input-row">
+                            <input type="text" id="brainstorm-input-platform"
+                                placeholder="z.B. Twitter, TikTok, Nachrichten-Apps...">
+                            <button type="button" id="btn-add-platform" title="Plattform/Medium hinzufügen">+</button>
                         </div>
                     </div>
                     <div class="input-group">
                         <label for="brainstorm-input-method">Forschungsmethoden?</label>
                         <div class="input-row">
-                             <input type="text" id="brainstorm-input-method" placeholder="z.B. Inhaltsanalyse, Umfrage...">
+                            <input type="text" id="brainstorm-input-method"
+                                placeholder="z.B. Inhaltsanalyse, Umfrage...">
                             <button type="button" id="btn-add-method" title="Methode hinzufügen">+</button>
                         </div>
                     </div>
                 </div>
-            
+
                 <div class="brainstorm-lists">
                     <div class="list-column">
                         <h4>Themen</h4>
@@ -903,11 +954,14 @@
                         <ul id="brainstorm-list-method" class="brainstorm-list"></ul>
                     </div>
                 </div>
-            
+
                 <div id="brainstorm-visualization">
-                     <!-- Visualization added by JS -->
+                    <!-- Visualization added by JS -->
                 </div>
-                <small style="display: block; text-align: right; font-size: 0.75em; color: #888; margin-top: 5px;">Bildexport basiert auf <a href="https://html2canvas.hertzen.com/" target="_blank" rel="noopener">html2canvas</a>.</small>
+                <small
+                    style="display: block; text-align: right; font-size: 0.75em; color: #888; margin-top: 5px;">Bildexport
+                    basiert auf <a href="https://html2canvas.hertzen.com/" target="_blank"
+                        rel="noopener">html2canvas</a>.</small>
             </div>
 
         </main>
@@ -919,7 +973,9 @@
 
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+        integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="network-animation.js"></script>
     <script src="cnn-animation.js"></script>
@@ -936,7 +992,7 @@
     <script src="datagen-animation.js"></script>
 
     <script src="brainstorm-tool.js"></script>
-    
+
 </body>
 
 </html>

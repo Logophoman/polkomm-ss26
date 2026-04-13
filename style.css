@@ -3158,6 +3158,24 @@ body.brainstorm-fullscreen-active {
     }
 }
 
+.topic-intro-box {
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem 0;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--border-radius);
+}
+
+.topic-intro-box .topic-title {
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
 /* --- Visual Polish for Session 1 --- */
 
 /* --- Visual Overhaul for 2026 --- */

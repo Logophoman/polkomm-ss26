@@ -3188,13 +3188,15 @@ body.brainstorm-fullscreen-active {
     flex-wrap: wrap;
     margin: 2.5rem 0;
 }
+
 .grading-card {
     flex: 1;
     min-width: 280px;
-    max-width: 380px; /* Prevents stretching to screen edges */
+    max-width: 380px;
+    /* Prevents stretching to screen edges */
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* 2. Better Accordions (The "Actionable" Look) */
@@ -3213,7 +3215,7 @@ body.brainstorm-fullscreen-active {
 
 .details-accordion:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .details-accordion summary {
@@ -3281,10 +3283,27 @@ body.brainstorm-fullscreen-active {
     transition: transform 0.2s;
 }
 
-.channel-pill:hover { transform: translateY(-3px); border-color: var(--accent-color); }
-.channel-pill span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
-.channel-pill strong { font-size: 0.95rem; color: var(--primary-color); display: block; }
-.channel-pill small { font-size: 0.75rem; color: #64748b; }
+.channel-pill:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-color);
+}
+
+.channel-pill span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.channel-pill strong {
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    display: block;
+}
+
+.channel-pill small {
+    font-size: 0.75rem;
+    color: #64748b;
+}
 
 /* 4. Application Grid */
 .app-grid {
@@ -3295,6 +3314,907 @@ body.brainstorm-fullscreen-active {
 
 /* Mobile Fixes */
 @media (max-width: 600px) {
-    .channel-pill { width: calc(50% - 1rem); }
-    .app-grid { grid-template-columns: 1fr; }
+    .channel-pill {
+        width: calc(50% - 1rem);
+    }
+
+    .app-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* HALC Method Styling */
+.halc-method {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 3rem 0;
+    border: 1px solid #d1d9e6;
+    font-family: sans-serif;
+}
+
+.halc-container h3 {
+    color: #2c3e50;
+    margin-top: 0.5rem;
+}
+
+.halc-badge {
+    display: inline-block;
+    background-color: #5c67f2;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.halc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.halc-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.halc-card:hover {
+    transform: translateY(-5px);
+}
+
+.halc-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.halc-card h4 {
+    margin: 0 0 0.5rem 0;
+    color: #34495e;
+    border-bottom: 2px solid #5c67f2;
+    display: inline-block;
+}
+
+.halc-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #555;
+    margin: 0.5rem 0 0 0;
+}
+
+.halc-quote {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-left: 4px solid #5c67f2;
+    font-style: italic;
+    background: rgba(92, 103, 242, 0.05);
+    color: #444;
+}
+
+.halc-quote blockquote {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+llm-concept-wrapper {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.llm-concept-intro {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f4f8;
+    padding-bottom: 1rem;
+}
+
+.llm-concept-badge {
+    display: inline-block;
+    background: #eef2ff;
+    color: #4338ca;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.llm-concept-tag {
+    background: #f1f5f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+    color: #334155;
+}
+
+.llm-concept-modes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+}
+
+.llm-concept-card {
+    display: flex;
+    align-items: flex-start;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 1.2rem;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.llm-concept-card:hover {
+    border-color: #4338ca;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(67, 56, 202, 0.08);
+}
+
+.llm-concept-card-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    background: #ffffff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+
+.llm-concept-card-content h4 {
+    margin: 0 0 0.4rem 0 !important;
+    color: #1e293b;
+    font-size: 1.1rem;
+}
+
+.llm-concept-card-content p {
+    margin: 0 !important;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #475569;
+}
+
+/* Responsivität für kleine Bildschirme */
+@media (max-width: 600px) {
+    .llm-concept-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .llm-concept-card-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+/* --- LLM Applications Grid Styles --- */
+.llm-apps-wrapper {
+    margin: 2.5rem 0;
+    padding: 1rem;
+    background-color: #fcfcfd;
+    border-radius: 12px;
+}
+
+.llm-apps-title {
+    text-align: center;
+    margin-bottom: 2rem !important;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.llm-apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.llm-apps-card {
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: 10px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.llm-apps-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border-color: #d1d9e6;
+}
+
+.llm-apps-icon {
+    font-size: 1.75rem;
+    background: #f8fafc;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.llm-apps-body h4 {
+    margin: 0 0 0.5rem 0 !important;
+    font-size: 1.05rem;
+    color: var(--primary-color);
+    line-height: 1.3;
+}
+
+.llm-apps-body p {
+    margin: 0 !important;
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Anpassung für mobile Endgeräte */
+@media (max-width: 650px) {
+    .llm-apps-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- LLM Tools Section Styles --- */
+.llm-tools-wrapper {
+    margin: 3rem 0;
+}
+
+.llm-tools-main-title {
+    margin-bottom: 1.5rem !important;
+}
+
+.llm-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.llm-tools-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.llm-tools-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.llm-tools-header h4 {
+    margin: 0 !important;
+    font-size: 1.15rem;
+    color: var(--primary-color);
+}
+
+.llm-tools-type-icon {
+    font-size: 1.5rem;
+}
+
+.llm-tools-desc {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 1.25rem !important;
+    flex-grow: 1;
+}
+
+.llm-tools-pro-con {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+.llm-tools-list-item {
+    font-size: 0.82rem;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.llm-tools-list-item:last-child {
+    margin-bottom: 0;
+}
+
+.llm-tools-list-item.pro {
+    color: #166534;
+}
+
+.llm-tools-list-item.con {
+    color: #991b1b;
+}
+
+/* Frameworks Banner */
+.llm-tools-frameworks {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f1f5f9;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #64748b;
+}
+
+.llm-tools-fw-badge {
+    background: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.llm-tools-frameworks p {
+    margin: 0 !important;
+    font-size: 0.9rem;
+    color: #334155;
+}
+
+@media (max-width: 600px) {
+    .llm-tools-frameworks {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* --- LLM Colab Path Styles --- */
+.llm-colab-path-box {
+    display: flex;
+    align-items: center;
+    background-color: #f0fdf4;
+    /* Ein sehr sanftes "Lösungs-Grün" */
+    border: 1px solid #bbf7d0;
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    gap: 1.25rem;
+    box-shadow: 0 2px 4px rgba(22, 101, 52, 0.05);
+}
+
+.llm-colab-path-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    background: #ffffff;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.llm-colab-path-content h4 {
+    margin: 0 0 0.35rem 0 !important;
+    color: #166534;
+    /* Dunkelgrün für die Überschrift */
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.llm-colab-path-content p {
+    margin: 0 !important;
+    font-size: 0.95rem;
+    color: #14532d;
+    line-height: 1.5;
+}
+
+/* Mobile Optimierung */
+@media (max-width: 600px) {
+    .llm-colab-path-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+
+    .llm-colab-path-icon {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* --- Knowledge Flow Pipeline Styles --- */
+.knowledge-flow-wrapper {
+    margin: 3.5rem 0;
+    padding: 2rem;
+    background: #ffffff;
+    border: 2px solid #f1f5f9;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.knowledge-flow-title {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem !important;
+}
+
+.knowledge-flow-intro {
+    margin-bottom: 2rem;
+}
+
+.knowledge-flow-pipeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.knowledge-flow-step {
+    flex: 1;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 1.25rem;
+    border-radius: 12px;
+    position: relative;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.knowledge-flow-step:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.knowledge-flow-step.result {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.knowledge-flow-step-num {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-color);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.knowledge-flow-step-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.knowledge-flow-step-content strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.knowledge-flow-step-content span {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+.knowledge-flow-step.result .knowledge-flow-step-content span {
+    color: #cbd5e0;
+}
+
+.knowledge-flow-step-content p {
+    margin: 0 !important;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.knowledge-flow-arrow {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #cbd5e0;
+}
+
+.knowledge-flow-arrow.final {
+    color: var(--accent-color);
+}
+
+/* Example Box */
+.knowledge-flow-example {
+    background: #fff;
+    border: 1px dashed #cbd5e0;
+    padding: 1.25rem;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 1rem;
+}
+
+.knowledge-flow-example-badge {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #64748b;
+    color: white;
+    padding: 2px 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+.knowledge-flow-example p {
+    margin: 0 !important;
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* Mobile: Stack them vertically */
+@media (max-width: 850px) {
+    .knowledge-flow-pipeline {
+        flex-direction: column;
+    }
+
+    .knowledge-flow-arrow {
+        transform: rotate(90deg);
+        margin: 0.5rem 0;
+    }
+
+    .knowledge-flow-step {
+        width: 100%;
+    }
+}
+
+.session-outlook-wrapper {
+    margin: 4rem 0 2rem 0;
+}
+
+.session-outlook-main-title {
+    text-align: center;
+    margin-bottom: 2.5rem !important;
+}
+
+.session-outlook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.session-outlook-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s ease;
+}
+
+.session-outlook-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+.session-outlook-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.25rem;
+}
+
+.session-outlook-card-header h3 {
+    margin: 0 !important;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+.session-outlook-icon {
+    font-size: 1.5rem;
+}
+
+.session-outlook-card p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Notebook Tags */
+.session-outlook-notebooks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.session-outlook-nb-tag {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+}
+
+/* Inspiration List */
+.session-outlook-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.session-outlook-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.session-outlook-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Next Session Banner */
+.session-outlook-next-session {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #004080 100%);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 51, 102, 0.2);
+}
+
+.session-outlook-next-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.session-outlook-next-content {
+    max-width: 80%;
+}
+
+.session-outlook-next-content h3 {
+    color: white !important;
+    font-size: 1.6rem;
+    margin-bottom: 1rem !important;
+}
+
+.session-outlook-next-content p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 !important;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.session-outlook-next-icon {
+    font-size: 4rem;
+    opacity: 0.3;
+    transform: rotate(15deg);
+    transition: transform 0.5s ease;
+}
+
+.session-outlook-next-session:hover .session-outlook-next-icon {
+    transform: rotate(0deg) scale(1.1);
+    opacity: 0.5;
+}
+
+/* Mobile Optimierung */
+@media (max-width: 768px) {
+    .session-outlook-next-session {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 1.5rem 2rem 1.5rem;
+    }
+
+    .session-outlook-next-content {
+        max-width: 100%;
+    }
+
+    .session-outlook-next-icon {
+        font-size: 3rem;
+    }
+
+    .session-outlook-next-badge {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* --- Session 2 Intro Styles --- */
+.session-intro-wrapper {
+    margin: 2.5rem 0;
+}
+
+/* Perspective Shift Cards */
+.session-intro-focus-shift {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.session-intro-shift-card {
+    flex: 1;
+    max-width: 250px;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.session-intro-shift-card.current {
+    border-color: var(--primary-color);
+    background: #f8fafc;
+    box-shadow: 0 4px 12px rgba(0, 51, 102, 0.08);
+}
+
+.session-intro-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #f1f5f9;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+}
+
+.session-intro-badge.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.session-intro-shift-card h4 {
+    margin: 0 0 0.5rem 0 !important;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.session-intro-shift-card p {
+    margin: 0 !important;
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+.session-intro-shift-arrow {
+    font-size: 1.5rem;
+    color: #cbd5e0;
+}
+
+/* Goal Box */
+.session-intro-goal-box {
+    background: #f1f5f9;
+    border-left: 4px solid var(--primary-color);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 2.5rem;
+}
+
+.session-intro-goal-box p {
+    margin: 0 !important;
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.6;
+}
+
+/* Agenda List */
+.session-intro-agenda-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.session-intro-agenda-container h3 {
+    margin-top: 0 !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.session-intro-agenda-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.session-intro-agenda-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.session-intro-agenda-item:hover {
+    background: #f8fafc;
+}
+
+.session-intro-agenda-marker {
+    width: 28px;
+    height: 28px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.session-intro-agenda-item.highlight {
+    background: #fff9f0;
+    border: 1px solid #ffedda;
+}
+
+.session-intro-agenda-item.highlight .session-intro-agenda-marker {
+    background: var(--accent-color);
+}
+
+.session-intro-agenda-content {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #475569;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .session-intro-focus-shift {
+        flex-direction: column;
+    }
+
+    .session-intro-shift-arrow {
+        transform: rotate(90deg);
+    }
+
+    .session-intro-agenda-container {
+        padding: 1.25rem;
+    }
 }

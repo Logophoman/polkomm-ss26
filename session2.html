@@ -43,28 +43,73 @@
                 </p>
             </div>
 
-            <p>Heute schalten wir den Fokus um: Von den <em>Was</em>-Fragen (Themen wie Wahlkampf, Aktivismus,
-                Neutralität) zu den <strong>Wie</strong>-Fragen. Wir konzentrieren uns auf die <strong>technischen
-                    Werkzeuge und Strategien</strong>, die uns erlauben, die digitale politische Sphäre systematisch zu
-                untersuchen.</p>
+            <section class="session-intro-wrapper">
+                <!-- Perspective Shift -->
+                <div class="session-intro-focus-shift">
+                    <div class="session-intro-shift-card past">
+                        <span class="session-intro-badge">Sitzung 1</span>
+                        <h4>Was-Fragen</h4>
+                        <p>Wahlkampf, Aktivismus, Neutralität</p>
+                    </div>
+                    <div class="session-intro-shift-arrow">➞</div>
+                    <div class="session-intro-shift-card current">
+                        <span class="session-intro-badge active">Sitzung 2</span>
+                        <h4>Wie-Fragen</h4>
+                        <p>Technische Werkzeuge & Strategien</p>
+                    </div>
+                </div>
 
-            <p>Ziel ist es, ein solides Verständnis für die <strong>Datenbeschaffung</strong> (Wie kommen wir an die
-                Rohdaten?) und <strong>automatisierte Analysemethoden</strong> (Wie können wir große Datenmengen
-                effizient auswerten?) zu entwickeln.</p>
+                <!-- Central Goal -->
+                <div class="session-intro-goal-box">
+                    <p>
+                        Ziel ist es, ein solides Verständnis für die <strong>Datenbeschaffung</strong> (Wie kommen wir
+                        an die Rohdaten?)
+                        und <strong>automatisierte Analysemethoden</strong> (Wie können wir große Datenmengen effizient
+                        auswerten?) zu entwickeln.
+                    </p>
+                </div>
 
-            <h3>Agenda der heutigen Sitzung:</h3>
-            <ul>
-                <li>Strategien der Datenbeschaffung: APIs vs. Web Scraping.</li>
-                <li>Web Scraping im Detail: Konzept, Werkzeuge und ein praktisches Anwendungsbeispiel (taz.de Artikel &
-                    Kommentare).</li>
-                <li>Plattformspezifische Datenzugänge: YouTube, TikTok, Telegram, Twitch, Instagram – Möglichkeiten und
-                    Hürden.</li>
-                <li>Automatisierte Analysemethoden: Sentiment Analyse & Textanalyse mit Large Language Models (LLMs).
-                </li>
-                <li><strong>Praktische Vertiefung:</strong> Direkte Einbindung und Besprechung von Google Colab
-                    Notebooks für Scraping, YouTube-Download, Sentiment-Analyse und LLM-Analyse.</li>
-            </ul>
-
+                <!-- Structured Agenda -->
+                <div class="session-intro-agenda-container">
+                    <h3>Agenda der heutigen Sitzung</h3>
+                    <div class="session-intro-agenda-list">
+                        <div class="session-intro-agenda-item">
+                            <div class="session-intro-agenda-marker">1</div>
+                            <div class="session-intro-agenda-content">
+                                <strong>Strategien der Datenbeschaffung:</strong> APIs vs. Web Scraping.
+                            </div>
+                        </div>
+                        <div class="session-intro-agenda-item">
+                            <div class="session-intro-agenda-marker">2</div>
+                            <div class="session-intro-agenda-content">
+                                <strong>Web Scraping im Detail:</strong> Konzept, Werkzeuge und ein praktisches
+                                Anwendungsbeispiel (taz.de Artikel & Kommentare).
+                            </div>
+                        </div>
+                        <div class="session-intro-agenda-item">
+                            <div class="session-intro-agenda-marker">3</div>
+                            <div class="session-intro-agenda-content">
+                                <strong>Plattformspezifische Datenzugänge:</strong> YouTube, TikTok, Telegram, Twitch,
+                                Instagram – Möglichkeiten und Hürden.
+                            </div>
+                        </div>
+                        <div class="session-intro-agenda-item">
+                            <div class="session-intro-agenda-marker">4</div>
+                            <div class="session-intro-agenda-content">
+                                <strong>Automatisierte Analysemethoden:</strong> Sentiment Analyse & Textanalyse mit
+                                Large Language Models (LLMs).
+                            </div>
+                        </div>
+                        <div class="session-intro-agenda-item highlight">
+                            <div class="session-intro-agenda-marker">★</div>
+                            <div class="session-intro-agenda-content">
+                                <strong>Praktische Vertiefung:</strong> Direkte Einbindung und Besprechung von Google
+                                Colab Notebooks für Scraping, YouTube-Download, Sentiment-Analyse und LLM-Analyse.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <hr>
 
             <h2>2. Datenbeschaffung: Die Rohstoffe für unsere Analyse</h2>
@@ -196,7 +241,7 @@
                 </div>
             </div>
 
-            <p><strong>Empfehlung:</strong> Generell gilt: Prüfen Sie zuerst, ob eine nutzbare API existiert und Ihren
+            <p><strong>Empfehlung:</strong> Generell gilt: Prüfe zuerst, ob eine nutzbare API existiert und Ihren
                 Anforderungen genügt. Scraping sollte mit Bedacht und unter Einhaltung ethischer sowie rechtlicher
                 Richtlinien eingesetzt werden, oft als Alternative oder Ergänzung.</p>
 
@@ -210,25 +255,28 @@
                 <li><strong>HTML-Struktur:</strong> Webseiten bestehen aus verschachtelten Elementen (Tags wie
                     div, p oder a mit Attributen (z.B.
                     <code>class="headline"</code>, <code>id="main-content"</code>). Diese Struktur gibt den Inhalt und
-                    das Layout vor.</li>
-                <li><strong>Elemente inspizieren:</strong> Das wichtigste Werkzeug ist der <strong>Entwicklermodus</strong> Ihres
+                    das Layout vor.
+                </li>
+                <li><strong>Elemente inspizieren:</strong> Das wichtigste Werkzeug ist der
+                    <strong>Entwicklermodus</strong> Ihres
                     Browsers (oft per Rechtsklick -> "Untersuchen" oder "Inspect Element" erreichbar). Damit können Sie
                     den HTML-Code live sehen und die Struktur analysieren, um die Elemente zu finden, die Ihre
-                    gewünschten Daten enthalten.</li>
-                    <div style="margin: 1.5rem 0; text-align: center; border: 1px dashed #ccc; padding: 1rem;">
-                        <p><strong>Rückblick auf Ergebnisse aus Sitzung 1:</strong></p>
-                        <img src="untersuchen.PNG"
-                            alt="Geöffneter Entwicklermodus im Browser"
-                            style="max-width: 100%; height: auto; border: 1px solid #eee; margin-bottom: 1rem;">
-                        <p>Hier sehen wir wie dieses Element im Entwicklermodus aussieht...
-                        </p>
-                    </div>
+                    gewünschten Daten enthalten.
+                </li>
+                <div style="margin: 1.5rem 0; text-align: center; border: 1px dashed #ccc; padding: 1rem;">
+                    <p><strong>Rückblick auf Ergebnisse aus Sitzung 1:</strong></p>
+                    <img src="untersuchen.PNG" alt="Geöffneter Entwicklermodus im Browser"
+                        style="max-width: 100%; height: auto; border: 1px solid #eee; margin-bottom: 1rem;">
+                    <p>Hier sehen wir wie dieses Element im Entwicklermodus aussieht...
+                    </p>
+                </div>
                 <li><strong>Selektoren:</strong> Um Elemente im Code gezielt anzusprechen, verwenden wir Selektoren:
                     <ul>
                         <li><strong>CSS-Selektoren:</strong> Ähnlich wie in CSS zum Stylen verwendet (z.B.
                             <code>div.article-body p</code> für alle Paragraphen innerhalb eines Divs mit der Klasse
                             "article-body", oder <code>#main-title</code> für das Element mit der ID "main-title"). Oft
-                            intuitiv und ausreichend.</li>
+                            intuitiv und ausreichend.
+                        </li>
                         <li><strong>XPath:</strong> Eine mächtigere, aber komplexere Sprache zur Navigation durch den
                             HTML/XML-Baum (z.B. <code>//h1[@class='main-title']</code> findet alle h1-Elemente mit der
                             Klasse "main-title"). Nützlich für kompliziertere Strukturen.</li>
@@ -239,8 +287,8 @@
                     Einfache Scraper, die nur das erste HTML herunterladen, sehen diese Inhalte nicht. Hierfür braucht
                     man fortgeschrittene Werkzeuge wie <strong>Selenium</strong> oder <strong>Playwright</strong>, die
                     einen echten Browser fernsteuern und auch mit JavaScript interagieren können.</li>
-                <li><strong>Praktische Hürden:</strong> Denken Sie an Seitenwechsel (Pagination – wie komme ich auf
-                    Seite 2, 3, ...?) und legen Sie immer Pausen (<code>time.sleep()</code> in Python) zwischen Anfragen
+                <li><strong>Praktische Hürden:</strong> Denke an Seitenwechsel (Pagination – wie komme ich auf
+                    Seite 2, 3, ...?) und lege immer Pausen (<code>time.sleep()</code> in Python) zwischen Anfragen
                     ein, um den Server nicht zu überlasten und eine Sperrung Ihrer IP-Adresse zu vermeiden (Rate
                     Limiting).</li>
             </ul>
@@ -260,46 +308,68 @@
             </ul>
 
             <h4>Anwendungsbeispiel: TAZ vs. Welt/ZEIT - Wann reicht Headless?</h4>
-            <p><strong>Zielsetzung:</strong> Wir wollen Artikel und Kommentare von Nachrichtenseiten sammeln. Reichen `requests` und `BeautifulSoup` (headless) oder brauchen wir Selenium?</p>
+            <p><strong>Zielsetzung:</strong> Wir wollen Artikel und Kommentare von Nachrichtenseiten sammeln. Reichen
+                `requests` und `BeautifulSoup` (headless) oder brauchen wir Selenium?</p>
 
             <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0;">
-                 <div style="flex-basis: 48%; background-color: #f0fff0; border: 1px solid #90ee90; padding: 1rem; border-radius: 4px;">
-                     <h5>Fall 1: TAZ.de (Headless funktioniert oft!)</h5>
-                     <p>Die Analyse der Seitenstruktur der TAZ (und das bereitgestellte Beispielskript) zeigt, dass Artikelinhalte und Kommentare oft <strong>direkt im initialen HTML-Code</strong> enthalten sind. Die Kommentare werden serverseitig generiert.</p>
-                     <p><strong>Konzeptioneller Ablauf (Headless mit `requests`/`BeautifulSoup`):</strong></p>
-                     <ol>
-                         <li>Artikel-URL mit `requests` abrufen.</li>
-                         <li>HTML mit `BeautifulSoup` parsen.</li>
-                         <li>Artikel-Titel, Text, Datum etc. extrahieren.</li>
-                         <li>Kommentarbereich finden und <strong>alle darin enthaltenen Kommentare</strong> (auch verschachtelte) mit `BeautifulSoup` extrahieren.</li>
-                         <li>Speichern.</li>
-                     </ol>
-                     <p>✅ <strong>Vorteil</strong> Schneller, weniger ressourcenintensiv, keine Browser-Installation nötig.</p>
-                 </div>
-                 <div style="flex-basis: 48%; background-color: #fff5f5; border: 1px solid #fcc; padding: 1rem; border-radius: 4px;">
-                     <h5>Fall 2: Welt.de / Zeit.de (Headless oft unzureichend!)</h5>
-                     <p>Bei vielen modernen Portalen wie Welt.de oder Zeit.de werden Kommentare und oft auch weitere Artikel/Suchergebnisse <strong>dynamisch mit JavaScript</strong> nachgeladen (z.B. durch Klick auf "Mehr laden" oder Scrollen).</p>
-                      <p><strong>Konzeptioneller Ablauf (Headless mit `requests`/`BeautifulSoup`):</strong></p>
-                     <ol>
-                         <li>Artikel-URL mit `requests` abrufen.</li>
-                         <li>HTML mit `BeautifulSoup` parsen.</li>
-                         <li>Artikel-Titel, Text, Datum etc. extrahieren (soweit im initialen HTML).</li>
-                         <li>Kommentarbereich finden, aber <strong>nur wenige oder keine Kommentare</strong> extrahieren können, da der Rest erst durch JavaScript geladen würde.</li>
-                         <li>Speichern (mit unvollständigen Kommentardaten).</li>
-                     </ol>
-                     <p>❌ <strong>Nachteil</strong> Man erhält nur einen Bruchteil der Daten (insb. Kommentare). Für vollständige Daten ist <strong>Selenium/Playwright</strong> nötig, um Klicks/Scrollen zu simulieren.</p>
-                 </div>
+                <div
+                    style="flex-basis: 48%; background-color: #f0fff0; border: 1px solid #90ee90; padding: 1rem; border-radius: 4px;">
+                    <h5>Fall 1: TAZ.de (Headless funktioniert oft!)</h5>
+                    <p>Die Analyse der Seitenstruktur der TAZ (und das bereitgestellte Beispielskript) zeigt, dass
+                        Artikelinhalte und Kommentare oft <strong>direkt im initialen HTML-Code</strong> enthalten sind.
+                        Die Kommentare werden serverseitig generiert.</p>
+                    <p><strong>Konzeptioneller Ablauf (Headless mit `requests`/`BeautifulSoup`):</strong></p>
+                    <ol>
+                        <li>Artikel-URL mit `requests` abrufen.</li>
+                        <li>HTML mit `BeautifulSoup` parsen.</li>
+                        <li>Artikel-Titel, Text, Datum etc. extrahieren.</li>
+                        <li>Kommentarbereich finden und <strong>alle darin enthaltenen Kommentare</strong> (auch
+                            verschachtelte) mit `BeautifulSoup` extrahieren.</li>
+                        <li>Speichern.</li>
+                    </ol>
+                    <p>✅ <strong>Vorteil</strong> Schneller, weniger ressourcenintensiv, keine Browser-Installation
+                        nötig.</p>
+                </div>
+                <div
+                    style="flex-basis: 48%; background-color: #fff5f5; border: 1px solid #fcc; padding: 1rem; border-radius: 4px;">
+                    <h5>Fall 2: Welt.de / Zeit.de (Headless oft unzureichend!)</h5>
+                    <p>Bei vielen modernen Portalen wie Welt.de oder Zeit.de werden Kommentare und oft auch weitere
+                        Artikel/Suchergebnisse <strong>dynamisch mit JavaScript</strong> nachgeladen (z.B. durch Klick
+                        auf "Mehr laden" oder Scrollen).</p>
+                    <p><strong>Konzeptioneller Ablauf (Headless mit `requests`/`BeautifulSoup`):</strong></p>
+                    <ol>
+                        <li>Artikel-URL mit `requests` abrufen.</li>
+                        <li>HTML mit `BeautifulSoup` parsen.</li>
+                        <li>Artikel-Titel, Text, Datum etc. extrahieren (soweit im initialen HTML).</li>
+                        <li>Kommentarbereich finden, aber <strong>nur wenige oder keine Kommentare</strong> extrahieren
+                            können, da der Rest erst durch JavaScript geladen würde.</li>
+                        <li>Speichern (mit unvollständigen Kommentardaten).</li>
+                    </ol>
+                    <p>❌ <strong>Nachteil</strong> Man erhält nur einen Bruchteil der Daten (insb. Kommentare). Für
+                        vollständige Daten ist <strong>Selenium/Playwright</strong> nötig, um Klicks/Scrollen zu
+                        simulieren.</p>
+                </div>
             </div>
 
-            <p><strong>Fazit:</strong> Ob ein Headless-Ansatz genügt, hängt stark von der <strong>Technologie der Zielwebseite</strong> ab. Seiten, die Inhalte serverseitig rendern (wie oft bei TAZ), sind gut mit `requests`/`BeautifulSoup` scrapebar. Seiten mit viel dynamischem JavaScript benötigen Browser-Automatisierung.</p>
+            <p><strong>Fazit:</strong> Ob ein Headless-Ansatz genügt, hängt stark von der <strong>Technologie der
+                    Zielwebseite</strong> ab. Seiten, die Inhalte serverseitig rendern (wie oft bei TAZ), sind gut mit
+                `requests`/`BeautifulSoup` scrapebar. Seiten mit viel dynamischem JavaScript benötigen
+                Browser-Automatisierung.</p>
 
 
             <h4>Praktische Umsetzung im Colab: TAZ Artikel & Kommentare scrapen (Headless)</h4>
             <div class="colab-embed-box interactive-box">
                 <h4>Google Colab: Web Scraping bei TAZ.de</h4>
-                <p>Dieses Google Colab Notebook demonstriert, wie man Artikeldetails und <strong>Kommentare</strong> von TAZ.de mit Python, <strong>nur unter Verwendung von `requests` und `BeautifulSoup`</strong>, extrahieren kann. Es basiert auf dem Prinzip, dass TAZ viele Inhalte serverseitig rendert.</p>
-                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Das Notebook kann<a href="https://colab.research.google.com/drive/1jHRfLsCxc0gA0uYm8aS78MyJgGI0Vf9t?usp=sharing" target="_blank" rel="noopener noreferrer">hier direkt geöffnet werden</a> (Eigene Kopie anlegen).</p>
-                 <p style="margin-top: 1rem;"><strong>Wichtig:</strong> Auch wenn dies bei TAZ oft funktioniert, können sich Webseitenstrukturen ändern. Die im Notebook verwendeten Selektoren müssen eventuell in Zukunft angepasst werden.</p>
+                <p>Dieses Google Colab Notebook demonstriert, wie man Artikeldetails und <strong>Kommentare</strong> von
+                    TAZ.de mit Python, <strong>nur unter Verwendung von `requests` und `BeautifulSoup`</strong>,
+                    extrahieren kann. Es basiert auf dem Prinzip, dass TAZ viele Inhalte serverseitig rendert.</p>
+                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Das Notebook kann<a
+                        href="https://colab.research.google.com/drive/1jHRfLsCxc0gA0uYm8aS78MyJgGI0Vf9t?usp=sharing"
+                        target="_blank" rel="noopener noreferrer">hier direkt geöffnet werden</a> (Eigene Kopie
+                    anlegen).</p>
+                <p style="margin-top: 1rem;"><strong>Wichtig:</strong> Auch wenn dies bei TAZ oft funktioniert, können
+                    sich Webseitenstrukturen ändern. Die im Notebook verwendeten Selektoren müssen eventuell in Zukunft
+                    angepasst werden.</p>
             </div>
 
             <h4>Ethik & Recht beim Scraping</h4>
@@ -308,25 +378,25 @@
                 <p>Web Scraping bewegt sich oft in einer Grauzone. Es ist <strong>essenziell</strong>,
                     verantwortungsvoll vorzugehen:</p>
                 <ul>
-                    <li><strong>Respektieren Sie <code>robots.txt</code>:</strong> Diese Datei auf einer Website gibt
+                    <li><strong>Respektiere <code>robots.txt</code>:</strong> Diese Datei auf einer Website gibt
                         (oft) an, welche Bereiche <em>nicht</em> automatisch besucht werden sollen. Auch wenn technisch
                         umgehbar, ist die Missachtung ein starkes Signal für problematisches Verhalten und kann
                         rechtliche Konsequenzen haben.</li>
-                    <li><strong>Prüfen Sie die Nutzungsbedingungen (Terms of Service/AGB):</strong> Viele Websites
+                    <li><strong>Prüfe die Nutzungsbedingungen (Terms of Service/AGB):</strong> Viele Websites
                         verbieten Scraping explizit. Ein Verstoß kann zur Sperrung oder rechtlichen Schritten führen.
                     </li>
-                    <li><strong>Seien Sie "nett" zum Server:</strong> Senden Sie Anfragen nicht zu schnell
-                        hintereinander (implementieren Sie Pausen – <code>time.sleep()</code>!). Überlasten Sie den
-                        Server nicht (Risiko einer (temporären) Sperrung Ihrer IP). Identifizieren Sie Ihren Scraper
+                    <li><strong>Sei "nett" zum Server:</strong> Sende Anfragen nicht zu schnell
+                        hintereinander (implementiere Pausen – <code>time.sleep()</code>!). Überlaste den
+                        Server nicht (Risiko einer (temporären) Sperrung Ihrer IP). Identifiziere deinen Scraper
                         ggf. im User-Agent (obwohl dies umstritten ist).</li>
-                    <li><strong>Fokus auf öffentliche Daten:</strong> Scrapen Sie keine Daten, die einen Login erfordern
-                        oder klar als privat gekennzeichnet sind, es sei denn, Sie haben eine explizite Erlaubnis.</li>
+                    <li><strong>Fokus auf öffentliche Daten:</strong> Scrape keine Daten, die einen Login erfordern
+                        oder klar als privat gekennzeichnet sind, es sei denn, du habst eine explizite Erlaubnis.</li>
                     <li><strong>Datenschutz (DSGVO/GDPR):</strong> Besondere Vorsicht bei personenbezogenen Daten
                         (Namen, User IDs, Kommentare)! Eine Verarbeitung ist nur unter strengen Voraussetzungen erlaubt
-                        (z.B. Forschungszwecke mit sorgfältiger Abwägung, Anonymisierung, Aggregation). Holen Sie im
+                        (z.B. Forschungszwecke mit sorgfältiger Abwägung, Anonymisierung, Aggregation). Hol dir im
                         Zweifel rechtlichen Rat ein.</li>
-                    <li><strong>Transparenz:</strong> Dokumentieren Sie Ihr Vorgehen und Ihre Datenquellen
-                        nachvollziehbar in Ihrer Forschung.</li>
+                    <li><strong>Transparenz:</strong> Dokumentiere dein Vorgehen und deine Datenquellen
+                        nachvollziehbar in deiner Forschung.</li>
                 </ul>
                 <p><strong>Diese Punkte sind nicht optional!</strong> Verantwortungsvolles Scraping ist essenziell, um
                     rechtliche Probleme und ethische Konflikte zu vermeiden. Im Zweifelsfall ist eine rechtliche
@@ -351,13 +421,17 @@
                                 Forschungsdaten.</strong></li>
                         <li><strong>Bibliothek (Download/Basis-Metadaten):</strong> <code>pytube</code> /
                             <code>pytubefix</code> (Python). Primär zum Download von Videos und Abruf einfacher
-                            Metadaten (Titel, Views). Kommentarzugriff damit meist instabil oder nicht möglich.</li>
+                            Metadaten (Titel, Views). Kommentarzugriff damit meist instabil oder nicht möglich.
+                        </li>
                     </ul>
                     <div class="colab-embed-box interactive-box">
                         <h4>Google Colab: YouTube Video Download & Metadaten</h4>
-                        <p>Dieses kurze Colab Notebook zeigt, wie man schnell mit <code>pytubefix</code> <strong>wenige</strong> Videos von YouTube
-                            herunterlädt und grundlegende Metadaten extrahiert.</p>
-                        <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Das Notebook <a href="https://colab.research.google.com/drive/1CEgtdJhEiGhGQ2N3iwwoslJ9rqslimyO?usp=sharing"
+                        <p>Dieses kurze Colab Notebook zeigt, wie man schnell mit <code>pytubefix</code>
+                            <strong>wenige</strong> Videos von YouTube
+                            herunterlädt und grundlegende Metadaten extrahiert.
+                        </p>
+                        <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Das Notebook <a
+                                href="https://colab.research.google.com/drive/1CEgtdJhEiGhGQ2N3iwwoslJ9rqslimyO?usp=sharing"
                                 target="_blank" rel="noopener noreferrer">hier direkt öffnen</a> (Kopie anlegen).</p>
                     </div>
                 </div>
@@ -375,7 +449,8 @@
                             seine Systeme häufig, diese Tools funktionieren oft nur kurzzeitig oder unzuverlässig.
                             Nutzung erfolgt auf <strong>eigenes Risiko</strong> und stellt potenziell einen
                             <strong>Verstoß gegen die Nutzungsbedingungen</strong> dar. Liefern ggf. Video-Metadaten,
-                            User-Infos, Kommentare.</li>
+                            User-Infos, Kommentare.
+                        </li>
                     </ul>
                 </div>
 
@@ -407,7 +482,8 @@
                             Bibliotheken (z.B. <code>twitchio</code> in Python) einem Kanal beitreten und den
                             <strong>Live-Chat</strong> mitlesen und speichern. Sammlung erfordert, dass der Bot/Scraper
                             dem Kanal beitritt, <em>während</em> der Stream läuft. Historische Chats sind schwer
-                            zugänglich.</li>
+                            zugänglich.
+                        </li>
                         <li><strong>Scraping:</strong> Technisch möglich, aber komplex und gegen die
                             Nutzungsbedingungen. Fokus auf API/IRC ist sinnvoller.</li>
                     </ul>
@@ -427,7 +503,8 @@
                             Logins/Browsers zu scrapen. <strong>Extrem instabil, hohes Risiko von Account-Sperrungen,
                                 klarer Verstoß gegen Instagrams Nutzungsbedingungen.</strong> Wegen der Aggressivität
                             von Meta/Instagram gegen Scraping für systematische Forschung <strong>nicht
-                                empfohlen!</strong></li>
+                                empfohlen!</strong>
+                        </li>
                     </ul>
                 </div>
 
@@ -442,8 +519,8 @@
 
             <p><strong>Fazit zu Plattformen:</strong> Der Datenzugang variiert enorm. Offizielle APIs sind, wo verfügbar
                 und ausreichend, der sicherste Weg. Inoffizielle Methoden sind oft technisch fragil und bergen
-                erhebliche Risiken (Sperrung, Rechtsverstoß). <strong>Prüfen Sie immer die aktuellen Nutzungsbedingungen
-                    und handeln Sie verantwortungsbewusst und ethisch!</strong></p>
+                erhebliche Risiken (Sperrung, Rechtsverstoß). <strong>Prüfe immer die aktuellen Nutzungsbedingungen
+                    und handel verantwortungsbewusst und ethisch!</strong></p>
 
 
             <hr style="border-width: 2px; border-color: var(--primary-color); margin: 3rem 0;">
@@ -487,16 +564,19 @@
             <div class="colab-embed-box interactive-box">
                 <h4>Google Colab: Sentiment Analyse mit Hugging Face</h4>
                 <p>Das folgende Colab Notebook zeigt, wie man mit der Hugging Face <code>pipeline</code> sehr einfach
-                    Sentiment-Analysen auf unseren Kommentar Texten durchführen kann. Wir wenden es beispielhaft auf einige
+                    Sentiment-Analysen auf unseren Kommentar Texten durchführen kann. Wir wenden es beispielhaft auf
+                    einige
                     Sätze an, die wir vorhin gescraped haben.</p>
-                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Hier können Sie das Notebook <a href="https://colab.research.google.com/drive/1p3MBBKC39V26lIb6Th-HI9M5L6gJutuE?usp=sharing" target="_blank"
-                        rel="noopener noreferrer">direkt öffnen</a> (Kopie anlegen!).</p>
+                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Hier kannst du das Notebook
+                    <a href="https://colab.research.google.com/drive/1p3MBBKC39V26lIb6Th-HI9M5L6gJutuE?usp=sharing"
+                        target="_blank" rel="noopener noreferrer">direkt öffnen</a> (Kopie anlegen!).
+                </p>
             </div>
 
             <div class="warning-box" style="margin-top: 1.5rem;">
                 <h4>Limitationen der Sentiment Analyse beachten!</h4>
-                <p>Automatisierte Sentiment Analyse ist ein nützliches Werkzeug, aber keine "Wahrheitsmaschine". Seien
-                    Sie sich der Grenzen bewusst:</p>
+                <p>Automatisierte Sentiment Analyse ist ein nützliches Werkzeug, aber keine "Wahrheitsmaschine". Sei
+                    dir der Grenzen bewusst:</p>
                 <ul>
                     <li><strong>Kontextabhängigkeit:</strong> Die Bedeutung von Wörtern kann sich je nach Kontext stark
                         ändern.</li>
@@ -507,79 +587,177 @@
                     <li><strong>Domänenspezifische Sprache:</strong> Politischer Jargon oder Fachbegriffe sind oft nicht
                         in den allgemeinen Trainingsdaten enthalten.</li>
                 </ul>
-                <p><strong>Fazit:</strong> Ergebnisse immer kritisch prüfen! Betrachten Sie sie als Indikatoren, nicht
+                <p><strong>Fazit:</strong> Ergebnisse immer kritisch prüfen! Betrachte sie als Indikatoren, nicht
                     als absolute Fakten. Eine manuelle Validierung an einer Teilstichprobe ist oft sinnvoll.</p>
             </div>
 
 
             <h3>3.2 Automatisierte Inhaltsanalyse mit LLMs: Jenseits von Sentiment</h3>
-            <p><strong>Konzept:</strong> Large Language Models (LLMs) – die Technologie hinter Systemen wie ChatGPT,
-                Llama, Mistral etc. – können nicht nur Text generieren, sondern auch für komplexe Analyseaufgaben
-                eingesetzt werden, die traditionell zeitaufwändige menschliche Codierung erforderten. Durch geschickte
-                Anweisungen (Prompts) kann man LLMs dazu bringen, Texte nach bestimmten Kriterien zu klassifizieren,
-                Informationen zu extrahieren oder sogar zu bewerten.</p>
-            <p>Man unterscheidet oft:</p>
-            <ul>
-                <li><strong>Zero-Shot Learning:</strong> Das LLM führt eine Aufgabe aus, für die es nicht explizit
-                    trainiert wurde, nur basierend auf der Anweisung im Prompt.</li>
-                <li><strong>Few-Shot Learning:</strong> Man gibt dem LLM im Prompt einige Beispiele, wie die Aufgabe zu
-                    lösen ist, um die Genauigkeit zu verbessern.</li>
-            </ul>
 
-            <p><strong>Mögliche Anwendungen in der politischen Kommunikationsforschung:</strong></p>
-            <ul>
-                <li><strong>Themenklassifikation:</strong> Automatische Zuordnung von Texten (z.B. Tweets, Artikel,
-                    Kommentare) zu vordefinierten politischen Themen (z.B. Umwelt, Wirtschaft, Soziales).</li>
-                <li><strong>Frame-Analyse:</strong> Erkennung, welche Deutungsrahmen (Frames) in einem Text verwendet
-                    werden (z.B. Sicherheit vs. Freiheit, Chance vs. Risiko).</li>
-                <li><strong>Argumentationsanalyse:</strong> Identifikation von Argumenten, Begründungen, Forderungen
-                    oder sogar spezifischen Argumentationstypen.</li>
-                <li><strong>Akteursextraktion:</strong> Automatische Erkennung und Extraktion von genannten politischen
-                    Akteuren (Personen, Parteien, Organisationen).</li>
-                <li><strong>Nuancierte Emotions-/Tonalitätsanalyse:</strong> Über einfache Polarität hinausgehende
-                    Analysen (z.B. Erkennung von Ärger, Zynismus, Unterstützung).</li>
-                <li><strong>Zusammenfassung:</strong> Automatische Erstellung von Zusammenfassungen großer Textmengen
-                    oder langer Debatten.</li>
-            </ul>
+            <section class="llm-concept-wrapper">
+                <div class="llm-concept-intro">
+                    <div class="llm-concept-badge">KI & Forschung</div>
+                    <p>
+                        <strong>Konzept:</strong> Large Language Models (LLMs) – die Technologie hinter Systemen wie
+                        <span class="llm-concept-tag">ChatGPT</span>, <span class="llm-concept-tag">Llama</span>,
+                        <span class="llm-concept-tag">Mistral</span> etc. – können nicht nur Text generieren, sondern
+                        auch für komplexe
+                        Analyseaufgaben eingesetzt werden, die traditionell zeitaufwändige menschliche Codierung
+                        erforderten.
+                        Durch geschickte Anweisungen (Prompts) kann man LLMs dazu bringen, Texte nach bestimmten
+                        Kriterien zu klassifizieren,
+                        Informationen zu extrahieren oder sogar zu bewerten.
+                    </p>
+                </div>
 
-            <h4>Zugangswege & Werkzeuge</h4>
-            <ul>
-                <li><strong>APIs (Cloud-basiert):</strong> Anbieter wie OpenAI (GPT-Modelle), Anthropic
-                    (Claude-Modelle), Google (Gemini-Modelle) bieten APIs an.
-                    <ul>
-                        <li><em>Vorteile:</em> Oft die leistungsstärksten Modelle, einfacher Einstieg über Bibliotheken
-                            (z.B. <code>openai</code> in Python).</li>
-                        <li><em>Nachteile:</em> <strong>Kosten</strong> (Bezahlung pro Nutzung/Token),
-                            Datenschutzbedenken (Was passiert mit den Daten, die zur Analyse gesendet werden?
-                            Nutzungsbedingungen prüfen!), Abhängigkeit vom Anbieter.</li>
-                    </ul>
-                </li>
-                <li><strong>Hugging Face Hub & <code>transformers</code> Bibliothek:</strong> Eine riesige Plattform für
-                    Open-Source-Modelle.
-                    <ul>
-                        <li><em>Vorteile:</em> Große Auswahl an Modellen (viele auch für Deutsch), oft kostenlos nutzbar
-                            (lokal oder über Hugging Face Inference Endpoints), mehr Kontrolle.</li>
-                        <li><em>Nachteile:</em> Benötigt oft mehr technisches Setup, Leistung der Modelle variiert,
-                            Hardware-Anforderungen für lokale Nutzung können hoch sein.</li>
-                    </ul>
-                </li>
-                <li><strong>Lokale Modelle (Fortgeschritten):</strong> Open-Source-Modelle (z.B. Llama 3, Mistral,
-                    Mixtral) können mit Tools wie <code>ollama</code>, <code>LM Studio</code> oder direkt über Hugging
-                    Face-Bibliotheken heruntergeladen und auf dem eigenen Rechner ausgeführt werden.
-                    <ul>
-                        <li><em>Vorteile:</em> Volle Datenkontrolle (keine Daten verlassen den Rechner), keine
-                            API-Kosten.</li>
-                        <li><em>Nachteile:</em> <strong>Erfordert sehr leistungsstarke Hardware</strong> (insbesondere
-                            eine GPU mit viel VRAM – oft 12GB+ für brauchbare Modelle), langsamer als Cloud-APIs,
-                            technischer Aufwand bei Installation und Nutzung.</li>
-                    </ul>
-                </li>
-                <li><strong>Frameworks (Optional):</strong> Für komplexere Abläufe (z.B. Kombination von LLM-Aufrufen,
-                    Einbindung externer Daten) gibt es Frameworks wie <code>LangChain</code> oder
-                    <code>LlamaIndex</code>.</li>
-            </ul>
+                <div class="llm-concept-modes-grid">
+                    <!-- Zero Shot Card -->
+                    <div class="llm-concept-card" id="llm-mode-zero">
+                        <div class="llm-concept-card-icon">🎯</div>
+                        <div class="llm-concept-card-content">
+                            <h4>Zero-Shot Learning</h4>
+                            <p>Das LLM führt eine Aufgabe aus, für die es nicht explizit trainiert wurde, nur basierend
+                                auf der Anweisung im Prompt.</p>
+                        </div>
+                    </div>
 
-            <h4>Potenziale vs. Herausforderungen & Risiken</h4>
+                    <!-- Few Shot Card -->
+                    <div class="llm-concept-card" id="llm-mode-few">
+                        <div class="llm-concept-card-icon">📚</div>
+                        <div class="llm-concept-card-content">
+                            <h4>Few-Shot Learning</h4>
+                            <p>Man gibt dem LLM im Prompt einige Beispiele, wie die Aufgabe zu lösen ist, um die
+                                Genauigkeit zu verbessern.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- START LLM APPLICATIONS GRID -->
+            <section class="llm-apps-wrapper">
+                <h3 class="llm-apps-title">Mögliche Anwendungen in der politischen Kommunikationsforschung</h3>
+
+                <div class="llm-apps-grid">
+                    <!-- Card 1: Themenklassifikation -->
+                    <div class="llm-apps-card">
+                        <div class="llm-apps-icon">🏷️</div>
+                        <div class="llm-apps-body">
+                            <h4>Themenklassifikation</h4>
+                            <p>Automatische Zuordnung von Texten (z.B. Tweets, Artikel, Kommentare) zu vordefinierten
+                                politischen Themen (z.B. Umwelt, Wirtschaft, Soziales).</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Frame-Analyse -->
+                    <div class="llm-apps-card">
+                        <div class="llm-apps-icon">🖼️</div>
+                        <div class="llm-apps-body">
+                            <h4>Frame-Analyse</h4>
+                            <p>Erkennung, welche Deutungsrahmen (Frames) in einem Text verwendet werden (z.B. Sicherheit
+                                vs. Freiheit, Chance vs. Risiko).</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Argumentationsanalyse -->
+                    <div class="llm-apps-card">
+                        <div class="llm-apps-icon">🗣️</div>
+                        <div class="llm-apps-body">
+                            <h4>Argumentationsanalyse</h4>
+                            <p>Identifikation von Argumenten, Begründungen, Forderungen oder sogar spezifischen
+                                Argumentationstypen.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Akteursextraktion -->
+                    <div class="llm-apps-card">
+                        <div class="llm-apps-icon">👥</div>
+                        <div class="llm-apps-body">
+                            <h4>Akteursextraktion</h4>
+                            <p>Automatische Erkennung und Extraktion von genannten politischen Akteuren (Personen,
+                                Parteien, Organisationen).</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Emotion/Tonalität -->
+                    <div class="llm-apps-card">
+                        <div class="llm-apps-icon">🎭</div>
+                        <div class="llm-apps-body">
+                            <h4>Nuancierte Emotions-/Tonalitätsanalyse</h4>
+                            <p>Über einfache Polarität hinausgehende Analysen (z.B. Erkennung von Ärger, Zynismus,
+                                Unterstützung).</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Zusammenfassung -->
+                    <div class="llm-apps-card">
+                        <div class="llm-apps-icon">📝</div>
+                        <div class="llm-apps-body">
+                            <h4>Zusammenfassung</h4>
+                            <p>Automatische Erstellung von Zusammenfassungen großer Textmengen oder langer Debatten.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- START LLM TOOLS SECTION -->
+            <section class="llm-tools-wrapper">
+                <h3 class="llm-tools-main-title">Zugangswege & Werkzeuge</h3>
+
+                <div class="llm-tools-grid">
+                    <!-- Path 1: APIs -->
+                    <div class="llm-tools-card">
+                        <div class="llm-tools-header">
+                            <span class="llm-tools-type-icon">☁️</span>
+                            <h4>APIs (Cloud-basiert)</h4>
+                        </div>
+                        <p class="llm-tools-desc">Anbieter wie OpenAI (GPT), Anthropic (Claude) oder Google (Gemini).
+                        </p>
+                        <div class="llm-tools-pro-con">
+                            <div class="llm-tools-list-item pro">✅ Höchste Performance & einfacher Einstieg.</div>
+                            <div class="llm-tools-list-item con">❌ Kosten pro Nutzung & Datenschutz-Fragen.</div>
+                        </div>
+                    </div>
+
+                    <!-- Path 2: Hugging Face -->
+                    <div class="llm-tools-card">
+                        <div class="llm-tools-header">
+                            <span class="llm-tools-type-icon">🤗</span>
+                            <h4>Hugging Face Hub</h4>
+                        </div>
+                        <p class="llm-tools-desc">Riesige Open-Source Plattform für Modelle und die
+                            <code>transformers</code> Bibliothek.
+                        </p>
+                        <div class="llm-tools-pro-con">
+                            <div class="llm-tools-list-item pro">✅ Riesige Auswahl & oft kostenlos nutzbar.</div>
+                            <div class="llm-tools-list-item con">❌ Technisches Setup & variierende Leistung.</div>
+                        </div>
+                    </div>
+
+                    <!-- Path 3: Lokale Modelle -->
+                    <div class="llm-tools-card">
+                        <div class="llm-tools-header">
+                            <span class="llm-tools-type-icon">🖥️</span>
+                            <h4>Lokale Modelle</h4>
+                        </div>
+                        <p class="llm-tools-desc">Tools wie <code>ollama</code> oder <code>LM Studio</code> auf dem
+                            eigenen Rechner.</p>
+                        <div class="llm-tools-pro-con">
+                            <div class="llm-tools-list-item pro">✅ Volle Datenkontrolle & keine API-Kosten.</div>
+                            <div class="llm-tools-list-item con">❌ Extreme Hardware-Anforderungen (GPU/VRAM).</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks Footer -->
+                <div class="llm-tools-frameworks">
+                    <span class="llm-tools-fw-badge">🛠️ Frameworks</span>
+                    <p>Für komplexe Abläufe (Chains) bieten sich Frameworks wie <strong>LangChain</strong> oder
+                        <strong>LlamaIndex</strong> an, um externe Daten nahtlos einzubinden.
+                    </p>
+                </div>
+            </section>
+
+            <h4>Potenziale vs. Herausforderungen & Risiken von LLMs</h4>
             <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0;">
                 <div style="flex-basis: 45%;">
                     <h5>Potenziale von LLMs</h5>
@@ -588,6 +766,8 @@
                         <li>✅ Analyse komplexer semantischer Merkmale (Themen, Frames etc.)</li>
                         <li>✅ Hohe Flexibilität durch Prompt Engineering</li>
                         <li>✅ Potenzial für neue Forschungsfragen</li>
+                        <li>✅ Moderner Forschungsansatz</li>
+                        <li>✅ Lokale Modelle schaffen Reliabilität</li>
                     </ul>
                 </div>
                 <div
@@ -606,58 +786,210 @@
                 </div>
             </div>
 
+            <div class="llm-colab-path-box">
+                <div class="llm-colab-path-icon">💡</div>
+                <div class="llm-colab-path-content">
+                    <h4>Google Colab: Unser Weg für das Seminar</h4>
+                    <p>
+                        Da wir kein Budget für kostenpflichtige APIs haben und lokale Hochleistungsrechner nicht überall
+                        verfügbar sind, nutzen wir
+                        <strong>Google Colab</strong>. Es ist kostenlos, browserbasiert und bietet uns Zugriff auf
+                        leistungsstarke Grafikkarten (GPUs).
+                        Damit können wir kleinere, fähige Open-Source-Modelle (wie Mistral oder Qwen) völlig 4free für
+                        unsere Analysen betreiben.
+                    </p>
+                </div>
+            </div>
+
             <p><strong>Anwendungsbezug:</strong> Mit einem LLM könnten wir die zuvor gesammelten
-                <strong>taz.de-Artikeltexte</strong> systematisch analysieren. Wir könnten z.B. untersuchen welche Hauptargumente pro/contra 'Klimawandel' werden genannt? 
+                <strong>taz.de-Artikeltexte</strong> systematisch analysieren. Wir könnten z.B. untersuchen welche
+                Hauptargumente pro/contra 'Klimawandel' werden genannt?
                 Welche Akteure kommen zu Wort? Welche Frames (z.B. 'Klimaschutz' vs.
                 'Rechtsbruch' vs. 'ziviler Ungehorsam') dominieren die Berichterstattung? Wir werden das LLM bitten,
-                die Ergebnisse direkt in einem strukturierten Format (z.B. JSON) auszugeben.</p>
+                die Ergebnisse direkt in einem strukturierten Format (z.B. JSON) auszugeben.
+            </p>
 
             <h4>Praktische Umsetzung im Colab: Textanalyse mit LLMs</h4>
             <div class="colab-embed-box interactive-box">
                 <h4>Google Colab: Erste Schritte mit LLMs für Textanalyse</h4>
-                <p>Dieses Colab Notebook demonstriert, wie man ein kleineres, aber fähiges Open-Source LLM wie Quen 2.5 7B (oder auch z.B. eine
+                <p>Dieses Colab Notebook demonstriert, wie man ein kleineres, aber fähiges Open-Source LLM wie Quen 2.5
+                    7B (oder auch z.B. eine
                     Variante von Mistral oder Llama) über die Hugging Face <code>transformers</code>-Bibliothek in Colab
                     (mit kostenloser GPU-Unterstützung!) lädt. Wir zeigen, wie man es mittels Prompting für eine
                     spezifische Analyseaufgabe einsetzt, z.B. zur Themenklassifikation oder zur Extraktion von
                     Informationen mit einer gewünschten (JSON-)Struktur.</p>
-                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Hier können Sie das Notebook <a href="https://colab.research.google.com/drive/1lv3dw1v5s4EkmWXOlZdXSuDDYpYWl05a?usp=sharing" target="_blank"
-                        rel="noopener noreferrer">direkt öffnen</a> (wie immer kopieren).</p>
+                <p class="colab-fallback-link" style="font-size: 0.9em; margin-top: 0.5rem;">Hier kannst du das Notebook
+                    <a href="https://colab.research.google.com/drive/1lv3dw1v5s4EkmWXOlZdXSuDDYpYWl05a?usp=sharing"
+                        target="_blank" rel="noopener noreferrer">direkt öffnen</a> (wie immer kopieren).
+                </p>
             </div>
+
+            <!-- HALC Methode Abschnitt -->
+            <section class="halc-method">
+                <div class="halc-container">
+                    <div class="halc-badge">👑 Methodik-Tipp</div>
+                    <h3>3.3 Exkurs: Reliabilität sichern mit HALC</h3>
+                    <p>
+                        Um LLM-Analysen wissenschaftlich belastbar zu machen, nutzen wir meine
+                        <strong>HALC-Pipeline</strong>
+                        (<em>Hohenheim Automated LLM Coding</em>). Da LLMs non-deterministisch reagieren können, reicht
+                        ein einfaches Prompting nicht aus.
+                    </p>
+
+                    <div class="halc-grid">
+                        <div class="halc-card">
+                            <div class="halc-icon">🧪</div>
+                            <h4>Der Gold-Standard</h4>
+                            <p>Bevor wir Tausende Datenpunkte codieren, erstellen wir ein kleines <strong>Sample (ca.
+                                    100 Fälle)</strong>, das von menschlichen Experten manuell codiert wird. Dies ist
+                                unsere "Ground Truth".</p>
+                        </div>
+                        <div class="halc-card">
+                            <div class="halc-icon">⚖️</div>
+                            <h4>Validierung</h4>
+                            <p>Das LLM codiert dasselbe Sample. Wir vergleichen die Ergebnisse statistisch (z. B. mit
+                                <em>Krippendorff's Alpha</em>). Nur wenn die Übereinstimmung hoch genug ist, ist das
+                                Prompt verlässlich.
+                            </p>
+                        </div>
+                        <div class="halc-card">
+                            <div class="halc-icon">🔄</div>
+                            <h4>Iterative Optimierung</h4>
+                            <p>Erreicht ein Prompt nicht die gewünschte Reliabilität, wird es systematisch angepasst und
+                                erneut gegen den Gold-Standard getestet. So wird aus "Raten" eine messbare Methode.</p>
+                        </div>
+                    </div>
+
+                    <div class="halc-quote">
+                        <blockquote>
+                            "Menschliche Experten sind der Anker. Eine KI ist in der Forschung nur so gut, wie sie den
+                            menschlichen Gold-Standard replizieren kann."
+                        </blockquote>
+                    </div>
+
+                    <a href="https://arxiv.org/pdf/2507.21831" target="_blank" class="btn-control"
+                        style="background: #5c67f2; color: white; display: inline-block; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 1rem;">
+                        🚀 Link zum Preprint auf Arxiv
+                    </a>
+                </div>
+            </section>
 
             <p><strong>Fazit zu LLMs:</strong> LLMs eröffnen faszinierende neue Wege für die Analyse politischer
                 Kommunikation im großen Maßstab. Sie ersetzen jedoch nicht die Notwendigkeit einer soliden Methodik und
-                kritischen Reflexion. Der <strong>Validierungsaufwand</strong> ist zentral – vertrauen Sie den Ergebnissen nicht
-                blind, sondern prüfen Sie sie systematisch (z.B. durch Vergleich mit manueller Codierung an einer
+                kritischen Reflexion. Der <strong>Validierungsaufwand</strong> ist zentral – vertraue den Ergebnissen
+                nicht
+                blind, sondern prüfen sie systematisch (z.B. durch Vergleich mit manueller Codierung an einer
                 Teilstichprobe).</p>
 
             <hr>
 
-            <h2>4. Verknüpfung: Von Daten und Methoden zur Erkenntnis</h2>
-            <p>Die eigentliche Stärke entfaltet sich oft erst in der Kombination der vorgestellten Techniken: Die
-                <strong>Datenbeschaffungsstrategien</strong> (Abschnitt 2) liefern uns das Rohmaterial aus der digitalen
-                Welt, und die <strong>automatisierten Analysemethoden</strong> (Abschnitt 3) helfen uns dabei, in diesen
-                (oft riesigen) Datenmengen Muster, Trends und Einsichten zu entdecken.</p>
-            <p>So könnten wir beispielsweise via Telegram API gesammelte Nachrichten aus öffentlichen politischen
-                Kanälen (Datenbeschaffung) anschließend mit LLMs auf wiederkehrende Narrative oder Framing-Strategien
-                untersuchen (Analyse).</p>
+            <section class="knowledge-flow-wrapper">
+                <h2 class="knowledge-flow-title">4. Verknüpfung: Von Daten und Methoden zur Erkenntnis</h2>
+
+                <div class="knowledge-flow-intro">
+                    <p>Die eigentliche Stärke entfaltet sich oft erst in der Kombination der vorgestellten Techniken:
+                    </p>
+                </div>
+
+                <div class="knowledge-flow-pipeline">
+                    <!-- Step 1 -->
+                    <div class="knowledge-flow-step">
+                        <div class="knowledge-flow-step-num">1</div>
+                        <div class="knowledge-flow-step-content">
+                            <strong>Datenbeschaffung</strong>
+                            <span>(Abschnitt 2)</span>
+                            <p>Liefert das Rohmaterial aus der digitalen Welt.</p>
+                        </div>
+                    </div>
+
+                    <div class="knowledge-flow-arrow">→</div>
+
+                    <!-- Step 2 -->
+                    <div class="knowledge-flow-step">
+                        <div class="knowledge-flow-step-num">2</div>
+                        <div class="knowledge-flow-step-content">
+                            <strong>Automatisierte Analyse</strong>
+                            <span>(Abschnitt 3)</span>
+                            <p>Findet Muster, Trends und Einsichten in großen Mengen.</p>
+                        </div>
+                    </div>
+
+                    <div class="knowledge-flow-arrow final">=</div>
+
+                    <!-- Result -->
+                    <div class="knowledge-flow-step result">
+                        <div class="knowledge-flow-step-icon">💡</div>
+                        <div class="knowledge-flow-step-content">
+                            <strong>Erkenntnis</strong>
+                            <p>Wissenschaftlich fundierte Antworten.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Box -->
+                <div class="knowledge-flow-example">
+                    <div class="knowledge-flow-example-badge">Beispiel</div>
+                    <p>
+                        Via <strong>Telegram API</strong> gesammelte Nachrichten aus öffentlichen politischen Kanälen
+                        <em>(Beschaffung)</em> anschließend mit <strong>LLMs</strong> auf wiederkehrende Narrative
+                        oder Framing-Strategien untersuchen <em>(Analyse)</em>.
+                    </p>
+                </div>
+            </section>
 
             <hr>
 
-            <h2>5. Ausblick & Nächste Schritte</h2>
-            <p>Wir haben heute einen ersten kleinen Einblick in die technischen Grundlagen der Datenbeschaffung und
-                automatisierten Analyse gewonnen. Die bereitgestellten Google Colab Notebooks (Web Scraping, YouTube
-                Download, Sentiment Analyse, LLM Analyse) bieten Ihnen die Möglichkeit, diese Techniken selbst praktisch
-                auszuprobieren und zu vertiefen.</p>
-            <p>Nutzen Sie diese Werkzeuge und Konzepte als Inspiration und Grundlage für Ihre eigenen Forschungsideen
-                und die anstehenden Hausarbeiten. Überlegen Sie, welche Datenquellen für Ihre Fragestellung relevant
-                sein könnten und welche Analysemethoden (automatisiert oder auch klassisch qualitativ/quantitativ) Ihnen
-                helfen könnten, diese zu beantworten.</p>
+            <section class="session-outlook-wrapper">
+                <h2 class="session-outlook-main-title">5. Ausblick & Nächste Schritte</h2>
 
-            <p><strong>Ausblick auf Sitzung 3:</strong> In der nächsten Sitzung werden wir uns stärker mit konkreten
-                <strong>Forschungsdesigns</strong> beschäftigen. Wir diskutieren, wie Sie die heute vorgestellten
-                Methoden (und andere) sinnvoll in Ihr Forschungsprojekt integrieren können, von der Fragestellung über
-                die Datenerhebung und Analyse bis hin zur Interpretation. Wir werden auch noch mehr Zeit haben, erste Ideen und
-                Fragen zu Ihren Hausarbeiten zu besprechen.</p>
+                <div class="session-outlook-grid">
+                    <!-- Recap & Resources -->
+                    <div class="session-outlook-card recap">
+                        <div class="session-outlook-card-header">
+                            <span class="session-outlook-icon">🛠️</span>
+                            <h3>Zusammenfassung & Ressourcen</h3>
+                        </div>
+                        <p>Wir haben die technischen Grundlagen der Datenbeschaffung und Analyse erkundet. Nutze die
+                            Notebooks als Spielwiese:</p>
+                        <div class="session-outlook-notebooks">
+                            <span class="session-outlook-nb-tag">Web Scraping</span>
+                            <span class="session-outlook-nb-tag">YouTube Data</span>
+                            <span class="session-outlook-nb-tag">Sentiment Analysis</span>
+                            <span class="session-outlook-nb-tag">LLM Content Analysis</span>
+                        </div>
+                    </div>
+
+                    <!-- Inspiration for Papers -->
+                    <div class="session-outlook-card inspiration">
+                        <div class="session-outlook-card-header">
+                            <span class="session-outlook-icon">💡</span>
+                            <h3>Impulse für die Hausarbeit</h3>
+                        </div>
+                        <p>Nutze diese Werkzeuge als Basis für deine eigenen Forschungsfragen. Überlege dir für die
+                            nächste Zeit:</p>
+                        <ul class="session-outlook-list">
+                            <li>Welche <strong>Datenquelle</strong> ist für mein Thema am spannendsten?</li>
+                            <li>Welche <strong>Methode</strong> liefert mir die tiefsten Einsichten?</li>
+                            <li>Gibt es eine <strong>Kombination</strong> (z.B. TikTok + Sentiment)?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Preview Session 3 -->
+                <div class="session-outlook-next-session">
+                    <div class="session-outlook-next-badge">Vorschau: Sitzung 3</div>
+                    <div class="session-outlook-next-content">
+                        <h3>Forschungsdesigns & Projekt-Werkstatt</h3>
+                        <p>
+                            In der nächsten Sitzung bringen wir alles zusammen: Wir planen konkrete
+                            <strong>Forschungsdesigns</strong>,
+                            integrieren die Tools in saubere Workflows und besprechen eure ersten
+                            <strong>Ideen und Fragen zu den Hausarbeiten</strong> in einer offenen Werkstatt-Runde.
+                        </p>
+                    </div>
+                    <div class="session-outlook-next-icon">🚀</div>
+                </div>
+            </section>
 
         </main>
     </div>
